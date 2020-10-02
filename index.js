@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const port = 6600
 var exphbs = require('express-handlebars');
 app.get('/', function(req, res) {
     res.render('home');
