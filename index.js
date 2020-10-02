@@ -7,7 +7,7 @@ app.get('/', function(req, res) {
 });
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
-
+app.use(express.static('public'));
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
