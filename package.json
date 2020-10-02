@@ -1,0 +1,22 @@
+{
+  "name": "demo-athena",
+  "version": "1.0.0",
+  "description": "demo anh",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuducthuan1994/athenaluxury.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vuducthuan1994/athenaluxury/issues"
+  },
+  "homepage": "https://github.com/vuducthuan1994/athenaluxury#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
