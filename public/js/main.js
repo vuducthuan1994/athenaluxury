@@ -5,9 +5,9 @@ $(document).ready(function() {
         slidesNavigation: true,
         slidesNavPosition: 'bottom',
         controlArrows: true,
-        css3: true,
         scrollingSpeed: 700,
         autoScrolling: true,
-        lazyLoading: true
+        lazyLoading: true,
+        fadingEffect: true
     });
 });
