@@ -28,6 +28,18 @@
     margin: auto auto;
 }
 
+@media only screen and (max-width: 1024px) {
+    .hover14 figure {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .hover14 figure {
+        width: 80%;
+    }
+}
+
 .hover14 figure::before {
     position: absolute;
     top: 0;
