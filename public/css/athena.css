@@ -1162,7 +1162,8 @@ section .inner-news {
     z-index: 88;
     width: 100%;
     background-color: #ffffff;
-    max-width: calc(1280px - 8rem) overflow-x: hidden;
+    max-width: calc(1280px - 8rem);
+    overflow-x: hidden;
     padding: 4rem;
 }
 
