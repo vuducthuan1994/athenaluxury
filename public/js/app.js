@@ -94,7 +94,6 @@ function owlPositionInit() {
 
 function owlImageLibaryInit() {
     $('#owl-carousel-6').owlCarousel({
-        lazyLoad: true,
         items: 1,
         nav: false,
         dots: false,
@@ -126,13 +125,12 @@ function owlLibaryOwlInit() {
     $('#owl-carousel-7').owlCarousel({
         items: 3,
         center: false,
-        nav: true,
-        autoHeight: true,
+        nav: false,
+        autoHeight: false,
         dots: false,
         loop: true,
         autoplay: true,
-        margin: 40,
-        lazyLoad: true
+        margin: 40
     });
 }
 
