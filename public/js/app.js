@@ -64,15 +64,14 @@ function activeRoute() {
 
 function owlDotsForPositionSlider() {
     $('#owl-carousel-5').owlCarousel({
-        lazyLoad: true,
         items: 2.5,
         nav: false,
         dots: false,
-        autoHeight: true,
         autoplay: false,
         center: false,
         margin: 40,
-        dots: false
+        dots: false,
+        autoHeight: false,
     });
 }
 
