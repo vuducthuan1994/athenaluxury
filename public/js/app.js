@@ -3,11 +3,8 @@ $(document).ready(function() {
     owlDevelopmentProjectInit();
     owlDevelopmentController();
     owlNewsInit();
-    owlPositionInit();
-    owlPositionController();
     owlDotsForPositionSlider();
-    owlImageLibaryInit();
-    owlLibaryController();
+
     ScrollListener();
     owlLibaryOwlInit();
     activeRoute();
@@ -24,12 +21,6 @@ function owlApartmentInit() {
         dots: true,
         loop: true,
         autoplay: false
-    });
-    $('.owl-dot').click(function() {
-        const _idx = $(this).index();
-        $('#owl-carousel-1').trigger('to.owl.carousel', [_idx, 500]);
-        $(`.apartment-left h2`).removeClass("active");
-        $(`.apartment-left .typical-grounds-${_idx+1}  h2`).addClass("active");
     });
 
     $('.typical-grounds h2').click(function() {
@@ -70,44 +61,28 @@ function owlDotsForPositionSlider() {
         autoplay: false,
         center: false,
         margin: 40,
-        dots: false,
         autoHeight: false,
+        loop: true,
+    });
+    var owl5 = $('#owl-carousel-5');
+    // Go to the next item of slider text
+    $('.btn-next-position').click(function() {
+        owl5.trigger('next.owl.carousel', [500]);
+    });
+
+    // Go to the previous item of sliderText
+    $('.btn-prev-position').click(function() {
+        // With optional speed parameter
+        // Parameters has to be in square bracket '[]'
+        owl5.trigger('prev.owl.carousel', [500]);
     });
 }
 
-function owlPositionInit() {
-    $('#owl-carousel-4').owlCarousel({
-        lazyLoad: true,
-        items: 1,
-        nav: false,
-        dots: false,
-        loop: false,
-        autoplay: false,
-        center: false,
-        nav: false,
-        margin: 10,
-        animateIn: 'fadeIn', // add this
-        animateOut: 'fadeOut', // and this
-    });
-}
 
-function owlImageLibaryInit() {
-    $('#owl-carousel-6').owlCarousel({
-        items: 1,
-        nav: false,
-        dots: false,
-        loop: false,
-        autoplay: false,
-        center: false,
-        autoHeight: false,
-        margin: 10,
-        animateIn: 'fadeIn', // add this
-        animateOut: 'fadeOut', // and this
-    });
-}
 
 function owlNewsInit() {
     $('#owl-carousel-3').owlCarousel({
+
         items: 3,
         center: false,
         nav: false,
@@ -118,50 +93,87 @@ function owlNewsInit() {
         margin: 40,
         lazyLoad: true
     });
+    var owl3 = $('#owl-carousel-3');
+    // Go to the next item of slider text
+    $('.inner-news .btn-next-post').click(function() {
+        owl3.trigger('next.owl.carousel', [500]);
+    });
+
+    // Go to the previous item of sliderText
+    $('.inner-news .btn-prev-post').click(function() {
+        // With optional speed parameter
+        // Parameters has to be in square bracket '[]'
+        owl3.trigger('prev.owl.carousel', [500]);
+    });
 }
 
+
+
 function owlLibaryOwlInit() {
+    $('#owl-carousel-6').owlCarousel({
+        lazyLoad: true,
+        items: 1,
+        center: false,
+        nav: false,
+        autoHeight: false,
+        dots: false,
+        loop: true,
+        autoplay: false,
+        margin: 10,
+        animateIn: 'fadeIn', // add this
+        animateOut: 'fadeOut', // and this
+    });
     $('#owl-carousel-7').owlCarousel({
+        lazyLoad: true,
         items: 3,
         center: false,
         nav: false,
         autoHeight: false,
         dots: false,
         loop: true,
-        autoplay: true,
-        margin: 40
-    });
-}
+        autoplay: false,
+        mouseDrag: false,
+        margin: 40,
+        responsive: {
+            0: {
+                autoplay: false
+            },
+            768: {
+                items: 2,
+                autoplay: false
 
-function owlPositionController() {
-    var owl2 = $('#owl-carousel-4');
-    // Go to the next item of slider text
-    $('.btn-next-position').click(function() {
-        owl2.trigger('next.owl.carousel', [500]);
-    });
+            },
+            1020: {
 
-    // Go to the previous item of sliderText
-    $('.btn-prev-position').click(function() {
-        // With optional speed parameter
-        // Parameters has to be in square bracket '[]'
-        owl2.trigger('prev.owl.carousel', [500]);
+            }
+        }
     });
-}
+    var owl6 = $('#owl-carousel-6');
+    var owl7 = $('#owl-carousel-7');
 
-function owlLibaryController() {
-    var owl2 = $('#owl-carousel-6');
+    owl6.on('changed.owl.carousel', function(e) {
+        // console.log("current: ", e.relatedTarget.current())
+        // console.log("current: ", e.item.index) //same
+        // console.log("total: ", e.item.count) //total
+        owl7.trigger('to.owl.carousel', e.item.index + 1)
+    });
     // Go to the next item of slider text
     $('.btn-next-libary').click(function() {
-        owl2.trigger('next.owl.carousel', [500]);
+        owl6.trigger('next.owl.carousel', [500]);
     });
 
     // Go to the previous item of sliderText
     $('.btn-prev-libary').click(function() {
         // With optional speed parameter
-        // Parameters has to be in square bracket '[]'
-        owl2.trigger('prev.owl.carousel', [500]);
+        owl6.trigger('prev.owl.carousel', [500]);
     });
 }
+
+function owlPositionController() {
+
+}
+
+
 
 function owlDevelopmentController() {
     var owl2 = $('#owl-carousel-2');
