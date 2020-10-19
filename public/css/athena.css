@@ -1,5 +1,8 @@
 html {
     font-size: 10px;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 .container-header.background-header-fixed-desktop {
@@ -953,9 +956,18 @@ section .inner-apartment {
     cursor: pointer;
 }
 
-.apartment-left .owl-dot.active {
+.apartment-left .owl-dot:first-child {
+    background-color: #f0dfd6;
+}
+
+.apartment-left .owl-dot:last-child {
     background-color: #cd9577;
 }
+
+
+/* .apartment-left .owl-dot.active {
+    background-color: #cd9577;
+} */
 
 .typical-grounds.active h2 {
     color: rgb(41, 64, 89);
