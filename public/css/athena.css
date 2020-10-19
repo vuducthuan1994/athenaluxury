@@ -620,6 +620,7 @@ section.position .inner-position {
     position: absolute;
     left: 4rem;
     bottom: 14.5rem;
+    width: 100%;
 }
 
 #owl-carousel-5 .owl-item-position {
