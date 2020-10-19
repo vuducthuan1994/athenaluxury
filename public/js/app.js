@@ -61,8 +61,9 @@ function owlDotsForPositionSlider() {
         autoplay: false,
         center: false,
         margin: 40,
-        autoHeight: false,
+        autoHeight: true,
         loop: true,
+        lazyLoad: false
     });
     var owl5 = $('#owl-carousel-5');
     // Go to the next item of slider text
