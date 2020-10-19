@@ -123,6 +123,16 @@ function owlLibaryOwlInit() {
         margin: 10,
         animateIn: 'fadeIn', // add this
         animateOut: 'fadeOut', // and this
+        responsive: {
+            0: {},
+            768: {
+
+                autoHeight: true
+            },
+            1020: {
+
+            }
+        }
     });
     $('#owl-carousel-7').owlCarousel({
         lazyLoad: true,

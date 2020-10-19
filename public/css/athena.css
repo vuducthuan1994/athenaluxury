@@ -1007,8 +1007,15 @@ section.image-libary {
     margin-top: 3rem;
 }
 
-.detail-image .show-image {
+.detail-image .item {
     width: 100%;
+    height: 721px;
+}
+
+.detail-image .item .show-image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
     object-fit: cover;
     max-height: 721px;
 }
@@ -1251,7 +1258,8 @@ section .inner-news {
 
 .image-libary-content-bottom .inner-content {
     position: absolute;
-    top: -14rem;
+    top: 0;
+    transform: translateY(-50%);
     z-index: 88;
     width: 100%;
     background-color: #ffffff;
@@ -1745,5 +1753,97 @@ section.contact .inner-contact {
     }
     .apartment-left h1 {
         display: inline-block;
+    }
+    .footer .footer-bottom {
+        line-height: unset;
+        display: block;
+        padding-top: 2rem;
+        padding-bottom: 4rem;
+    }
+    .footer-bottom-left p {
+        line-height: 5.5rem;
+    }
+    .footer .footer-top {
+        display: block;
+    }
+    .footer .footer-top .content-left {
+        text-align: center;
+        width: 100%;
+    }
+    section.footer .inner-footer {
+        padding-top: 6rem;
+    }
+    .footer .footer-top .content-right {
+        width: 100%;
+        max-width: 570px;
+        padding-right: unset;
+        margin: 0 auto;
+        padding-bottom: 2.5rem;
+    }
+    .footer .footer-top .menu-footer {
+        margin: 0;
+    }
+    section.contact .inner-contact {
+        max-width: 768px;
+        margin-bottom: 0;
+    }
+    .inner-contact .inner-contact-left {
+        width: calc(100% - 8rem);
+        display: block;
+        margin: 0 auto;
+    }
+    .inner-contact .inner-contact-right {
+        width: 100%;
+        display: block;
+        position: absolute;
+        bottom: 0;
+        transform: translateY(50%);
+    }
+    .inner-contact-right .contact-right-content {
+        margin-left: unset;
+        padding: 0;
+        max-width: 608px;
+        margin: 0 auto;
+    }
+    .inner-contact-right .inner-contact-right-content {
+        width: 100%;
+        overflow: hidden;
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+    .inner-contact-right .inner-contact-right-content .container-content {
+        padding-left: 5.5rem;
+    }
+    .inner-contact-right .inner-contact-right-content h1 {
+        font-size: 3.6rem;
+        margin: 0;
+        margin-top: 2.5rem;
+        margin-bottom: 4.5rem;
+    }
+    section.visit-model-house .inner-visit-model-house {
+        padding-top: 29rem;
+    }
+    .inner-contact-right .inner-contact-right-content img.vignette-pattern {
+        max-width: 155px;
+        right: -1.8rem;
+    }
+    .inner-contact-right-content .address p {
+        max-width: 317px;
+        margin: 0;
+    }
+    .inner-contact-right-content .phone p {
+        margin: 0
+    }
+    .inner-contact-right-content .address {
+        margin-bottom: 3rem;
+    }
+    .detail-image {
+        width: calc( 100% - 8rem);
+    }
+    .owl-carousel .owl-item img {
+        height: 676px;
+    }
+    .detail-image .item {
+        height: 678px;
     }
 }
