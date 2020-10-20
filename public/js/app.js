@@ -92,7 +92,16 @@ function owlNewsInit() {
         loop: true,
         autoplay: false,
         margin: 40,
-        lazyLoad: true
+        lazyLoad: true,
+        responsive: {
+
+            768: {
+                items: 2,
+                autoplay: false,
+                margin: 40
+
+            }
+        }
     });
     var owl3 = $('#owl-carousel-3');
     // Go to the next item of slider text
@@ -124,7 +133,7 @@ function owlLibaryOwlInit() {
         animateIn: 'fadeIn', // add this
         animateOut: 'fadeOut', // and this
         responsive: {
-            0: {},
+            0: { autoplay: false },
             768: {
 
                 autoHeight: true
@@ -151,7 +160,8 @@ function owlLibaryOwlInit() {
             },
             768: {
                 items: 2,
-                autoplay: false
+                autoplay: false,
+                margin: 20
 
             },
             1020: {

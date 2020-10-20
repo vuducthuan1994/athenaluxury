@@ -5,6 +5,16 @@ html {
     -webkit-overflow-scrolling: touch;
 }
 
+#hamburger span:before {
+    cursor: pointer;
+    height: 4px;
+    width: 30px;
+    background: white;
+    display: inline-block;
+    content: '';
+    margin-top: 10px
+}
+
 .container-header.background-header-fixed-desktop {
     padding-bottom: 1rem !important;
     padding-top: 1rem !important;
@@ -315,12 +325,12 @@ html {
     transform: scale(1.2);
 } */
 
-.header-background-image a.fb-logo,
-.header-background-image a.phone {
+.logo-desktop a.fb-logo,
+.logo-desktop a.phone {
     position: fixed;
 }
 
-.header-background-image a.phone {
+.logo-desktop a.phone {
     width: 6rem;
     height: 6rem;
     left: 5rem;
@@ -362,7 +372,7 @@ html {
     bottom: 3rem;
 }
 
-.header-background-image a.fb-logo {
+.logo-desktop a.fb-logo {
     width: 6rem;
     height: 6rem;
     text-align: center;
@@ -379,29 +389,29 @@ html {
     border: #b4cddc 2px solid;
 }
 
-.header-background-image a.fb-logo:hover,
-.header-background-image a.phone:hover,
+.logo-desktop a.fb-logo:hover,
+.logo-desktop a.phone:hover,
 .btn-next-screen:hover {
     background-color: #cd9577;
     opacity: 1;
 }
 
-.header-background-image .fb-logo img {
+.logo-desktop .fb-logo img {
     text-align: center;
     transition: opacity 1s ease;
     -webkit-transition: opacity 1s ease;
     content: url(../img/fb-logo.png);
 }
 
-.header-background-image .fb-logo img.scroll {
+.logo-desktop .fb-logo img.scroll {
     content: url(../img/fb-hover.png);
 }
 
-.header-background-image .phone img.scroll {
+.logo-desktop .phone img.scroll {
     content: url(../img/phone-hover.png);
 }
 
-.header-background-image .phone img {
+.logo-desktop .phone img {
     transition: opacity 1s ease;
     -webkit-transition: opacity 1s ease;
     content: url(../img/phone-logo.png);
@@ -1602,9 +1612,8 @@ section.contact .inner-contact {
     display: inline-block;
     content: '';
     cursor: pointer;
-    border-radius: 1px;
-    height: 3px;
-    width: 20px;
+    height: 4px;
+    width: 30px;
     background: white;
 }
 
@@ -1730,7 +1739,14 @@ section.contact .inner-contact {
         padding-right: 8.5rem;
     }
     .image-libary-content-bottom .inner-content {
-        max-width: calc(768px - 8rem);
+        max-width: calc(768px - 20rem);
+        padding: 2rem;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    #owl-carousel-7 {
+        max-width: unset;
     }
     .inner-utilities .vignette-pattern {
         left: calc(50% - 4rem);
@@ -1837,13 +1853,56 @@ section.contact .inner-contact {
     .inner-contact-right-content .address {
         margin-bottom: 3rem;
     }
+    section.contact {
+        margin-top: 17.8rem;
+    }
     .detail-image {
         width: calc( 100% - 8rem);
+        max-height: 678px;
+        height: auto;
     }
     .owl-carousel .owl-item img {
         height: 676px;
     }
     .detail-image .item {
         height: 678px;
+    }
+    .image-libary .inner-image-libary .image-libary-header {
+        display: block;
+    }
+    .image-libary .inner-image-libary .image-libary-header .title-section {
+        justify-content: center;
+    }
+    .image-libary-left h1 {
+        text-align: center;
+        margin: 0;
+        line-height: 10rem;
+    }
+    .image-libary-right ul.image-libary-right-menu {
+        justify-content: center;
+    }
+    section.project-development {
+        margin-bottom: 10rem;
+    }
+    .image-libary-header .image-libary-right {
+        margin-bottom: 5.5rem;
+    }
+    .logo-desktop a.fb-logo,
+    .logo-desktop a.phone {
+        position: unset;
+        width: 4rem;
+        height: 4rem;
+    }
+    header .logo-desktop {
+        display: flex;
+        align-items: center;
+    }
+    .container-header .header-right-mobile {
+        display: flex;
+        z-index: 100;
+    }
+    .header-right {
+        display: flex;
+        align-items: center;
     }
 }
