@@ -1646,6 +1646,68 @@ section.contact .inner-contact {
     height: 4px;
     width: 30px;
     background: white;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+.navMobie {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    z-index: 99;
+    visibility: hidden;
+    align-items: center;
+    background-color: #061d35;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    top: 0;
+    left: 0;
+}
+
+.container-menu-mobie {
+    padding-top: 20%;
+    text-align: center;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+.container-menu-mobie ul {
+    list-style: none;
+}
+
+.container-menu-mobie ul hr {
+    background-color: rgb(255, 255, 255);
+    opacity: 0.102;
+}
+
+.navMenu {
+    padding: 0;
+}
+
+.container-menu-mobie ul li a {
+    text-decoration: none;
+    font-size: 2.8rem;
+    font-family: 'SegoeUI Semibold';
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    line-height: 4;
+    text-align: center;
+    -webkit-transition: color .5s cubic-bezier(.59, .08, .385, 1);
+    -moz-transition: color .5s cubic-bezier(.59, .08, .385, 1);
+    -o-transition: color .5s cubic-bezier(.59, .08, .385, 1);
+    transition: color .5s cubic-bezier(.59, .08, .385, 1);
+}
+
+#hamburger.active span {
+    transform: rotate(45deg);
+    display: block;
+}
+
+#hamburger.active span::before {
+    transform: rotate(90deg);
+    display: block;
 }
 
 .is-main-menu-open {

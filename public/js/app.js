@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    initMenuMobile();
     owlApartmentInit();
     owlDevelopmentProjectInit();
     owlDevelopmentController();
@@ -10,6 +11,30 @@ $(document).ready(function() {
     activeRoute();
     initAnimationForAllSection();
 });
+
+function initMenuMobile() {
+    var tlmenu = new TimelineMax({ paused: true });
+    tlmenu.to('.navMobie', 0.3, { autoAlpha: 1 }).staggerFromTo('.navMobie li', 0.5, { y: 100, opacity: 0 }, { y: 0, opacity: 1 }, 0.1);
+    $('#hamburger').click(function() {
+        $(this).toggleClass('active');
+        if ($('html').hasClass('is-main-menu-open')) {
+            $('html').removeClass('is-main-menu-open');
+            tlmenu.reverse(0);
+        } else {
+            tlmenu.play(0);
+            $('html').addClass('is-main-menu-open');
+        }
+    });
+    $('.closeButton').click(function() {
+        tlmenu.reverse(0);
+        $('html').removeClass('is-main-menu-open');
+    });
+    $(".navMobie ul li").click(function() {
+        $('html').removeClass('is-main-menu-open');
+        $('#hamburger').toggleClass('active');
+        tlmenu.reverse(0);
+    });
+}
 
 function owlApartmentInit() {
     // SLider mặt bằng căn hộ
