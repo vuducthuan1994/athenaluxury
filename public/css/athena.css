@@ -1015,7 +1015,7 @@ section .inner-apartment {
 .apartment-left h1 {
     font-size: 4rem;
     font-family: "UTM Americana Bold";
-    color: rgb(205, 149, 119);
+    color: #294059;
     text-align: left;
     line-height: 8rem;
     margin: 0;
@@ -1979,14 +1979,28 @@ section.contact .inner-contact {
         max-width: unset;
     }
     .inner-utilities .vignette-pattern {
-        left: calc(50% - 4rem);
+        left: calc(50% - 2rem);
     }
     section .inner-apartment {
         flex-direction: column-reverse;
         position: relative;
         padding-top: 22.8rem;
     }
+    .inner-apartment .apartment-right {
+        width: calc(100% - 16rem);
+        margin: 0 auto;
+    }
+    .apartment-left .typical-grounds {
+        max-width: 100%;
+        justify-content: center;
+    }
+    .inner-apartment .apartment-left {
+        padding-top: 3rem;
+        width: calc(100% - 16rem);
+        margin: 0 auto;
+    }
     .container-title-apartment {
+        padding-top: 9rem;
         position: absolute;
         top: 0;
         left: 0;
@@ -1999,6 +2013,7 @@ section.contact .inner-contact {
     }
     .apartment-left h1 {
         display: inline-block;
+        font-size: 3.6rem;
     }
     .footer .footer-bottom {
         line-height: unset;
@@ -2068,6 +2083,9 @@ section.contact .inner-contact {
     }
     section.visit-model-house .inner-visit-model-house {
         padding-top: 29rem;
+        padding-bottom: 6rem;
+        max-width: calc(100% - 8rem);
+        margin: 0 auto;
     }
     .inner-contact-right .inner-contact-right-content img.vignette-pattern {
         max-width: 155px;
@@ -2142,6 +2160,7 @@ section.contact .inner-contact {
     }
     section.position .inner-position {
         flex-direction: column-reverse;
+        padding-bottom: 21rem;
     }
     .inner-position .inner-position-left {
         padding-bottom: unset;
@@ -2163,9 +2182,12 @@ section.contact .inner-contact {
     .inner-position .inner-position-right {
         width: calc(100% - 8rem);
         position: unset;
+        margin: 0 auto;
     }
     .container-position-right p {
         max-width: 688px;
+        margin-bottom: 0;
+        margin-bottom: 4.5rem;
     }
     /* .inner-position-right .container-position-right {
         position: unset;
@@ -2173,13 +2195,74 @@ section.contact .inner-contact {
     .container-owl-carousel-5 {
         position: absolute;
         left: unset;
-        right: -4rem;
+        right: 0;
         bottom: 0;
         width: 100%;
-        max-width: calc(100% - 8rem)
+        max-width: calc(100% - 8rem);
+        transform: translateY(calc(50% - 15px));
+        z-index: 1;
     }
     #owl-carousel-5 .owl-item-position .image-preview {
         max-width: 369px;
         max-height: 245px;
+    }
+    section .inner-news {
+        padding-top: 8.5rem;
+    }
+    .news-header {
+        display: block;
+    }
+    .title-section {
+        justify-content: center;
+    }
+    .news-header-right ul.news-header-right-menu {
+        justify-content: center;
+    }
+    .news-header-left h1 {
+        text-align: center;
+        margin: 0;
+        line-height: 10rem;
+    }
+    .news-content {
+        margin-top: 4.5rem;
+        width: calc(100% - 8rem);
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .news-content .post-item .preview h3 {
+        font-size: 2.2rem;
+    }
+    .news-content .post-item .preview {
+        padding: 3rem;
+        padding-left: 2.9rem;
+    }
+    .news-content .post-item .preview p {
+        font-size: 1.6rem;
+    }
+    .inner-news .owl-controller {
+        max-width: calc(100% - 8rem);
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .inner-news .owl-controller span.line {
+        width: calc(100% - 17rem);
+        max-width: unset;
+    }
+    #owl-carousel-7 img {
+        max-height: 15.5rem;
+    }
+    .inner-visit-model-house .title-section {
+        justify-content: unset;
+    }
+    .inner-visit-model-house .form-visit input {
+        width: calc(50% - 2rem);
+    }
+    .project-development .inner-project-development {
+        display: block;
+        justify-content: unset;
+        max-width: calc(100% - 8rem);
+    }
+    .project-development-left .title-section {
+        justify-content: unset;
     }
 }
