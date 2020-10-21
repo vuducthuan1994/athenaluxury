@@ -11,6 +11,7 @@ $(document).ready(function() {
     owlLibaryOwlInit();
     activeRoute();
     initAnimationForAllSection();
+
 });
 
 function initMenuMobile() {
@@ -162,6 +163,7 @@ function owlLibaryOwlInit() {
         items: 1,
         center: false,
         nav: false,
+        video: true,
         autoHeight: false,
         dots: false,
         loop: true,
@@ -178,6 +180,27 @@ function owlLibaryOwlInit() {
             1020: {
 
             }
+        },
+        onTranslate: function(event) {
+            var currentSlide, player, command;
+
+            currentSlide = $('.owl-item.active');
+
+            player = currentSlide.find(".item iframe").get(0);
+
+            command = {
+                "event": "command",
+                "func": "pauseVideo"
+            };
+
+            if (player != undefined) {
+                player.contentWindow.postMessage(JSON.stringify(command), "*");
+
+            }
+
+        },
+        afterAction: function(current) {
+            current.find('video').get(0).play();
         }
     });
     $('#owl-carousel-7').owlCarousel({
@@ -210,20 +233,59 @@ function owlLibaryOwlInit() {
     var owl7 = $('#owl-carousel-7');
 
     owl6.on('changed.owl.carousel', function(e) {
-        // console.log("current: ", e.relatedTarget.current())
-        // console.log("current: ", e.item.index) //same
-        // console.log("total: ", e.item.count) //total
-        owl7.trigger('to.owl.carousel', e.item.index + 1)
+        owl7.trigger('to.owl.carousel', e.item.index + 1);
+
     });
-    // Go to the next item of slider text
     $('.btn-next-libary').click(function() {
         owl6.trigger('next.owl.carousel', [700]);
     });
-
-    // Go to the previous item of sliderText
     $('.btn-prev-libary').click(function() {
-        // With optional speed parameter
         owl6.trigger('prev.owl.carousel', [700]);
+    });
+
+    const imagesList = ['/img/image-liabary-example.jpg', '/img/image-liabary-example-1.jpg', '/img/image-liabary-example-2.jpg', '/img/image-liabary-example-3.jpg'];
+    const videoList = ['https://www.youtube.com/embed/Bc2663p7AHg', 'https://www.youtube.com/embed/hIEIGDsbKqY', 'https://www.youtube.com/embed/tx1A8g6DcbY'];
+    const imagePrviewList = ['/img/image-liabary-example.jpg', '/img/image-liabary-example-1.jpg', '/img/image-liabary-example-2.jpg', '/img/image-liabary-example-3.jpg'];
+    const videoPreviewImageList = ['https://tourduthuyenhalong.vn/wp-content/uploads/2019/05/athena-cruise-luxury.jpg', 'https://www.adventureindochina.com/files/thumb/758/508//uploads//Cruises/Athena-cruise/Signature-Mandarin-Cruise_19.jpg', 'https://funnytravelvietnam.com/files/thumb/758/508//uploads//Halong-bay-Cruises/Athena-Lux/athena_cruise_bath_room.jpg'];
+    $('#btn-image-libary').click(function() {
+        $('.image-libary-right-menu li').removeClass('active');
+        $(this).addClass('active');
+        let htmlOWL = '';
+        imagesList.forEach(image => {
+            htmlOWL += ` <div class="item">
+            <img class="show-image" class="image-fluid" src="${image}">
+        </div>`
+        });
+        owl6.trigger('replace.owl.carousel', htmlOWL).trigger('refresh.owl.carousel');
+
+        let htmlOwlPreviewImage = '';
+        imagePrviewList.forEach(imageUrl => {
+            htmlOwlPreviewImage += `<div class="owl-item-content">
+            <img src="${imageUrl}">
+            </div>`
+        });
+        owl7.trigger('replace.owl.carousel', htmlOwlPreviewImage).trigger('refresh.owl.carousel');
+    });
+    $('#btn-video-libary').click(function() {
+        $('.image-libary-right-menu li').removeClass('active');
+        $(this).addClass('active');
+
+        let htmlOWL = '';
+        videoList.forEach(video => {
+            htmlOWL += `       <div class="item">
+            <iframe src="${video}?enablejsapi=1" width="100%"
+                allowfullscreen frameborder="0" height="721px"></iframe>
+            </div>`
+        });
+        owl6.trigger('replace.owl.carousel', htmlOWL).trigger('refresh.owl.carousel');
+
+        let htmlOwlPreviewImage = '';
+        videoPreviewImageList.forEach(imageUrl => {
+            htmlOwlPreviewImage += `<div class="owl-item-content">
+            <img src="${imageUrl}">
+            </div>`
+        });
+        owl7.trigger('replace.owl.carousel', htmlOwlPreviewImage).trigger('refresh.owl.carousel');
     });
 }
 
