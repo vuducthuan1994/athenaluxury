@@ -108,7 +108,7 @@ html {
 }
 
 .container .background-header-fixed {
-    padding: 4rem !important;
+    padding: 4rem;
     background-color: #061d35 !important;
 }
 
@@ -305,6 +305,7 @@ html {
     justify-content: center;
     align-items: center;
     display: flex;
+    z-index: 100;
 }
 
 .btn-map-utilities {
@@ -425,6 +426,10 @@ html {
 /* .btn-brochure:hover span {
     transform: scale(1.2);
 } */
+
+.logo-desktop {
+    z-index: 100;
+}
 
 .logo-desktop a.fb-logo,
 .logo-desktop a.phone {
@@ -723,8 +728,6 @@ section.position .inner-position {
 
 .container-owl-4 {
     position: relative;
-    top: 0;
-    left: 0;
     width: 100%;
 }
 
@@ -1793,6 +1796,7 @@ section.contact .inner-contact {
 
 .container-menu-mobie ul {
     list-style: none;
+    margin: 0;
 }
 
 .container-menu-mobie ul hr {
@@ -1834,6 +1838,17 @@ section.contact .inner-contact {
 }
 
 @media only screen and (max-width: 768px) {
+    .btn-next-screen {
+        bottom: 8rem;
+        left: 4rem;
+    }
+    .inner-logo-desktop {
+        margin-right: 4rem;
+    }
+    .header-background-image {
+        background: transparent url(../img/banner_table.jpg) no-repeat scroll center center;
+        animation: none;
+    }
     .slogan-text h1 {
         font-size: 4.2rem;
     }
@@ -1851,6 +1866,7 @@ section.contact .inner-contact {
     .container-header .btn-brochure {
         width: 17.5rem;
         height: 5rem;
+        margin-right: 2rem;
     }
     .header-right-mobile {
         display: flex;
@@ -1873,7 +1889,10 @@ section.contact .inner-contact {
     }
     .introduction .vignette-pattern-left {
         max-width: 161px;
-        right: 0;
+        right: 4rem;
+    }
+    .introduction-left p {
+        max-width: 688px;
     }
     .introduction .vignette-pattern-left img {
         width: 100%;
@@ -2072,7 +2091,7 @@ section.contact .inner-contact {
         max-height: 678px;
         height: auto;
     }
-    .owl-carousel .owl-item img {
+    .detail-image .item .show-image {
         height: 676px;
     }
     .detail-image .item {
@@ -2103,6 +2122,7 @@ section.contact .inner-contact {
         position: unset;
         width: 4rem;
         height: 4rem;
+        margin-right: 1.5rem;
     }
     header .logo-desktop {
         display: flex;
@@ -2115,5 +2135,51 @@ section.contact .inner-contact {
     .header-right {
         display: flex;
         align-items: center;
+    }
+    .inner-position-right .container-position-right {
+        padding-left: unset;
+        padding-top: unset
+    }
+    section.position .inner-position {
+        flex-direction: column-reverse;
+    }
+    .inner-position .inner-position-left {
+        padding-bottom: unset;
+    }
+    .inner-position .inner-position-left {
+        width: calc(100% - 16rem);
+        margin: 0 auto;
+    }
+    .inner-position .btn-next-position {
+        left: 0;
+        width: 4rem;
+        height: 4rem;
+    }
+    .inner-position .btn-prev-position {
+        left: -4rem;
+        width: 4rem;
+        height: 4rem;
+    }
+    .inner-position .inner-position-right {
+        width: calc(100% - 8rem);
+        position: unset;
+    }
+    .container-position-right p {
+        max-width: 688px;
+    }
+    /* .inner-position-right .container-position-right {
+        position: unset;
+    } */
+    .container-owl-carousel-5 {
+        position: absolute;
+        left: unset;
+        right: -4rem;
+        bottom: 0;
+        width: 100%;
+        max-width: calc(100% - 8rem)
+    }
+    #owl-carousel-5 .owl-item-position .image-preview {
+        max-width: 369px;
+        max-height: 245px;
     }
 }
