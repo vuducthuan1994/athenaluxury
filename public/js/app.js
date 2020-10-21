@@ -8,6 +8,7 @@ $(document).ready(function() {
     ScrollListener();
     owlLibaryOwlInit();
     activeRoute();
+    initAnimationForAllSection();
 });
 
 function owlApartmentInit() {
@@ -51,6 +52,16 @@ function activeRoute() {
         $(this).addClass('active');
     });
 
+}
+
+function initAnimationForAllSection() {
+
+    AOS.init({
+        disable: !window.matchMedia('screen and (min-width: 1200px)').matches,
+        duration: 700,
+        easing: 'linear',
+        once: true
+    });
 }
 
 function owlDotsForPositionSlider() {
