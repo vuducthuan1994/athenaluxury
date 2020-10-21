@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $(".preloader").fadeOut(2000); // this will be active for 
     initMenuMobile();
     owlApartmentInit();
     owlDevelopmentProjectInit();
