@@ -140,13 +140,17 @@ function owlNewsInit() {
     // Go to the next item of slider text
     $('.inner-news .btn-next-post').click(function() {
         owl3.trigger('next.owl.carousel', [700]);
+        $('.inner-news .owl-controller .line').removeClass('active')
+        $('.inner-news .owl-controller .line').addClass('active');
+        setTimeout(function() { $('.inner-news .owl-controller .line').removeClass('active'); }, 500);
     });
 
     // Go to the previous item of sliderText
     $('.inner-news .btn-prev-post').click(function() {
-        // With optional speed parameter
-        // Parameters has to be in square bracket '[]'
         owl3.trigger('prev.owl.carousel', [700]);
+        $('.inner-news .owl-controller .line').removeClass('active')
+        $('.inner-news .owl-controller .line').addClass('active');
+        setTimeout(function() { $('.inner-news .owl-controller .line').removeClass('active'); }, 500);
     });
 }
 
