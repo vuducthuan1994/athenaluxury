@@ -60,7 +60,7 @@ function initAnimationForAllSection() {
         disable: !window.matchMedia('screen and (min-width: 1200px)').matches,
         duration: 700,
         easing: 'linear',
-        once: true
+        once: false
     });
 }
 
@@ -79,14 +79,14 @@ function owlDotsForPositionSlider() {
     var owl5 = $('#owl-carousel-5');
     // Go to the next item of slider text
     $('.btn-next-position').click(function() {
-        owl5.trigger('next.owl.carousel', [500]);
+        owl5.trigger('next.owl.carousel', [700]);
     });
 
     // Go to the previous item of sliderText
     $('.btn-prev-position').click(function() {
         // With optional speed parameter
         // Parameters has to be in square bracket '[]'
-        owl5.trigger('prev.owl.carousel', [500]);
+        owl5.trigger('prev.owl.carousel', [700]);
     });
 }
 
@@ -94,7 +94,6 @@ function owlDotsForPositionSlider() {
 
 function owlNewsInit() {
     $('#owl-carousel-3').owlCarousel({
-
         items: 3,
         center: false,
         nav: false,
@@ -105,11 +104,13 @@ function owlNewsInit() {
         margin: 40,
         lazyLoad: true,
         responsive: {
-
+            0: { autoplay: false },
             768: {
                 items: 2,
-                autoplay: false,
-                margin: 40
+                margin: 40,
+                autoHeight: true
+            },
+            1020: {
 
             }
         }
@@ -117,14 +118,14 @@ function owlNewsInit() {
     var owl3 = $('#owl-carousel-3');
     // Go to the next item of slider text
     $('.inner-news .btn-next-post').click(function() {
-        owl3.trigger('next.owl.carousel', [500]);
+        owl3.trigger('next.owl.carousel', [700]);
     });
 
     // Go to the previous item of sliderText
     $('.inner-news .btn-prev-post').click(function() {
         // With optional speed parameter
         // Parameters has to be in square bracket '[]'
-        owl3.trigger('prev.owl.carousel', [500]);
+        owl3.trigger('prev.owl.carousel', [700]);
     });
 }
 
@@ -191,13 +192,13 @@ function owlLibaryOwlInit() {
     });
     // Go to the next item of slider text
     $('.btn-next-libary').click(function() {
-        owl6.trigger('next.owl.carousel', [500]);
+        owl6.trigger('next.owl.carousel', [700]);
     });
 
     // Go to the previous item of sliderText
     $('.btn-prev-libary').click(function() {
         // With optional speed parameter
-        owl6.trigger('prev.owl.carousel', [500]);
+        owl6.trigger('prev.owl.carousel', [700]);
     });
 }
 
