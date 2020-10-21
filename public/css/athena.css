@@ -408,7 +408,7 @@ html {
 .logo-desktop a.fb-logo:hover,
 .logo-desktop a.phone:hover,
 .btn-next-screen:hover {
-    background-color: #cd9577;
+    background-color: #061d35;
     opacity: 1;
 }
 
@@ -420,11 +420,11 @@ html {
 }
 
 .logo-desktop .fb-logo img.scroll {
-    content: url(../img/fb-hover.png);
+    content: url(../img/fb-scroll.png);
 }
 
 .logo-desktop .phone img.scroll {
-    content: url(../img/phone-hover.png);
+    content: url(../img/phone-scroll.png);
 }
 
 .logo-desktop .phone img {
