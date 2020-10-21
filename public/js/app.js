@@ -72,16 +72,13 @@ function owlDevelopmentProjectInit() {
 }
 
 function activeRoute() {
-
     $("header .nav li.nav-item").click(function(event) {
         $("header .nav li.nav-item").removeClass('active');
         $(this).addClass('active');
     });
-
 }
 
 function initAnimationForAllSection() {
-
     AOS.init({
         disable: !window.matchMedia('screen and (min-width: 1200px)').matches,
         duration: 700,
@@ -115,8 +112,6 @@ function owlDotsForPositionSlider() {
         owl5.trigger('prev.owl.carousel', [700]);
     });
 }
-
-
 
 function owlNewsInit() {
     $('#owl-carousel-3').owlCarousel({
