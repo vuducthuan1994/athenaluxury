@@ -83,7 +83,7 @@ function initAnimationForAllSection() {
         disable: !window.matchMedia('screen and (min-width: 1200px)').matches,
         duration: 700,
         easing: 'linear',
-        once: true
+        once: false
     });
 }
 
