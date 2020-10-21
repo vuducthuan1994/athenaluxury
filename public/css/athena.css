@@ -196,8 +196,10 @@ html {
     text-transform: uppercase;
     letter-spacing: 3px;
     cursor: pointer;
-    width: 21rem;
-    height: 6rem;
+    /* width: 21rem;
+    height: 6rem; */
+    width: 18rem;
+    height: 5rem;
     text-align: center;
     text-decoration: none;
     position: relative;
@@ -1215,7 +1217,8 @@ section .inner-news {
 }
 
 .news-header-right .news-header-right-menu li,
-.image-libary-right ul.image-libary-right-menu li {
+.image-libary-right ul.image-libary-right-menu li,
+.image-libary-right ul.image-libary-right-menu li a {
     font-size: 1.6rem;
     text-transform: uppercase;
     font-family: 'SegoeUI Semibold';
@@ -1227,10 +1230,12 @@ section .inner-news {
     transition: all .5s cubic-bezier(.59, .08, .385, 1);
     -webkit-transition: all .5s cubic-bezier(.59, .08, .385, 1);
     -ms-transition: all .5s cubic-bezier(.59, .08, .385, 1);
+    text-decoration: none;
 }
 
 .news-header-right .news-header-right-menu li:hover,
-.image-libary-right ul.image-libary-right-menu li:hover {
+.image-libary-right ul.image-libary-right-menu li:hover,
+.image-libary-right ul.image-libary-right-menu li a:hover {
     color: rgb(205, 149, 119);
 }
 
@@ -1363,11 +1368,23 @@ section.footer .inner-footer {
     line-height: 7rem;
 }
 
-.footer .footer-top .menu-footer li:not(:first-child) {
+.footer .footer-top .menu-footer li:not(:first-child) a {
     font-size: 1.8rem;
     font-family: "SegoeUI Regular";
     color: rgb(255, 255, 255);
     line-height: 6rem;
+    text-decoration: none;
+}
+
+.footer .footer-top .menu-footer li:not(:first-child) a {
+    transition: color .5s cubic-bezier(.59, .08, .385, 1);
+    -webkit-transition: color .5s cubic-bezier(.59, .08, .385, 1);
+    -ms-transition: color .5s cubic-bezier(.59, .08, .385, 1);
+    cursor: pointer;
+}
+
+.footer .footer-top .menu-footer li:not(:first-child) a:hover {
+    color: rgba(255, 255, 255, 0.702);
 }
 
 .footer .footer-top .content-left {
