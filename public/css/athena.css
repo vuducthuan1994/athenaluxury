@@ -845,8 +845,9 @@ section.utilities .inner-utilities {
 
 .inner-utilities .vignette-pattern {
     position: absolute;
-    bottom: -7.8rem;
+    bottom: 0;
     left: 0;
+    transform: translateY(50%);
 }
 
 .utilities .utilities-left {
@@ -1159,13 +1160,15 @@ section.image-libary {
 
 .inner-project-development .vignette-pattern-1 {
     position: absolute;
-    top: -7.8rem;
+    top: 0;
+    transform: translateY(-50%);
     left: 0;
 }
 
 .inner-project-development .vignette-pattern-2 {
     right: 0;
-    bottom: -7.8rem;
+    bottom: 0;
+    transform: translateY(50%);
     position: absolute;
 }
 
@@ -1190,7 +1193,7 @@ section.image-libary {
 }
 
 .project-development-right .container-owl-carousel-2 {
-    max-width: 440px;
+    max-width: 70.6%;
     /* max-height: 150px; */
 }
 
@@ -1675,6 +1678,7 @@ section.contact .inner-contact {
 
 .inner-contact .inner-contact-left img {
     object-fit: cover;
+    max-width: 100%;
 }
 
 .inner-contact-right .contact-right-content {
@@ -1838,7 +1842,16 @@ section.contact .inner-contact {
     overflow: hidden;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 800px) {
+    .container .container-header {
+        padding-top: 4rem;
+    }
+    .logo-desktop .phone img {
+        width: 18px;
+    }
+    .logo-desktop .fb-logo img {
+        width: 10px;
+    }
     .btn-next-screen {
         bottom: 8rem;
         left: 4rem;
@@ -1876,19 +1889,20 @@ section.contact .inner-contact {
         z-index: 100;
     }
     .container .container-header {
-        width: calc(768px - 8rem);
+        width: calc(100% - 8rem);
         z-index: 90;
         padding-left: 4rem;
         padding-right: 4rem;
     }
     section.introduction {
         display: block;
-        max-width: 768px;
+        max-width: 100%;
         padding-top: 10rem;
     }
     .introduction .introduction-left {
-        width: calc(100% - 8rem);
+        max-width: calc(100% - 8rem);
         margin: 0 auto;
+        width: 100%;
     }
     .introduction .vignette-pattern-left {
         max-width: 161px;
@@ -1972,7 +1986,7 @@ section.contact .inner-contact {
         padding-right: 8.5rem;
     }
     .image-libary-content-bottom .inner-content {
-        max-width: calc(768px - 20rem);
+        max-width: calc(100% - 20rem);
         padding: 2rem;
         left: 0;
         right: 0;
@@ -2039,7 +2053,7 @@ section.contact .inner-contact {
     }
     .footer .footer-top .content-right {
         width: 100%;
-        max-width: 570px;
+        max-width: 74.21%;
         padding-right: unset;
         margin: 0 auto;
         padding-bottom: 2.5rem;
@@ -2047,9 +2061,10 @@ section.contact .inner-contact {
     .footer .footer-top .menu-footer {
         margin: 0;
         margin-top: .5rem;
+        padding: 0;
     }
     section.contact .inner-contact {
-        max-width: 768px;
+        max-width: 100%;
         margin-bottom: 0;
     }
     .inner-contact .inner-contact-left {
@@ -2146,8 +2161,8 @@ section.contact .inner-contact {
     .logo-desktop a.fb-logo,
     .logo-desktop a.phone {
         position: unset;
-        width: 4rem;
-        height: 4rem;
+        width: 3.8rem;
+        height: 3.8rem;
         margin-right: 1.5rem;
     }
     header .logo-desktop {
@@ -2295,5 +2310,138 @@ section.contact .inner-contact {
     }
     .project-development-right {
         max-width: unset;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .background-header-fixed {
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+    }
+    .container .container-header {
+        padding-top: 2rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    .inner-logo-desktop {
+        width: 9rem;
+        height: 7rem;
+    }
+    .container-header .btn-brochure {
+        display: none;
+    }
+    .slogan-text h1 {
+        font-size: 3.6rem;
+    }
+    .btn-next-screen {
+        bottom: 4rem;
+        right: 2rem;
+        left: unset;
+    }
+    .container .container-header {
+        width: calc(100% - 4rem);
+    }
+    .slogan-text {
+        position: absolute;
+        bottom: 4rem;
+        left: 2rem;
+        top: unset;
+    }
+    .slogan-text span {
+        font-size: 3.6rem;
+    }
+    .slogan-text h2 {
+        font-size: 1.4rem;
+    }
+    .footer .footer-bottom {
+        padding-top: 1.2rem;
+        padding-bottom: 3rem;
+    }
+    .footer-bottom-left p {
+        line-height: 4.5rem;
+    }
+    .footer .footer-top .content-right {
+        max-width: calc(100% - 4rem);
+    }
+    .footer .footer-top .menu-footer li:first-child {
+        font-size: 1.4rem;
+    }
+    .footer .footer-top .menu-footer {
+        padding: 0;
+    }
+    .footer .footer-top .content-right {
+        padding-bottom: 4rem;
+    }
+    section.visit-model-house .inner-visit-model-house {
+        max-width: calc(100% - 4rem);
+    }
+    .introduction-left h1 {
+        font-size: 2.8rem;
+    }
+    .introduction .introduction-left {
+        max-width: calc(100% - 4rem);
+        width: 100%;
+    }
+    .introduction-left .building-infomation {
+        display: block;
+        line-height: 4.4rem;
+    }
+    .introduction-left p {
+        max-width: unset;
+        font-size: 1.6rem;
+    }
+    .introduction .introduction-right {
+        width: calc(100% - 6rem);
+        padding-right: 2rem;
+    }
+    .introduction-right img {
+        box-shadow: 2rem 2rem #f0f0f0;
+    }
+    .container-position-right h1,
+    .utilities-right h1,
+    .apartment-left h1,
+    .news-header-left h1 {
+        font-size: 2.8rem;
+    }
+    .title-section {
+        justify-content: unset;
+    }
+    .inner-position .inner-position-right,
+    .utilities .utilities-right {
+        width: calc(100% - 4rem);
+    }
+    .container-position-right p {
+        font-size: 1.6rem;
+    }
+    .btn-map-utilities {
+        width: 33.5rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .utilities .utilities-left {
+        width: calc(100% - 8rem);
+    }
+    .container-utilities-image-right .utilities-image-right {
+        max-width: 168px;
+        bottom: 12rem;
+        transform: translateY(50%);
+        right: 2rem;
+    }
+    section.utilities .inner-utilities {
+        padding-bottom: 12rem;
+    }
+    .utilities .utilities-left .container-five-star {
+        width: 5rem;
+        height: 5rem;
+        bottom: -2.5rem;
+        left: calc(50% - 2.5rem);
+        z-index: 1;
+    }
+    .utilities .utilities-left .container-five-star span {
+        font-size: 2rem;
+    }
+    .circle-fill-level-1 {
+        width: 7rem;
+        height: 7rem;
     }
 }
