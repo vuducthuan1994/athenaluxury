@@ -2293,4 +2293,7 @@ section.contact .inner-contact {
     .footer .footer-top .menu-footer li:first-child {
         line-height: 9rem;
     }
+    .project-development-right {
+        max-width: unset;
+    }
 }
