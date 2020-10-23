@@ -2731,10 +2731,13 @@
             margin-bottom: 4rem;
         }
         .container-owl-carousel-5 {
-            left: 0;
+            /* left: 0;
             right: 0;
-            margin: auto;
+            margin: auto; */
             transform: translateY(calc(100% - 35px));
+        }
+        #owl-carousel-5 .owl-item-position {
+            width: 295px;
         }
         .item-position .image-preview {
             max-width: 295px;
