@@ -1570,6 +1570,10 @@
         margin-bottom: 0;
     }
     
+    .inner-visit-model-house h1 br {
+        display: none;
+    }
+    
     .inner-visit-model-house .title-section span {
         color: #ffffff;
     }
@@ -2556,5 +2560,18 @@
             padding-left: unset;
             max-width: calc(100% - 4rem);
             margin: 0 auto;
+        }
+        .inner-visit-model-house h1 {
+            font-size: 2.8rem;
+            line-height: 4rem;
+        }
+        .inner-visit-model-house h1 br {
+            display: unset;
+        }
+        .inner-visit-model-house .form-visit input {
+            width: 100%;
+        }
+        .inner-visit-model-house .form-visit input:nth-child(2) {
+            margin-left: unset;
         }
     }
