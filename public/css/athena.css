@@ -2502,6 +2502,17 @@
             right: 0;
             margin-left: auto;
             margin-right: auto;
+            transform: none;
+            margin-top: 1rem;
+        }
+        section.contact {
+            margin-top: 15rem;
+        }
+        ul.image-libary-right-menu li {
+            font-size: 1.4rem;
+        }
+        section.project-development {
+            margin-bottom: 6rem;
         }
         .detail-image {
             width: calc( 100% - 8rem);
@@ -2681,7 +2692,9 @@
             font-size: 2.8rem;
         }
         .inner-news .owl-controller .owl-controller-right {
-            width: unset;
+            width: 100%;
+            /* display: flex; */
+            justify-content: space-around;
         }
         .inner-news .owl-controller {
             margin-top: 3rem;
