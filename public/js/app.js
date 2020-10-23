@@ -143,6 +143,12 @@ function owlNewsInit() {
                 margin: 40,
                 autoHeight: true
             },
+            500: {
+                items: 1.5,
+                margin: 40,
+                center: true,
+                autoHeight: true
+            },
             1020: {
 
             }
