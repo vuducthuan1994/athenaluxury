@@ -2794,4 +2794,10 @@
             font-size: 1.2rem;
             color: rgba(8, 35, 64, 0.502);
         }
+        .slogan-text .line2 span {
+            display: block;
+        }
+        .inner-logo-desktop {
+            margin-right: calc(100% - 20.5rem);
+        }
     }
