@@ -2736,7 +2736,7 @@
             margin: auto;
             transform: translateY(calc(100% - 35px));
             z-index: 20;
-            position: relative;
+            position: absolute;
         }
         #owl-carousel-5 .owl-item-position {
             width: 295px;
