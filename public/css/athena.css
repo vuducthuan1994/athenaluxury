@@ -2734,8 +2734,9 @@
             left: 0;
             right: 0;
             margin: auto;
-            /* transform: translateY(calc(100% - 35px)); */
+            transform: translateY(calc(100% - 35px));
             z-index: 20;
+            position: relative;
         }
         #owl-carousel-5 .owl-item-position {
             width: 295px;
