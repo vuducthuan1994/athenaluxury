@@ -2542,5 +2542,14 @@
         .inner-contact-right .inner-contact-right-content {
             padding-top: 4rem;
             padding-bottom: 4rem;
+            width: calc(100% - 4rem);
+            margin: 0 auto;
+        }
+        section.visit-model-house .inner-visit-model-house {
+            padding-top: 0;
+        }
+        .inner-contact .inner-contact-left {
+            width: calc(100%);
+            margin: unset;
         }
     }
