@@ -474,6 +474,7 @@
     .btn-next-screen img {
         position: absolute;
         bottom: 3rem;
+        object-fit: cover;
     }
     
     .logo-desktop a.fb-logo {
@@ -2583,5 +2584,22 @@
         }
         .project-development-right .container-owl-carousel-2 {
             max-width: 100%;
+        }
+        .inner-utilities .vignette-pattern {
+            width: 2rem;
+            left: calc(50% - 1rem);
+        }
+        .introduction .vignette-pattern-left {
+            max-width: 95px;
+            right: -5.8rem;
+        }
+        .btn-next-screen {
+            width: 5.5rem;
+            height: 5.5rem;
+        }
+        .btn-next-screen img {
+            position: absolute;
+            bottom: 2.25rem;
+            height: 7.2rem;
         }
     }
