@@ -2546,10 +2546,15 @@
             margin: 0 auto;
         }
         section.visit-model-house .inner-visit-model-house {
-            padding-top: 0;
+            padding-top: 22rem;
         }
         .inner-contact .inner-contact-left {
             width: calc(100%);
             margin: unset;
+        }
+        .inner-contact-right .inner-contact-right-content .container-content {
+            padding-left: unset;
+            max-width: calc(100% - 4rem);
+            margin: 0 auto;
         }
     }
