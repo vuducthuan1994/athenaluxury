@@ -1924,7 +1924,7 @@
             font-size: 3.6rem;
         }
         .introduction .introduction-right {
-            position: unset;
+            position: initial;
             top: unset;
             left: unset;
             max-height: 743px;
@@ -1933,7 +1933,7 @@
             margin-top: 4rem;
         }
         .introduction-right img {
-            position: unset;
+            position: initial;
             top: unset;
             left: unset;
             height: unset;
@@ -2210,7 +2210,7 @@
         }
         .inner-position .inner-position-right {
             width: calc(100% - 8rem);
-            position: unset;
+            position: initial;
             margin: 0 auto;
         }
         .container-position-right p {
@@ -2738,6 +2738,7 @@
             z-index: 20;
             position: absolute;
             height: 167px;
+            overflow: visible;
         }
         #owl-carousel-5 .owl-item-position {
             width: 295px;
