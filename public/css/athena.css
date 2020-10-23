@@ -220,7 +220,7 @@
     }
     
     .header-background-image {
-        background: transparent url(../img/banner_desktop.jpg) no-repeat scroll center center;
+        background: transparent url(../img/banner_desktop.jpg) no-repeat center center fixed;
         height: calc(100vh);
         width: 100%;
         background-size: 100% 100%;
@@ -1865,7 +1865,7 @@
             margin-right: 4rem;
         }
         .header-background-image {
-            background: transparent url(../img/banner_table.jpg) no-repeat scroll center center;
+            background: transparent url(../img/banner_table.jpg) no-repeat center center fixed;
             animation: none;
             background-size: 100% 100%;
             background-position: center center;
@@ -2406,6 +2406,7 @@
         .introduction .introduction-right {
             width: calc(100% - 6rem);
             padding-right: 2rem;
+            padding-bottom: 2rem;
         }
         .introduction-right img {
             box-shadow: 2rem 2rem #f0f0f0;
@@ -2463,7 +2464,7 @@
             margin-top: 1.5rem;
         }
         section.position {
-            margin-top: 7.5rem;
+            margin-top: 5.5rem;
         }
         section .inner-apartment {
             padding-top: 13.7rem;
@@ -2689,5 +2690,18 @@
         }
         .news-content .post-item .preview {
             padding: 2rem;
+        }
+        header .logo-desktop {
+            width: 100%;
+        }
+        .header-background-image {
+            background: url(../img/banner_mobile.jpg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        .header-background-image {
+            height: 667px;
         }
     }
