@@ -137,21 +137,24 @@ function owlNewsInit() {
         margin: 40,
         lazyLoad: true,
         responsive: {
-            0: { autoplay: false },
+            0: {
+                items: 1.39,
+                margin: 20,
+                center: true,
+                autoHeight: true
+            },
+            500: {
+                items: 1.39,
+                margin: 20,
+                center: true,
+                autoHeight: true
+            },
             768: {
                 items: 2,
                 margin: 40,
                 autoHeight: true
-            },
-            500: {
-                items: 1.5,
-                margin: 40,
-                center: true,
-                autoHeight: true
-            },
-            1020: {
-
             }
+
         }
     });
     var owl3 = $('#owl-carousel-3');

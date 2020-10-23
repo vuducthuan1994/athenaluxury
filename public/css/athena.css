@@ -2466,4 +2466,19 @@
             /* padding-left: 2rem;
             padding-right: 2rem; */
         }
+        .news-content {
+            margin-top: 4.5rem;
+            width: calc(100%);
+            margin-left: unset;
+            margin-right: unset;
+        }
+        section .inner-news {
+            padding-top: 6rem;
+        }
+        .news-header-left h1 {
+            line-height: 7rem;
+        }
+        .inner-news .owl-controller span.line {
+            display: none;
+        }
     }
