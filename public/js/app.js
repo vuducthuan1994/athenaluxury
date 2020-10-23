@@ -236,11 +236,13 @@ function owlLibaryOwlInit() {
         margin: 40,
         responsive: {
             0: {
-                autoplay: false
+                items: 2,
+
+                margin: 10
             },
             768: {
                 items: 2,
-                autoplay: false,
+
                 margin: 20
 
             },
@@ -294,7 +296,7 @@ function owlLibaryOwlInit() {
         videoList.forEach(video => {
             htmlOWL += `       <div class="item">
             <iframe src="${video}?enablejsapi=1" width="100%"
-                allowfullscreen frameborder="0" height="721px"></iframe>
+                allowfullscreen frameborder="0" ></iframe>
             </div>`
         });
         owl6.trigger('replace.owl.carousel', htmlOWL).trigger('refresh.owl.carousel');
