@@ -2760,7 +2760,6 @@
             line-height: 4rem;
         }
         #owl-carousel-5 .owl-item-position .image-preview {
-            height: 140px;
             opacity: 0;
         }
         .owl-item-position .container-image-preview {
@@ -2768,6 +2767,8 @@
             border-color: rgb(230, 233, 236);
             border-style: solid;
             background-color: #ffffff;
+            height: 140px;
+            width: 100%;
         }
         #owl-carousel-5 .owl-item-position .container-text-preview h4 {
             font-size: 1.2rem;
