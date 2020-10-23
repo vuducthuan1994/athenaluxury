@@ -2566,4 +2566,22 @@
         .inner-visit-model-house .form-visit input:nth-child(2) {
             margin-left: unset;
         }
+        .container-menu-mobie ul li a {
+            font-size: 2rem;
+        }
+        .inner-visit-model-house .btn-submit-visit-form {
+            width: 33.5rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #owl-carousel-2 img {
+            width: 100%;
+            height: auto;
+        }
+        .project-development-right img.development-item {
+            display: none;
+        }
+        .project-development-right .container-owl-carousel-2 {
+            max-width: 100%;
+        }
     }

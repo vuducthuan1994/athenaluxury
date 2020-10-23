@@ -68,7 +68,16 @@ function owlDevelopmentProjectInit() {
         dots: false,
         loop: true,
         autoplay: false,
-        margin: 95
+        margin: 95,
+        responsive: {
+            0: { margin: 50 },
+            768: {
+                margin: 95
+            },
+            1020: {
+                margin: 95
+            }
+        }
     });
 }
 
