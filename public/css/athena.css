@@ -2466,14 +2466,6 @@
         .apartment-left .typical-grounds.active .owl-dots {
             display: flex !important;
         }
-        .apartment-left .owl-dots {
-            margin-right: 0;
-        }
-        .apartment-left .typical-grounds {
-            justify-content: space-between;
-            /* padding-left: 2rem;
-            padding-right: 2rem; */
-        }
         .news-content {
             margin-top: 4.5rem;
             width: calc(100%);
