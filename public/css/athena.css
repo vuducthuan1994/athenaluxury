@@ -1702,6 +1702,8 @@
         position: absolute;
         top: 0;
         right: 0;
+        max-width: 188px;
+        content: url(../img/vignette-pattern-left-1.png);
     }
     
     .inner-contact-right .inner-contact-right-content h1 {
@@ -1841,6 +1843,10 @@
         overflow: hidden;
     }
     
+    .container-utilities-image-right .vignette-pattern-right {
+        content: url(../img/vignette-pattern-right-1.png);
+    }
+    
     @media only screen and (max-width: 800px) {
         .container .container-header {
             padding-top: 4rem;
@@ -1897,6 +1903,7 @@
             display: block;
             max-width: 100%;
             padding-top: 10rem;
+            overflow: hidden;
         }
         .introduction .introduction-left {
             max-width: calc(100% - 8rem);
@@ -2275,7 +2282,7 @@
             max-width: unset;
         }
         #owl-carousel-7 img {
-            max-height: 15.5rem;
+            height: 15.5rem;
         }
         .inner-visit-model-house .title-section {
             justify-content: unset;
@@ -2313,6 +2320,10 @@
     }
     
     @media only screen and (max-width: 500px) {
+        .title-section span {
+            font-size: 1rem;
+            color: rgb(8, 35, 64);
+        }
         .news-header-left .title-section {
             justify-content: center;
         }
@@ -2475,6 +2486,7 @@
         }
         section .inner-news {
             padding-top: 6rem;
+            padding-bottom: 6rem;
         }
         .news-header-left h1 {
             line-height: 7rem;
@@ -2601,5 +2613,81 @@
             position: absolute;
             bottom: 2.25rem;
             height: 7.2rem;
+        }
+        .inner-project-development .vignette-pattern-1 {
+            left: unset;
+            right: -2rem;
+            width: 3.2rem;
+        }
+        .inner-project-development .vignette-pattern-2 {
+            right: unset;
+            left: -2rem;
+            bottom: 0;
+            width: 3.2rem;
+        }
+        .project-development-left h1 {
+            font-size: 2.8rem;
+        }
+        .project-development .inner-project-development {
+            padding-top: 6rem;
+            padding-bottom: 8rem;
+        }
+        .image-libary-left .title-section span {
+            font-size: 1.2rem;
+        }
+        .inner-contact-right-content .title-section span {
+            font-size: 1.2rem;
+        }
+        .inner-contact-right .inner-contact-right-content img.vignette-pattern {
+            content: url(../img/vignette-mobile-1.png);
+            right: 0;
+        }
+        .container-utilities-image-right .vignette-pattern-right {
+            content: url(../img/vignette-mobile-2.png);
+        }
+        .utilities .utilities-right .inner-utilities-right {
+            padding-top: 26.5rem;
+        }
+        .container-utilities-image-right .vignette-pattern-right {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        .utilities-right p {
+            font-size: 1.6rem;
+        }
+        .btn-map-utilities {
+            margin-top: 1.5rem;
+        }
+        .utilities .utilities-left img {
+            max-height: 350px;
+        }
+        .container-utilities-image-right {
+            margin-top: 3rem;
+        }
+        .inner-news .owl-controller img {
+            display: none;
+        }
+        #owl-carousel-7 img {
+            height: 8rem;
+        }
+        .inner-contact-right .inner-contact-right-content h1 {
+            margin-bottom: 2rem;
+            margin-top: 1.25rem;
+        }
+        .image-libary-left h1 {
+            font-size: 2.8rem;
+        }
+        .inner-news .owl-controller .owl-controller-right {
+            width: unset;
+        }
+        .inner-news .owl-controller {
+            margin-top: 3rem;
+        }
+        .news-content .post-item .preview h3 {
+            font-size: 2rem;
+        }
+        .news-content .post-item .preview {
+            padding: 2rem;
         }
     }
