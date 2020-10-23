@@ -2584,7 +2584,7 @@
             font-size: 2rem;
         }
         .inner-visit-model-house .btn-submit-visit-form {
-            width: 33.5rem;
+            width: calc(100% - 4rem);
             margin-left: auto;
             margin-right: auto;
         }
@@ -2659,6 +2659,7 @@
         }
         .btn-map-utilities {
             margin-top: 1.5rem;
+            width: calc(100% - 4rem);
         }
         .utilities .utilities-left img {
             max-height: 350px;
@@ -2705,7 +2706,7 @@
             height: 667px;
         }
         .inner-position .inner-position-left {
-            width: calc(100% - 8rem);
+            width: calc(100% - 4rem);
         }
         .inner-position .btn-next-position {
             display: none;
@@ -2728,5 +2729,48 @@
         }
         .container-position-right p {
             margin-bottom: 4rem;
+        }
+        .container-owl-carousel-5 {
+            left: 0;
+            right: 0;
+            margin: auto;
+            transform: translateY(calc(100% - 35px));
+        }
+        .item-position .image-preview {
+            max-width: 295px;
+            /* max-height: 245px; */
+        }
+        #owl-carousel-5 .owl-item-position .container-text-preview h3 {
+            color: rgb(8, 35, 64);
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            font-size: 2rem;
+            line-height: 1.2;
+        }
+        #owl-carousel-5 .owl-item-position .container-text-preview {
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            bottom: 1rem;
+        }
+        #owl-carousel-5 .owl-item-position .container-text-preview h4 {
+            margin: auto;
+            text-align: center;
+            line-height: 4rem;
+        }
+        #owl-carousel-5 .owl-item-position .image-preview {
+            height: 140px;
+            opacity: 0;
+        }
+        .owl-item-position .container-image-preview {
+            border-width: 1px;
+            border-color: rgb(230, 233, 236);
+            border-style: solid;
+            background-color: #ffffff;
+        }
+        #owl-carousel-5 .owl-item-position .container-text-preview h4 {
+            font-size: 1.2rem;
+            color: rgba(8, 35, 64, 0.502);
         }
     }

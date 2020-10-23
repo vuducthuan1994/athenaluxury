@@ -155,16 +155,19 @@ function owlNewsInit() {
                 center: true,
                 autoHeight: true
             },
-            500: {
-                items: 1.39,
-                margin: 20,
-                center: true,
-                autoHeight: true
-            },
+            // 500: {
+            //     items: 1.39,
+            //     margin: 20,
+            //     center: true,
+            //     autoHeight: true
+            // },
             768: {
                 items: 2,
                 margin: 40,
                 autoHeight: true
+            },
+            1020: {
+                items: 3
             }
 
         }
