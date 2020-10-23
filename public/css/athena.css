@@ -2695,7 +2695,7 @@
             width: 100%;
         }
         .header-background-image {
-            background: url(../img/banner_mobile.jpg) no-repeat center center fixed;
+            background: url(../img/banner_mobile.jpg) no-repeat center center scroll;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -2703,5 +2703,30 @@
         }
         .header-background-image {
             height: 667px;
+        }
+        .inner-position .inner-position-left {
+            width: calc(100% - 8rem);
+        }
+        .inner-position .btn-next-position {
+            display: none;
+        }
+        .inner-position .btn-prev-position {
+            display: none;
+        }
+        #owl-carousel-5 .owl-item-position .container-icon-preview {
+            left: calc(50% - 3rem);
+        }
+        .container-owl-4 img {
+            height: 327px;
+        }
+        section.position .inner-position {
+            padding: 0;
+        }
+        .container-owl-4 {
+            margin-bottom: -2rem;
+            z-index: 1;
+        }
+        .container-position-right p {
+            margin-bottom: 4rem;
         }
     }
