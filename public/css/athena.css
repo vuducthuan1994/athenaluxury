@@ -2737,6 +2737,7 @@
             transform: translateY(calc(100% - 35px));
             z-index: 20;
             position: absolute;
+            height: 167px;
         }
         #owl-carousel-5 .owl-item-position {
             width: 295px;
@@ -2764,9 +2765,9 @@
             text-align: center;
             line-height: 4rem;
         }
-        /* #owl-carousel-5 .owl-item-position .image-preview {
+        #owl-carousel-5 .owl-item-position .image-preview {
             opacity: 0;
-        } */
+        }
         .owl-item-position .container-image-preview {
             border-width: 1px;
             border-color: rgb(230, 233, 236);
