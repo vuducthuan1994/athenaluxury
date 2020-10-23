@@ -2731,14 +2731,14 @@
             margin-bottom: 4rem;
         }
         .container-owl-carousel-5 {
-            /* left: 0;
+            left: 0;
             right: 0;
-            margin: auto; */
+            margin: auto;
             transform: translateY(calc(100% - 35px));
             z-index: 20;
             position: absolute;
             height: 167px;
-            overflow: visible;
+            width: 400px;
         }
         #owl-carousel-5 .owl-item-position {
             width: 295px;
