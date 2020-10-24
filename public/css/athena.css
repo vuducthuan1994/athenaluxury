@@ -1880,8 +1880,8 @@
         .inner-logo-desktop {
             margin-right: 4rem;
         }
-        .header-background-image {
-            background: transparent url(../img/banner_table.jpg) no-repeat center center fixed;
+        .header-background-image::before {
+            background: transparent url(../img/banner_table.jpg) no-repeat center center scroll;
             animation: none;
             background-size: 100% 100%;
             background-position: center center;
@@ -2724,7 +2724,7 @@
         header .logo-desktop {
             width: 100%;
         }
-        .header-background-image {
+        .header-background-image::before {
             background: url(../img/banner_mobile.jpg) no-repeat center center scroll;
             -webkit-background-size: cover;
             -moz-background-size: cover;

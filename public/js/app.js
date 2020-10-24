@@ -374,7 +374,7 @@ function ScrollListener() {
         var scrollPosition = $(window).scrollTop();
         if (window.matchMedia('screen and (min-width: 900px)').matches) {
             var headerHeight = $(".header-background-image").height();
-            if ((scrollPosition + 300) > headerHeight) {
+            if ((scrollPosition + 400) > headerHeight) {
                 $('body header.container-header').addClass('background-header-fixed-desktop');
                 $('.fb-logo img').addClass('scroll');
                 $('.phone img').addClass('scroll');
@@ -392,7 +392,7 @@ function ScrollListener() {
             // } else {
             //     $('.container-header .nav li a ').css('color', 'rgb(125, 115, 114)');
             // }
-        } else if (window.matchMedia('screen and (max-width: 768px)').matches) {
+        } else if (window.matchMedia('screen and (max-width: 800px)').matches) {
             var menuHeight = $('body header.container-header').outerHeight();
             if (scrollPosition > menuHeight) {
                 $('body header.container-header').addClass('background-header-fixed');
