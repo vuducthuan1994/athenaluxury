@@ -220,24 +220,39 @@
     }
     
     .header-background-image {
-        background: transparent url(../img/banner_desktop.jpg) no-repeat center center fixed;
+        /* background: transparent url(../img/banner_desktop.jpg) no-repeat center center scroll; */
         height: calc(100vh);
         width: 100%;
+        /* background-size: 100% 100%;
+        background-position: center center; */
+        position: relative;
+        /* animation: zoom 28s infinite; */
+        overflow: hidden;
+        /* z-index: 3; */
+    }
+    
+    .header-background-image::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        content: "";
+        height: 100%;
+        animation: zoom 28s infinite;
         background-size: 100% 100%;
         background-position: center center;
-        position: relative;
-        animation: zoom 28s infinite;
+        background: transparent url(../img/banner_desktop.jpg) no-repeat center center scroll;
     }
     
     @keyframes zoom {
         0% {
-            transform: scale(1, 1);
+            transform: scale(1.08, 1.08);
         }
         50% {
-            transform: scale(1.1, 1.1);
+            transform: scale(1, 1);
         }
         100% {
-            transform: scale(1, 1);
+            transform: scale(1.08, 1.08);
         }
     }
     
@@ -266,7 +281,7 @@
     }
     
     .slogan-text h1 {
-        font-size: 6rem;
+        font-size: 4.5rem;
         font-family: "SegoeUI Light";
         color: rgb(255, 255, 255);
         /* text-transform: uppercase; */
@@ -280,7 +295,7 @@
     .slogan-text span {
         font-weight: bold;
         font-family: "UTM Americana Bold";
-        font-size: 6rem;
+        font-size: 5rem;
     }
     
     .header-right {
@@ -435,8 +450,8 @@
     }
     
     .logo-desktop a.phone {
-        width: 6rem;
-        height: 6rem;
+        width: 5rem;
+        height: 5rem;
         left: 5rem;
         top: 50rem;
         text-align: center;
@@ -464,7 +479,7 @@
         height: 6rem;
         border-style: solid;
         border-width: 2px;
-        border-color: #6d7d8e;
+        border-color: #b4cddc;
         cursor: pointer;
         position: absolute;
         left: 33em;
@@ -478,8 +493,8 @@
     }
     
     .logo-desktop a.fb-logo {
-        width: 6rem;
-        height: 6rem;
+        width: 5rem;
+        height: 5rem;
         text-align: center;
         top: 40rem;
         left: 5rem;
