@@ -19,8 +19,8 @@ function initListButtonMenuLibary() {
     if (window.matchMedia('screen and (max-width: 500px)').matches) {
         $('#list-button-menu-libary').owlCarousel({
             lazyLoad: false,
-            margin: 40,
-            items: 2.5,
+            margin: 36,
+            items: 1.9,
             center: true,
             nav: false,
             dots: true,

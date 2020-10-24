@@ -2531,8 +2531,9 @@
         section.contact {
             margin-top: 15rem;
         }
-        ul.image-libary-right-menu li {
+        .image-libary-right ul.image-libary-right-menu li {
             font-size: 1.4rem;
+            display: inline-block;
         }
         section.project-development {
             margin-bottom: 6rem;
@@ -2823,5 +2824,8 @@
         }
         .inner-logo-desktop {
             margin-right: calc(100% - 20.5rem);
+        }
+        .image-libary-header .image-libary-right {
+            margin: 0 auto;
         }
     }
