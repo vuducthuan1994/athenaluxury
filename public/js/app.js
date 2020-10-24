@@ -11,8 +11,24 @@ $(document).ready(function() {
     owlLibaryOwlInit();
     activeRoute();
     initAnimationForAllSection();
+    initListButtonMenuLibary();
 
 });
+
+function initListButtonMenuLibary() {
+    if (window.matchMedia('screen and (max-width: 500px)').matches) {
+        $('#list-button-menu-libary').owlCarousel({
+            lazyLoad: false,
+            margin: 40,
+            items: 2.5,
+            center: true,
+            nav: false,
+            dots: true,
+            loop: true,
+            autoplay: false
+        });
+    }
+}
 
 function initMenuMobile() {
     var tlmenu = new TimelineMax({ paused: true });
