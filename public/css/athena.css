@@ -220,15 +220,11 @@
     }
     
     .header-background-image {
-        /* background: transparent url(../img/banner_desktop.jpg) no-repeat center center scroll; */
         height: calc(100vh);
         width: 100%;
-        /* background-size: 100% 100%;
-        background-position: center center; */
+        background-position: center center;
         position: relative;
-        /* animation: zoom 28s infinite; */
         overflow: hidden;
-        /* z-index: 3; */
     }
     
     .header-background-image::before {
@@ -2746,6 +2742,10 @@
         }
         .inner-position .inner-position-left {
             width: calc(100% - 4rem);
+            position: absolute;
+            bottom: 12rem;
+            left: 0;
+            right: 0;
         }
         .inner-position .btn-next-position {
             display: none;
@@ -2758,27 +2758,30 @@
         }
         .container-owl-4 video {
             width: 100%;
-            height: 327px;
+            height: 326px;
+            object-fit: cover;
         }
         section.position .inner-position {
             padding: 0;
         }
         .container-owl-4 {
-            margin-bottom: -2rem;
+            /* margin-bottom: -2rem; */
             z-index: 1;
         }
         .container-position-right p {
-            margin-bottom: 4rem;
+            margin-bottom: 32rem;
         }
         .container-owl-carousel-5 {
-            left: 0;
-            right: 0;
-            margin: auto;
-            transform: translateY(calc(100% - 35px));
+            left: unset;
+            right: unset;
+            transform: none;
             z-index: 20;
-            position: absolute;
+            position: relative;
             height: 167px;
-            width: 400px;
+            width: 100vw;
+            max-width: 100vw;
+            bottom: unset;
+            margin-left: -2rem;
         }
         #owl-carousel-5 .owl-item-position {
             width: 295px;
