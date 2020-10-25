@@ -2781,7 +2781,6 @@
             left: unset;
             right: unset;
             transform: none;
-            z-index: 20;
             position: relative;
             height: unset;
             bottom: unset;
@@ -2789,10 +2788,12 @@
             text-align: center;
             margin: 0 auto;
         }
+        #owl-carousel-5 {
+            z-index: 20 !important;
+        }
         #owl-carousel-5 .owl-item-position {
             width: 295px;
             padding-top: 2.5rem;
-            z-index: 20;
         }
         .item-position .image-preview {
             max-width: 295px;
