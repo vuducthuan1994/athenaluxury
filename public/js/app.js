@@ -13,6 +13,7 @@ $(document).ready(function() {
     initAnimationForAllSection();
     initListButtonMenuLibary();
 
+
 });
 
 function initListButtonMenuLibary() {
@@ -29,6 +30,8 @@ function initListButtonMenuLibary() {
         });
     }
 }
+
+
 
 function initMenuMobile() {
     var tlmenu = new TimelineMax({ paused: true });
@@ -139,17 +142,48 @@ function owlDotsForPositionSlider() {
         }
     });
     var owl5 = $('#owl-carousel-5');
-    // Go to the next item of slider text
+    if (window.matchMedia('screen and (max-width: 500px)').matches) {
+        $('#inner-owl-5-controller').owlCarousel({
+            lazyLoad: false,
+            margin: 15,
+            items: 6,
+            center: true,
+            nav: false,
+            dots: true,
+            loop: true,
+            autoplay: false,
+            afterMove: function(elem) {
+                console.log(elem);
+            }
+        });
+        var owl5Controller = $('#inner-owl-5-controller');
+        $('#inner-owl-5-controller').on('click', '.owl-item', function(e) {
+            e.preventDefault();
+            $('.owl-controller-item').removeClass('active');
+            $(this).find('.owl-controller-item:first').addClass('active-focus');
+
+            // $(property.target).find(".owl-item .owl-controller-item").addClass('focus-active');
+
+            if (window.matchMedia('screen and (min-width: 201px)').matches) {
+                owl5Controller.trigger('to.owl.carousel', $(this).index());
+                owl5.trigger('to.owl.carousel', $(this).index());
+            }
+        });
+        owl5.on('changed.owl.carousel', function(e) {
+            owl5Controller.trigger('to.owl.carousel', e.item.index + 3);
+        });
+    }
+
     $('.btn-next-position').click(function() {
         owl5.trigger('next.owl.carousel', [700]);
     });
 
-    // Go to the previous item of sliderText
     $('.btn-prev-position').click(function() {
-        // With optional speed parameter
-        // Parameters has to be in square bracket '[]'
         owl5.trigger('prev.owl.carousel', [700]);
     });
+
+
+
 }
 
 function owlNewsInit() {

@@ -6,6 +6,37 @@
     }
     /* FOR PRELOADER  */
     
+    .owl-5-controller {
+        margin-top: 2rem;
+        width: calc(100% + 4rem);
+        margin-left: -2rem;
+    }
+    
+    .owl-controller-item-preview {
+        width: 5rem;
+        height: 5rem;
+        background-color: #a4a9b0;
+        align-items: center;
+        display: flex;
+        justify-content: space-around;
+        cursor: pointer;
+        border-radius: 50%;
+        text-align: center;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+    }
+    
+    .owl-controller-item-preview:hover,
+    .active-focus.owl-controller-item-preview {
+        background-color: #cd9577;
+    }
+    
+    #inner-owl-5-controller .owl-controller-item .owl-controller-item-preview img {
+        width: auto;
+    }
+    
     .detail-image .item iframe {
         height: 721px;
     }
@@ -2365,8 +2396,8 @@
             padding-right: 2rem;
         }
         .inner-logo-desktop {
-            width: 9rem;
-            height: 7rem;
+            width: 7rem;
+            height: 5.5rem;
         }
         .container-header .btn-brochure {
             display: none;
@@ -2752,7 +2783,7 @@
         .inner-position .inner-position-left {
             width: calc(100% - 4rem);
             position: absolute;
-            bottom: 12rem;
+            bottom: 19rem;
             left: 0;
             right: 0;
         }
@@ -2775,7 +2806,7 @@
         }
         section.position .inner-position {
             padding: 0;
-            margin-bottom: -14rem;
+            margin-bottom: -21rem;
         }
         .container-owl-4 {
             /* margin-bottom: -2rem; */
@@ -2803,6 +2834,8 @@
         #owl-carousel-5 .owl-item-position {
             width: 295px;
             padding-top: 2.5rem;
+            margin-left: auto;
+            margin-right: auto;
         }
         .item-position .image-preview {
             max-width: 295px;
@@ -2850,5 +2883,8 @@
         }
         .image-libary-header .image-libary-right {
             margin: 0 auto;
+        }
+        #owl-carousel-5 .owl-item-position::before {
+            height: calc(100% - 2.5rem);
         }
     }
