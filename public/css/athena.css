@@ -1919,6 +1919,9 @@
         }
         
         @media only screen and (max-width: 800px) {
+            .container-owl-carousel-5 {
+                bottom: 14rem;
+            }
             .container .container-header {
                 padding-top: 4rem;
             }
