@@ -2787,6 +2787,8 @@
             max-width: calc(100% - 4rem);
             text-align: center;
             margin: 0 auto;
+            z-index: 20 !important;
+            ;
         }
         #owl-carousel-5 {
             z-index: 20 !important;
