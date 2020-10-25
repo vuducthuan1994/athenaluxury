@@ -126,9 +126,8 @@ function owlDotsForPositionSlider() {
         lazyLoad: false,
         responsive: {
             0: {
-                autoplay: true,
-                items: 1,
-                autoHeight: false
+                autoplay: false,
+                items: 1
             },
             768: {
                 items: 1.764,
