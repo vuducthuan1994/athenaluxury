@@ -734,8 +734,6 @@
     
     .inner-position .inner-position-right {
         width: 50.9375%;
-        /* padding-left: 4rem; */
-        overflow-x: hidden;
         position: relative;
     }
     
@@ -2777,6 +2775,7 @@
         }
         section.position .inner-position {
             padding: 0;
+            margin-bottom: -14rem;
         }
         .container-owl-4 {
             /* margin-bottom: -2rem; */
