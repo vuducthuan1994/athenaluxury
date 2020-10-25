@@ -2531,7 +2531,8 @@
         section.contact {
             margin-top: 15rem;
         }
-        .image-libary-right ul.image-libary-right-menu li {
+        .image-libary-right ul.image-libary-right-menu li,
+        .image-libary-right ul.image-libary-right-menu li a {
             font-size: 1.4rem;
             display: inline-block;
         }
@@ -2644,6 +2645,7 @@
         .btn-next-screen {
             width: 5.5rem;
             height: 5.5rem;
+            z-index: 3;
         }
         .btn-next-screen img {
             position: absolute;
