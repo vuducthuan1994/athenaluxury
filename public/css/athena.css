@@ -2765,6 +2765,7 @@
             width: 100%;
             height: 326px;
             object-fit: cover;
+            z-index: 1;
         }
         section.position .inner-position {
             padding: 0;
@@ -2791,6 +2792,7 @@
         #owl-carousel-5 .owl-item-position {
             width: 295px;
             padding-top: 2.5rem;
+            z-index: 20;
         }
         .item-position .image-preview {
             max-width: 295px;
