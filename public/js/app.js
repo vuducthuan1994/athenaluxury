@@ -158,9 +158,9 @@ function owlDotsForPositionSlider() {
         });
         var owl5Controller = $('#inner-owl-5-controller');
         $('#inner-owl-5-controller').on('click', '.owl-item', function(e) {
-            e.preventDefault();
-            $('.owl-controller-item').removeClass('active');
-            $(this).find('.owl-controller-item:first').addClass('active-focus');
+            // e.preventDefault();
+            // $('.owl-controller-item').removeClass('active');
+            // $(this).find('.owl-controller-item:first').addClass('active-focus');
 
             // $(property.target).find(".owl-item .owl-controller-item").addClass('focus-active');
 
@@ -168,6 +168,14 @@ function owlDotsForPositionSlider() {
                 owl5Controller.trigger('to.owl.carousel', $(this).index());
                 owl5.trigger('to.owl.carousel', $(this).index());
             }
+        });
+        $('#inner-owl-5-controller .owl-item').eq(6).addClass('active-focus');
+        owl5Controller.on('translate.owl.carousel', function(e) {
+            idx = e.item.index;
+            console.log(idx)
+            $('#inner-owl-5-controller .owl-item.active-focus').removeClass('active-focus');
+            $('#inner-owl-5-controller .owl-item').eq(idx).addClass('active-focus');
+
         });
         owl5.on('changed.owl.carousel', function(e) {
             owl5Controller.trigger('to.owl.carousel', e.item.index + 3);

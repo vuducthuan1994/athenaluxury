@@ -29,7 +29,7 @@
     }
     
     .owl-controller-item-preview:hover,
-    .active-focus.owl-controller-item-preview {
+    .owl-item.active-focus .owl-controller-item-preview {
         background-color: #cd9577;
     }
     
