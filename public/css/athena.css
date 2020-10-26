@@ -3065,7 +3065,7 @@ section.contact .inner-contact {
     }
     section.position .inner-position {
         padding: 0;
-        margin-bottom: -21rem
+        margin-bottom: 0;
     }
     .container-owl-4 {
         z-index: 1
