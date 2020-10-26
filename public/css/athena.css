@@ -302,17 +302,18 @@ html {
 
 /* END MODAL */
 
-.owl-5-controller {
-    backface-visibility: hidden
-}
-
-.owl-5-controller {
-    padding-top: 2rem;
-    width: calc(100% + 4rem);
-    margin-left: -2rem;
-    position: relative;
-    height: auto;
-    background-color: #f4f4f7;
+@media only screen and (max-width: 500px) {
+    .owl-5-controller {
+        backface-visibility: hidden
+    }
+    .owl-5-controller {
+        padding-top: 2rem;
+        width: calc(100% + 4rem);
+        margin-left: -2rem;
+        position: relative;
+        height: auto;
+        background-color: #f4f4f7;
+    }
 }
 
 .owl-controller-item-preview {
