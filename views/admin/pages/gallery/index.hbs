@@ -1,0 +1,134 @@
+<style>
+ 
+
+    #formSettings {
+        width: 100%;
+    }
+</style>
+<div id="content" class="main-content">
+    <div class="col-md-12 text-center">
+        <button id="submitForm" form="formSettings" type="submit"
+            class="btn btn-secondary position-relative mt-3 mb-3 ml-2">Cập nhật</button>
+
+    </div>
+    <div class="layout-px-spacing">
+        <div class="row layout-top-spacing">
+            <div class="statbox widget box box-shadow col-md-12">
+                <div class="widget-header">
+                    <div class="row">
+                        <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                            <h4>Thư viện ảnh </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="widget-content widget-content-area">
+                    <div class="col-md-6">
+                        {{#each errors}}
+                        {{>admin/flash-message/error}}
+                        {{/each}}
+                        {{#each success}}
+                        {{>admin/flash-message/success}}
+                        {{/each}}
+                    </div>
+
+                    <form id="formSettings" enctype="multipart/form-data" method="POST" action="/admin/gallery">
+
+                        <div id="container-images-project" class="row col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+                            {{#each gallery.content}}
+                            {{#if_equal this.type "image"}}
+                            <div class="form-row mr-2 col-md-3">
+                                <div class="form-group w-100">
+                                    <a class="delete-image-project btn btn-danger">Xóa</a>
+                                    <a title="Xem full ảnh !"  target="_blank" href="https://maisondemocchau.vn/{{this.url}}" class="mb-2">
+                                        <input class="d-none" value="{{this.url}}" form="formSettings"
+                                            name="image-{{this.url}}" type="text" readonly class="form-control-file">
+                                        <img alt="Ảnh bị lỗi hoặc đã bị xóa" class="img-fluid" src="{{this.url}}">
+                                    </a>
+                                </div>
+                            </div>
+                            {{/if_equal}}
+
+                            {{#if_equal this.type "youtube"}}
+                            <div class="form-row mr-2 col-md-3">
+                                <div class="form-group w-100">
+                                    <a class="delete-youtube btn btn-danger">Xóa</a>
+                                    <input placeholder="Copy link youtube vào đây ..." required="" value="{{this.url}}"
+                                        form="formSettings" name="youtube-{{this.url}}" type="text"
+                                        class="form-control">
+                            <iframe width="100%" height="315" src="{{geEmbbedYotube this.url}}" frameborder="0" allowfullscreen></iframe>
+
+                                </div>
+                            </div>
+                            {{/if_equal}}
+
+                            {{/each}}
+                        </div>
+                        <a id="add-image-project" class="mt-1 mb-2 btn btn-primary">Thêm ảnh </a>
+                        <a id="add-youtube" class="mt-1 mb-2 btn btn-primary">Thêm video Youtube </a>
+                    </form>
+                </div>
+            </div>
+            <div style="display: none" class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+                <div id="base-image-project" class="statbox widget box box-shadow mb-4">
+                    <div class="form-row mb-2 col-md-3">
+                        <div class="form-group w-100">
+                            <a class="delete-image-project btn btn-danger">Xóa</a>
+                            <input name="" accept="image/jpeg,image/gif,image/png,image/x-eps" form="formSettings"
+                                type="file" class="form-control-file">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: none" class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+                <div id="base-youtube" class="statbox widget box box-shadow mb-4">
+                    <div class="form-row mb-2 col-md-3">
+                        <div class="form-group w-100">
+                            <a class="delete-youtube btn btn-danger">Xóa</a>
+                            <input placeholder="Copy link youtube vào đây ..." name="" form="formSettings" type="text"
+                                class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="/assets/js/clipboard/clipboard.min.js"></script>
+<script src="/assets/js/forms/custom-clipboard.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var time = new Date().getTime();
+        var countImages = 0;
+        function addImageProject() {
+            countImages++;
+            const imageProjectItem = $('#base-image-project').clone(true);
+            imageProjectItem.find('input').attr('name', 'image' + time + countImages)
+            imageProjectItem.find('input').attr('required', "")
+            $('#container-images-project').prepend(imageProjectItem.children().clone(true));
+        }
+        function addYoutube() {
+            countImages++;
+            const youtubeItem = $('#base-youtube').clone(true);
+            youtubeItem.find('input').attr('name', 'youtube' + time + countImages);
+            youtubeItem.find('input').attr('required', "")
+            $('#container-images-project').prepend(youtubeItem.children().clone(true));
+        }
+
+        function deleteProjectImage() {
+            $(this).parent().parent().remove();
+        }
+
+        function deleteYoutube() {
+            $(this).parent().parent().remove();
+        }
+
+        $('#add-image-project').on('click', addImageProject);
+        $('#add-youtube').on('click', addYoutube);
+
+        $('.delete-image-project').on('click', deleteProjectImage)
+        $('.delete-youtube').on('click', deleteYoutube)
+    });
+</script>
