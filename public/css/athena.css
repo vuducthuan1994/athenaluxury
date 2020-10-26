@@ -2519,8 +2519,9 @@ section.contact .inner-contact {
     }
     .inner-position .inner-position-right {
         width: calc(100% - 8rem);
-        position: initial;
-        margin: 0 auto
+        position: relative;
+        margin: 0 auto;
+        overflow: hidden;
     }
     .container-position-right p {
         max-width: 688px;
