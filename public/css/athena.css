@@ -260,6 +260,30 @@ html {
     margin-top: 50px;
 }
 
+@media only screen and (max-width: 768px) {
+    .time-post span {
+        margin-left: 8px;
+    }
+    .modal {
+        width: 85%;
+        height: 90%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .modal-wrapper .description-modal-text p {
+        font-size: 1.4rem;
+    }
+    .modal-wrapper .description-modal-text h1 {
+        font-size: 1.6rem;
+    }
+    .img-banner-modal .time-post {
+        width: 50%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
 
 /* END MODAL */
 
@@ -2642,6 +2666,10 @@ section.contact .inner-contact {
 }
 
 @media only screen and (max-width:500px) {
+    .introduction-left .building-infomation h5 {
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
     #owl-carousel-5 .owl-item-position .image-preview {
         max-height: unset
     }
