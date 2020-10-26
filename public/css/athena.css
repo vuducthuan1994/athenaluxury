@@ -2704,27 +2704,27 @@ section.contact .inner-contact {
         display: none
     }
     .slogan-text h1 {
-        font-size: 3.6rem
+        font-size: 2.2rem;
     }
     .btn-next-screen {
         bottom: 4rem;
-        right: 2rem;
-        left: unset
+        /* right: 2rem; */
+        left: 2rem;
     }
     .container .container-header {
         width: calc(100% - 4rem)
     }
     .slogan-text {
         position: absolute;
-        bottom: 4rem;
+        bottom: 16rem;
         left: 2rem;
-        top: unset
+        top: unset;
     }
     .slogan-text span {
-        font-size: 3.6rem
+        font-size: 2.3rem;
     }
     .slogan-text h2 {
-        font-size: 1.4rem
+        font-size: 1.2rem
     }
     .footer .footer-bottom {
         padding-top: 1.2rem;
@@ -3178,9 +3178,9 @@ section.contact .inner-contact {
         font-size: 1.2rem;
         color: rgba(8, 35, 64, .502)
     }
-    .slogan-text .line2 span {
+    /* .slogan-text .line2 span {
         display: block
-    }
+    } */
     .inner-logo-desktop {
         margin-right: calc(100% - 20.5rem)
     }
