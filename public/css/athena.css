@@ -2764,7 +2764,7 @@ section.contact .inner-contact {
     }
     section.utilities .inner-utilities {
         padding-bottom: 12rem;
-        margin-top: -21rem;
+        margin-top: 0;
         z-index: 0;
     }
     .utilities .utilities-left .container-five-star {
@@ -2982,8 +2982,8 @@ section.contact .inner-contact {
         content: url(../img/vignette-mobile-2.png)
     }
     .utilities .utilities-right .inner-utilities-right {
-        padding-top: 26.5rem;
-        z-index: -1;
+        padding-top: 5.5rem;
+        z-index: 0;
     }
     .container-utilities-image-right .vignette-pattern-right {
         position: absolute;
