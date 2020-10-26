@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $(".preloader").delay(2500).fadeOut(500);
+    $(".preloader-container").delay(2500).fadeOut(500);
     initMenuMobile();
     owlApartmentInit();
     owlDevelopmentProjectInit();
