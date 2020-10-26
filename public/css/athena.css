@@ -3086,10 +3086,12 @@ section.contact .inner-contact {
         max-width: calc(100% - 4rem);
         text-align: center;
         margin: 0 auto;
-        z-index: 20!important
+        z-index: 20!important;
+        -webkit-transform: translate3d(0, 0, 0);
     }
     #owl-carousel-5 {
-        z-index: 20!important
+        z-index: 20!important;
+        -webkit-transform: translate3d(0, 0, 0);
     }
     #owl-carousel-5 .owl-item-position {
         width: 295px;
