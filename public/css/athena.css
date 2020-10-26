@@ -5,6 +5,10 @@ html {
     -webkit-overflow-scrolling: touch
 }
 
+.container-video {
+    position: relative;
+}
+
 
 /* START MODAL */
 
@@ -271,6 +275,9 @@ html {
 }
 
 @media only screen and (max-width: 500px) {
+    .container-video {
+        margin-bottom: -4.5rem;
+    }
     .modal-wrapper .description-modal-text p {
         font-size: 1.4rem;
     }
@@ -697,7 +704,9 @@ html {
 }
 
 #owl-carousel-5 .owl-item-position .image-preview {
-    max-width: 369px
+    max-width: 369px;
+    height: 24.5rem;
+    object-fit: cover;
 }
 
 #owl-carousel-5 .owl-item-position .container-icon-preview img {
@@ -1066,16 +1075,18 @@ section.position .inner-position {
     padding-top: 9.5rem
 }
 
-.container-owl-4 {
+.content-position-left {
     position: relative;
     width: 100%
 }
 
 .container-owl-carousel-5 {
-    position: absolute;
-    left: 4rem;
-    bottom: 14.5rem;
-    width: 100%
+    width: 100%;
+    ms-transform: translate(calc(100% + 4rem), -50%);
+    -webkit-transform: translate(calc(100% + 4rem), -50%);
+    -moz-transform: translate(calc(100% + 4rem), -50%);
+    -o-transform: translate(calc(100% + 4rem), -50%);
+    transform: translate(calc(100% + 4rem), -50%);
 }
 
 #owl-carousel-5 .owl-item-position {
@@ -2188,17 +2199,14 @@ section.contact .inner-contact {
     section.visit-model-house .inner-visit-model-house {
         max-width: 1150px
     }
-    .container-owl-carousel-5 {
-        bottom: 11rem
-    }
 }
 
 @media only screen and (max-width:800px) {
-    .container-owl-carousel-5 {
-        bottom: 14rem
-    }
     .container .container-header {
         padding-top: 4rem
+    }
+    section.utilities {
+        margin-top: -11.5rem;
     }
     .logo-desktop .phone img {
         width: 18px
@@ -2532,13 +2540,15 @@ section.contact .inner-contact {
         align-items: center
     }
     .inner-position-right .container-position-right {
-        padding-left: unset;
-        padding-top: unset;
+        padding-left: 0;
+        padding-top: 0;
         position: relative;
+        overflow: hidden;
     }
     section.position .inner-position {
         flex-direction: column-reverse;
-        padding-bottom: 21rem
+        padding-bottom: unset;
+        width: 100%;
     }
     .inner-position .inner-position-left {
         padding-bottom: unset
@@ -2550,12 +2560,14 @@ section.contact .inner-contact {
     .inner-position .btn-next-position {
         left: 0;
         width: 4rem;
-        height: 4rem
+        height: 4rem;
+        bottom: -2rem;
     }
     .inner-position .btn-prev-position {
         left: -4rem;
         width: 4rem;
-        height: 4rem
+        height: 4rem;
+        bottom: -2rem;
     }
     .inner-position .inner-position-right {
         width: calc(100% - 8rem);
@@ -2568,14 +2580,13 @@ section.contact .inner-contact {
         margin-bottom: 4.5rem
     }
     .container-owl-carousel-5 {
-        position: absolute;
-        left: unset;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        max-width: calc(100% - 8rem);
-        transform: translateY(calc(50% - 15px));
-        z-index: 1
+        position: relative;
+        width: calc(100% + 8rem);
+        max-width: calc(100% + 8rem);
+        transform: none;
+        z-index: 20;
+        margin-top: 5rem;
+        /* margin-bottom: -9rem; */
     }
     #owl-carousel-5 .owl-item-position .image-preview {
         max-width: 369px;
@@ -3024,7 +3035,7 @@ section.contact .inner-contact {
         content: url(../img/vignette-mobile-2.png)
     }
     .utilities .utilities-right .inner-utilities-right {
-        padding-top: 5.5rem;
+        padding-top: 27rem;
         z-index: 0;
     }
     .container-utilities-image-right .vignette-pattern-right {
@@ -3086,10 +3097,10 @@ section.contact .inner-contact {
     }
     .inner-position .inner-position-left {
         width: calc(100% - 4rem);
-        position: absolute;
+        /* position: absolute;
         bottom: 19rem;
         left: 0;
-        right: 0
+        right: 0 */
     }
     .inner-position .btn-next-position {
         display: none
@@ -3102,7 +3113,7 @@ section.contact .inner-contact {
         width: 5rem;
         height: 5rem
     }
-    .container-owl-4 video {
+    .content-position-left video {
         width: 100%;
         height: 326px;
         object-fit: cover;
@@ -3111,12 +3122,6 @@ section.contact .inner-contact {
     section.position .inner-position {
         padding: 0;
         margin-bottom: 0;
-    }
-    .container-owl-4 {
-        z-index: 1
-    }
-    .container-position-right p {
-        margin-bottom: 32rem
     }
     .container-owl-carousel-5 {
         left: unset;
@@ -3128,12 +3133,11 @@ section.contact .inner-contact {
         max-width: calc(100% - 4rem);
         text-align: center;
         margin: 0 auto;
-        z-index: 20!important;
+        z-index: 20;
         /* -webkit-transform: translate3d(0, 0, 0); */
     }
-    #owl-carousel-5 {
-        z-index: 20!important;
-        /* -webkit-transform: translate3d(0, 0, 0); */
+    .container-position-right p {
+        margin-bottom: 3.5rem;
     }
     #owl-carousel-5 .owl-item-position {
         width: 295px;
