@@ -270,7 +270,8 @@ html {
 .owl-5-controller {
     margin-top: 2rem;
     width: calc(100% + 4rem);
-    margin-left: -2rem
+    margin-left: -2rem;
+    position: relative;
 }
 
 .owl-controller-item-preview {
@@ -2494,7 +2495,8 @@ section.contact .inner-contact {
     }
     .inner-position-right .container-position-right {
         padding-left: unset;
-        padding-top: unset
+        padding-top: unset;
+        position: relative;
     }
     section.position .inner-position {
         flex-direction: column-reverse;
@@ -2521,7 +2523,6 @@ section.contact .inner-contact {
         width: calc(100% - 8rem);
         position: relative;
         margin: 0 auto;
-        overflow: hidden;
     }
     .container-position-right p {
         max-width: 688px;
@@ -2978,19 +2979,20 @@ section.contact .inner-contact {
         content: url(../img/vignette-mobile-2.png)
     }
     .utilities .utilities-right .inner-utilities-right {
-        padding-top: 26.5rem
+        padding-top: 26.5rem;
+        z-index: -1;
     }
     .container-utilities-image-right .vignette-pattern-right {
         position: absolute;
         bottom: 0;
-        left: 0
+        left: 0;
     }
     .utilities-right p {
-        font-size: 1.6rem
+        font-size: 1.6rem;
     }
     .btn-map-utilities {
         margin-top: 1.5rem;
-        width: calc(100% - 4rem)
+        width: calc(100% - 4rem);
     }
     .utilities .utilities-left img {
         max-height: 350px
