@@ -2742,8 +2742,8 @@ section.contact .inner-contact {
     .inner-apartment .apartment-right,
     .inner-position .inner-position-right,
     .utilities .utilities-right {
-        width: calc(100% - 4rem);
-        overflow-y: hidden
+        width: calc(100% - 4rem)
+        /* overflow-y: hidden */
     }
     .container-position-right p {
         font-size: 1.6rem
