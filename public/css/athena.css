@@ -309,6 +309,7 @@ html {
     margin-left: -2rem;
     position: relative;
     height: auto;
+    background-color: #f4f4f7;
 }
 
 .owl-controller-item-preview {
@@ -2684,6 +2685,9 @@ section.contact .inner-contact {
 }
 
 @media only screen and (max-width:500px) {
+    section.utilities {
+        margin-top: 0;
+    }
     .footer .footer-top .menu-footer li:not(:first-child) a {
         font-size: 1.4rem;
         line-height: 5rem;
@@ -3121,9 +3125,6 @@ section.contact .inner-contact {
     .inner-position .btn-prev-position {
         display: none
     }
-    #owl-carousel-5 .owl-item-position {
-        z-index: 30;
-    }
     #owl-carousel-5 .owl-item-position .container-icon-preview {
         left: calc(50% - 2.5rem);
         width: 5rem;
@@ -3149,7 +3150,7 @@ section.contact .inner-contact {
         max-width: calc(100% - 4rem);
         text-align: center;
         margin: 0 auto;
-        z-index: 20;
+        z-index: 0;
         /* -webkit-transform: translate3d(0, 0, 0); */
     }
     .container-position-right p {
