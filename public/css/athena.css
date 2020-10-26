@@ -303,6 +303,7 @@ html {
     width: calc(100% + 4rem);
     margin-left: -2rem;
     position: relative;
+    height: auto;
 }
 
 .owl-controller-item-preview {
@@ -2207,6 +2208,7 @@ section.contact .inner-contact {
     }
     section.utilities {
         margin-top: -11.5rem;
+        position: relative;
     }
     .logo-desktop .phone img {
         width: 18px
@@ -2838,7 +2840,8 @@ section.contact .inner-contact {
         margin-top: 1.5rem
     }
     section.position {
-        margin-top: 5.5rem
+        margin-top: 5.5rem;
+        /* margin-bottom: -11.5rem; */
     }
     section .inner-apartment {
         padding-top: 13.7rem
@@ -3107,6 +3110,9 @@ section.contact .inner-contact {
     }
     .inner-position .btn-prev-position {
         display: none
+    }
+    #owl-carousel-5 .owl-item-position {
+        z-index: 30;
     }
     #owl-carousel-5 .owl-item-position .container-icon-preview {
         left: calc(50% - 2.5rem);
