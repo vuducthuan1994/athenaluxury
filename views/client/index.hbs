@@ -458,7 +458,7 @@
                 <div id="owl-carousel-3" class="owl-carousel">
 
                     {{#each posts}}
-                    <div class="post-item">
+                    <div data-id="{{this._id}}" class="post-item">
                         <img src="{{getThumbnailImage this.thumb_image this.banner_image}}">
                         <div class="preview">
                             <h3>{{this.title}}</h3>

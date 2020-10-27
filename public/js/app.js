@@ -206,11 +206,6 @@ function owlDotsForPositionSlider() {
 }
 
 function modalController() {
-    // $('.news-content ').click(function() {
-    //     $('html').addClass('is-main-menu-open');
-    //     var id = $(this).data("id");
-    //     // getDataArticle(id);
-    // });
     $('.modal-wrapper .overlay').click(function() {
         $('.modal-wrapper ').toggleClass('open');
         $('.modal-wrapper .overlay').toggleClass('open');
@@ -225,17 +220,30 @@ function modalController() {
     })
     $('.news-content .post-item').click(function() {
         $('html').addClass('is-main-menu-open');
-        // var id = $(this).data("id");
-        // getDataArticle(id);
+        var id = $(this).data("id");
+        getDataArticle(id);
 
-        $('.modal-wrapper ').toggleClass('open');
-        $('.modal-wrapper .overlay').toggleClass('open');
-        $('.modal-wrapper .modal').toggleClass('open');
     });
-
-    return false;
 }
 
+function getDataArticle(id) {
+    $.ajax({
+        type: "GET",
+        url: "/api/posts/" + id,
+        dataType: "json",
+        success: function(data) {
+            const post = data.post;
+            const created_date = data.created_date;
+            $("#article-image").attr('src', post.banner_image);
+            $("#article-public-date").text(created_date)
+            $("#article-title").text(post.title)
+            $("#article-content").html(post.body)
+            $('.modal-wrapper ').toggleClass('open');
+            $('.modal-wrapper .overlay').toggleClass('open');
+            $('.modal-wrapper .modal').toggleClass('open');
+        }
+    });
+}
 
 function owlNewsInit() {
     $('#owl-carousel-3').owlCarousel({
@@ -301,7 +309,7 @@ function owlNewsInit() {
                     res.posts.forEach(post => {
                         const short_desc = post.short_desc.substring(0, 85) + '...';
                         htmlOWL +=
-                            `  <div class="post-item">
+                            `  <div data-id="${post._id}" class="post-item">
                         <img src="${post.thumb_image}">
                         <div class="preview">
                             <h3>${post.title}</h3>
@@ -313,6 +321,12 @@ function owlNewsInit() {
                         owl3.trigger('replace.owl.carousel', htmlOWL).trigger('refresh.owl.carousel');
                         $('.news-header-right-menu li').removeClass('active');
                         currentMenu.addClass('active');
+                        $('.news-content .post-item').click(function() {
+                            $('html').addClass('is-main-menu-open');
+                            var id = $(this).data("id");
+                            getDataArticle(id);
+
+                        });
                     }
                 }
             }
