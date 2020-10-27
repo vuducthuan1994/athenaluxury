@@ -22,7 +22,7 @@ const introduction = require('./admin/introduction')();
 const text_sliders = require('./admin/text-sliders')();
 const projects = require('./admin/project')();
 const imagesProject = require('./admin/images-project')();
-const gallery = require('./admin/gallery')();
+const gallery = require('./admin/gallery');
 router.use('/settings', settings);
 // router.use('/hosts', host);
 router.use('/users', user);

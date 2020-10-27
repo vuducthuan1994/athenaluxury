@@ -236,6 +236,20 @@ module.exports = {
             return (`/admin/posts/edit-post/${id}`)
         }
     },
+    buildActionGallery(id, type) {
+        if (type == 'image') {
+            if (!id) {
+                return '/admin/gallery/create/image';
+            }
+            return (`/admin/gallery/edit-image/${id}`)
+        }
+        if (type == 'video') {
+            if (!id) {
+                return '/admin/gallery/create/video';
+            }
+            return (`/admin/gallery/edit-video/${id}`)
+        }
+    },
     getDescriptionArtiles(description) {
         var result = description.substring(0, 85) + '...';
         return result;

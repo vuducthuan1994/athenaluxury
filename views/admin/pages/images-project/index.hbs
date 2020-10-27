@@ -14,12 +14,7 @@
 
     </div>
     <div class="layout-px-spacing">
-
         <div class="row layout-top-spacing">
-
-
-
-
             <div class="statbox widget box box-shadow col-md-12">
                 <div class="widget-header">
                     <div class="row">
@@ -56,12 +51,8 @@
                         </div>
                         <a id="add-image-project" class="mt-1 mb-2 btn btn-primary">Thêm </a>
                     </form>
-
-
                 </div>
             </div>
-
-
 
             <div style="display: none" class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
                 <div id="base-image-project" class="statbox widget box box-shadow mb-4">
@@ -92,11 +83,10 @@
             countImages++;
             const imageProjectItem = $('#base-image-project').clone(true);
             imageProjectItem.find('input').attr('name', time + countImages)
-            $('#container-images-project').prepend(imageProjectItem.children().clone(true));
+            $('#container-images-project').append(imageProjectItem.children().clone(true));
         }
 
         function deleteProjectImage() {
-
             $(this).parent().parent().remove();
         }
         $('#add-image-project').on('click', addImageProject);

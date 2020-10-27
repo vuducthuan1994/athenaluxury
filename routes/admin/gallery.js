@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-const Settings = require('../../models/settingModel');
-
+const Gallery = require('../../models/galleryModel');
+const sharp = require('sharp');
 var fs = require('fs');
 const formidable = require('formidable');
 var path = require('path');
@@ -18,71 +18,165 @@ var isAuthenticated = function(req, res, next) {
 }
 
 
-module.exports = function() {
-
-    router.get('/', isAuthenticated, function(req, res) {
-        Settings.findOne({ type: 'gallery' }, function(err, gallery) {
-            if (!err) {
-                const success = req.flash('success');
-                res.render('admin/pages/gallery/index', { success: success, errors: req.flash('errors'), title: "Hình ảnh dự án", gallery: gallery.toJSON(), layout: 'admin.hbs' });
-            }
-        });
+router.get('/', isAuthenticated, function(req, res) {
+    Gallery.find({}, function(err, gallerys) {
+        if (!err) {
+            const success = req.flash('success');
+            res.render('admin/pages/gallery/index', { success: success, errors: req.flash('errors'), title: "Thư viện ảnh , video", gallerys: gallerys.map(gallery => gallery.toJSON()), layout: 'admin.hbs' });
+        }
     });
-    router.post('/', function(req, res) {
-        const form = formidable({ multiples: true });
-        let results = [];
-        form.parse(req);
-        form.on('fileBegin', function(fieldName, file) {
-            var dir = __basedir + '/public/img/maison';
-            if (!fs.existsSync(dir)) {
-                fs.mkdirSync(dir, 0744);
-            }
-            if (file.name !== '' && fieldName.includes('image')) {
-                const fileName = uslug(file.name, { allowedChars: '.-_', lower: true });
-                results.push({
-                    url: `/img/maison/${fieldName}-${fileName}`,
-                    caption: '',
-                    type: 'image'
-                });
-                file.path = path.join(__basedir, `public/img/maison/${fieldName}-${fileName}`);
-            }
-        });
-        form.on('field', (fieldName, fieldValue) => {
-            if (fieldName.includes('youtube')) {
-                results.push({
-                    type: 'youtube',
-                    url: fieldValue,
-                    options: {
-                        width: 853,
-                        height: 480,
-                        youtube: { autoplay: 0 }
-                    }
-                });
-            }
-            if (fieldName.includes('image')) {
-                results.push({
-                    url: fieldValue,
-                    caption: '',
-                    type: 'image'
-                });
+});
+
+router.get('/add-gallery/:type', isAuthenticated, function(req, res) {
+    const type = req.params.type;
+    res.render('admin/pages/gallery/add-gallery', { type: type, title: "Thêm ảnh", layout: 'admin.hbs' });
+});
+router.get('/edit-gallery/:id', isAuthenticated, function(req, res) {
+    const galleryID = req.params.id;
+    Gallery.findOne({ _id: galleryID }, function(err, galleryItem) {
+        if (err) {
+            req.flash('messages', 'Lỗi hệ thống, không sửa được bài viết !')
+            res.redirect('back');
+        } else {
+            res.render('admin/pages/gallery/add-gallery', { errors: req.flash('errors'), messages: req.flash('messages'), title: "Sửa ", layout: 'admin.hbs', galleryItem: galleryItem.toJSON() });
+        }
+    })
+});
+
+let resizeImage = function(oldPath, newPath, width, height) {
+    sharp(oldPath)
+        .resize(width, height)
+        .toFile(newPath, function(err) {
+            if (err) {
+                console.log(err);
             }
         });
-
-        form.on('end', function() {
-            console.log(results);
-            Settings.updateOne({ type: 'gallery' }, { content: results }, function(err, data) {
-
-                if (!err) {
-                    req.flash('success', 'Update thành công !')
-                    res.redirect('back');
-                } else {
-                    req.flash('errors', 'Update không thành công !')
-                    res.redirect('back');
-                }
-            });
-
-        });
-    });
-
-    return router;
 }
+router.post('/create/:type', function(req, res) {
+    var dir = __basedir + '/public/img/gallery';
+    if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, 0744);
+    }
+
+    let content = {};
+    content['type'] = req.params.type;
+    const form = formidable({ multiples: true });
+    form.parse(req);
+    form.on('fileBegin', function(name, file) {
+        if (name == 'url_image' && file.name !== '' && req.params.type == 'image') {
+            let fileName = uslug((new Date().getTime() + '-' + file.name), { allowedChars: '.-', lower: true });
+            file.path = path.join(__basedir, `public/img/gallery/${fileName}`);
+            content['url_image'] = `/img/gallery/${fileName}`;
+        }
+    });
+    form.on('field', function(fieldName, fieldValue) {
+        if (fieldName !== 'url_image') {
+            content[fieldName] = fieldValue;
+        }
+    });
+    form.on('file', function(fieldName, file) {
+        if (fieldName == 'url_image' && file.name !== '') {
+            let fileName = uslug((new Date().getTime() + '-' + file.name), { allowedChars: '.-', lower: true });
+
+
+            if (req.params.type == 'image') {
+                const thumb_image = path.join(__basedir, `public/img/gallery/thumb-${fileName}`);
+                content['thumb_image'] = `/img/gallery/thumb-${fileName}`;
+                resizeImage(file.path, thumb_image, 374, 210);
+            }
+            if (req.params.type == 'video') {
+                const thumb_image = path.join(__basedir, `public/img/gallery/banner-${fileName}`);
+                content['thumb_image'] = `/img/gallery/thumb-${fileName}`;
+                resizeImage(file.path, thumb_image, 374, 210);
+            }
+        }
+    });
+
+    form.on('end', function() {
+        if (req.account) {
+            content['user'] = req.account;
+        }
+        Gallery.create(content, function(err, galleryItem) {
+            if (!err) {
+                req.flash('messages', 'Tạo thành công !');
+                res.redirect('back');
+            } else {
+                let msg = null;
+                if (err.code = 11000) {
+                    msg = err.errmsg;
+                }
+                req.flash('errors', `${msg}`);
+                res.redirect('back');
+            }
+        });
+    });
+});
+
+router.post('/edit/:type/:id', function(req, res) {
+    var dir = __basedir + '/public/img/gallery';
+    if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, 0744);
+    }
+
+
+    const type = req.params.type;
+    const idGallery = req.params.id;
+    let content = {};
+
+    const form = formidable({ multiples: true });
+    form.parse(req);
+    form.on('fileBegin', function(name, file) {
+        if (name == 'url_image' && file.name !== '' && req.params.type == 'image') {
+            let fileName = uslug((new Date().getTime() + '-' + file.name), { allowedChars: '.-', lower: true });
+            file.path = path.join(__basedir, `public/img/gallery/${fileName}`);
+            content['url_image'] = `/img/gallery/${fileName}`;
+        }
+    });
+    form.on('field', function(fieldName, fieldValue) {
+        if (fieldName !== 'url_image') {
+            content[fieldName] = fieldValue;
+        }
+    });
+
+    form.on('file', function(fieldName, file) {
+        if (fieldName == 'url_image' && file.name !== '') {
+            let fileName = uslug((new Date().getTime() + '-' + file.name), { allowedChars: '.-', lower: true });
+
+
+            if (req.params.type == 'image') {
+                const thumb_image = path.join(__basedir, `public/img/gallery/thumb-${fileName}`);
+                content['thumb_image'] = `/img/gallery/thumb-${fileName}`;
+                resizeImage(file.path, thumb_image, 374, 210);
+            }
+            if (req.params.type == 'video') {
+                const thumb_image = path.join(__basedir, `public/img/gallery/banner-${fileName}`);
+                content['thumb_image'] = `/img/gallery/thumb-${fileName}`;
+                resizeImage(file.path, thumb_image, 374, 210);
+            }
+        }
+    });
+
+    form.on('end', function() {
+        if (req.user) {
+            content['edit_by'] = req.user;
+        }
+
+        content['updated_date'] = new Date();
+        Gallery.findOneAndUpdate({ _id: idGallery }, content, function(err, post) {
+            if (!err) {
+                req.flash('messages', 'Sửa thành công !');
+                res.redirect('back');
+            } else {
+                let msg = null;
+                if (err.code = 11000) {
+                    msg = err.errmsg;
+                }
+                req.flash('errors', `${msg}`);
+                res.redirect('back');
+            }
+        });
+    });
+});
+
+
+module.exports = router;
