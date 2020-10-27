@@ -25,7 +25,7 @@ module.exports = function() {
     };
     //get all posts
     router.get('/', isAuthenticated, function(req, res) {
-        getDirectories('public/artiles', function(err, res) {
+        getDirectories('public/img/posts', function(err, res) {
             if (err) {
                 console.log('Error', err);
             } else {
@@ -54,22 +54,21 @@ module.exports = function() {
             }
         })
     });
+
     router.post('/uploadImages', function(req, res) {
         let fileName = null;
         var photos = [],
             form = new formidable.IncomingForm();
         form.multiples = true;
         form.on('fileBegin', function(fieldName, file) {
-            console.log("hahahahaha");
-            var dir = __basedir + '/public/artiles';
+            var dir = __basedir + '/public/img/posts';
             if (!fs.existsSync(dir)) {
                 fs.mkdirSync(dir, 0744);
             }
             if (file.name !== '') {
-
                 fileName = uslug((Date.now() + '-' + file.name), { allowedChars: '.-_', lower: true });
-                file.path = path.join(__basedir, `public/artiles/${fileName}`);
-                photos.push(`/artiles/${fileName}`);
+                file.path = path.join(__basedir, `public/img/posts/${fileName}`);
+                photos.push(`/img/posts/${fileName}`);
             }
         });
         form.on('error', function(err) {
@@ -89,20 +88,24 @@ module.exports = function() {
         let banner_image = null;
         const form = formidable({ multiples: true });
         form.on('fileBegin', function(name, file) {
+            var dir = __basedir + '/public/img/posts/banners';
+            if (!fs.existsSync(dir)) {
+                fs.mkdirSync(dir, 0744);
+            }
             if (name == 'banner_image' && file.name !== '') {
                 banner_image = uslug((new Date().getTime() + '-' + file.name), { allowedChars: '.', lower: true });
-                file.path = path.join(__basedir, `public/img/${banner_image}`);
+                file.path = path.join(__basedir, `public/img/posts/banners/${banner_image}`);
             }
         });
         form.on('file', function(fieldName, file) {
             if (fieldName == 'banner_image' && file.name !== '') {
-                var dir = __basedir + '/public/img/thumbails';
+                var dir = __basedir + '/public/img/posts/thumbails';
                 if (!fs.existsSync(dir)) {
                     fs.mkdirSync(dir, 0744);
                 }
-                const thumb_path = path.join(__basedir, `public/img/thumbails/400x268-${banner_image}`);
+                const thumb_path = path.join(__basedir, `public/img/posts/thumbails/400x600-${banner_image}`);
                 sharp(file.path)
-                    .resize(400, 268)
+                    .resize(400, 600)
                     .toFile(thumb_path, function(err) {
                         if (!err) {
                             req.flash('messages', 'Image was resize !')
@@ -112,9 +115,10 @@ module.exports = function() {
         });
 
         form.parse(req, (err, fields) => {
+            console.log(fields);
             if (banner_image !== null) {
-                fields.banner_image = `/img/${banner_image}`;
-                fields.thumb_image = `/img/thumbails/400x268-${banner_image}`;
+                fields.banner_image = `/img/posts/banners/${banner_image}`;
+                fields.thumb_image = `/img/posts/thumbails/400x600-${banner_image}`;
             }
             if (req.user) {
                 fields.edit_by = req.user;
@@ -148,19 +152,23 @@ module.exports = function() {
         const form = formidable({ multiples: true });
         form.on('fileBegin', function(name, file) {
             if (name == 'banner_image' && file.name !== '') {
+                var dir = __basedir + '/public/img/posts/banners';
+                if (!fs.existsSync(dir)) {
+                    fs.mkdirSync(dir, 0744);
+                }
                 banner_image = uslug((new Date().getTime() + '-' + file.name), { allowedChars: '.', lower: true });
-                file.path = path.join(__basedir, `public/img/${banner_image}`);
+                file.path = path.join(__basedir, `public/img/posts/banners/${banner_image}`);
             }
         });
         form.on('file', function(fieldName, file) {
             if (fieldName == 'banner_image' && file.name !== '') {
-                var dir = __basedir + '/public/img/thumbails';
+                var dir = __basedir + '/public/img/posts/thumbails';
                 if (!fs.existsSync(dir)) {
                     fs.mkdirSync(dir, 0744);
                 }
-                const thumb_path = path.join(__basedir, `public/img/thumbails/400x268-${banner_image}`);
+                const thumb_path = path.join(__basedir, `public/img/posts/thumbails/400x600-${banner_image}`);
                 sharp(file.path)
-                    .resize(400, 268).webp({ quality: 100 })
+                    .resize(400, 600).webp({ quality: 100 })
                     .toFile(thumb_path, function(err) {
                         if (!err) {
                             req.flash('messages', 'Image was resize !')
@@ -170,6 +178,7 @@ module.exports = function() {
         });
 
         form.parse(req, (err, fields) => {
+            console.log(fields);
             if (req.account) {
                 fields.user = req.account;
             }
@@ -179,8 +188,8 @@ module.exports = function() {
                 fields.isPublic = false;
             }
             if (banner_image !== null) {
-                fields.banner_image = `/img/${banner_image}`;
-                fields.thumb_image = `/img/thumbails/400x268-${banner_image}`;
+                fields.banner_image = `/img/posts/banners/${banner_image}`;
+                fields.thumb_image = `/img/posts/thumbails/400x600-${banner_image}`;
             }
 
             if (err) {

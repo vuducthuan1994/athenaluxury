@@ -53,12 +53,14 @@
                                                     name="short_desc" class="form-control"
                                                     aria-label="With textarea">{{post.short_desc}}</textarea>
                                             </div>
-
                                         </div>
-                                        <div class="form-group">
-                                            <label>FB LINK</label>
-                                            <input type="text" name="fb_link" placeholder="Enter fb link  ..."
-                                                value="{{post.fb_link}}" class="form-control" required="">
+                                        <div class=" form-group">
+                                            <label>Thể Loại Bài Viết</label>
+                                            <select required="" name="type" class="form-control col-md-6">
+                                                <option {{selected 'news' post.type }} value="news">TIN TỨC</option>
+                                                <option {{selected 'event' post.type }} value="event">SỰ KIỆN</option>
+                                                <option {{selected 'trending' post.type }} value="trending">NỔI BẬT</option>
+                                            </select>
                                         </div>
 
                                         <div class="form-group ">
@@ -72,7 +74,8 @@
 
                                         <div class="form-group ">
                                             <label>Ảnh đại diện</label>
-                                            <small id="emailHelp" class="form-text text-warning">Không cần resize ảnh đại diện , website đã tự động resize !</small>
+                                            <small id="emailHelp" class="form-text text-warning">Không cần resize ảnh
+                                                đại diện , website đã tự động resize !</small>
 
                                             <input accept="image/jpeg,image/gif,image/png,image/x-eps"
                                                 name="banner_image" type="file" class="form-control-file">
@@ -84,7 +87,8 @@
 
                                         <div class="form-group">
                                             <label>Nội dung </label>
-                                            <small id="emailHelp" class="form-text text-warning">Không cần set font-size , hãy để mặc định ( Default) để website tự căn chỉnh</small>
+                                            <small id="emailHelp" class="form-text text-warning">Không cần set font-size
+                                                , hãy để mặc định ( Default) để website tự căn chỉnh</small>
                                             <textarea name="body" id="editor1" class="ckeditor" required=""
                                                 value="hahaha" placeholder="Enter short description of post ...">
                                             {{{post.body}}}

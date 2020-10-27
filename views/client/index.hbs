@@ -348,9 +348,6 @@
                         tâm Thành phố Đà Nẵng phồn vinh,
                         Athena Luxury Đà Nẵng Riverside tự hào vị thế độc tôn - riêng một đẳng cấp sống nghỉ dưỡng.</p>
                 </div>
-
-
-
             </div>
     </section>
     <section id="tien-ich" class="utilities">
@@ -451,15 +448,25 @@
                 </div>
                 <div class="news-header-right">
                     <ul class="news-header-right-menu">
-                        <li class="active">nổi bật</li>
-                        <li>sự kiện</li>
-                        <li>tin tức</li>
+                        <li data-type="trending" class="active">nổi bật</li>
+                        <li data-type="event" >sự kiện</li>
+                        <li data-type="news" >tin tức</li>
                     </ul>
                 </div>
             </div>
             <div data-aos="fade-up" class="news-content">
                 <div id="owl-carousel-3" class="owl-carousel">
+
+                    {{#each posts}}
                     <div class="post-item">
+                        <img src="{{getThumbnailImage this.thumb_image this.banner_image}}">
+                        <div class="preview">
+                            <h3>{{this.title}}</h3>
+                          <p>{{getDescriptionArtiles this.short_desc}}</p>
+                        </div>
+                    </div>
+                    {{/each}}
+                    {{!-- <div class="post-item">
                         <img src="/img/post-img-1.jpg">
                         <div class="preview">
                             <h3>Tiệc cưới trên biển</h3>
@@ -491,7 +498,7 @@
                             <p>Trải nghiệm sống sang, ngập tràn nắng, gió, biển giữa chuỗi tiện ích 5* đẳng cấp thượng
                                 lưu chính là ... </p>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <div class="owl-controller">

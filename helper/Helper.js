@@ -154,11 +154,14 @@ module.exports = {
         }
         return false
     },
-    buildLinkDownloadMp3(host, id) {
-        return `https://s10.infodwnld.info/?id=${id}&site=${host}`;
-    },
-    buildLinkDownloadMp4(host, id) {
-        return `https://s10.infodwnld.info/?id=${id}&type=video&site=${host}`;
+    selected(option, value) {
+        if (option && value) {
+            return option.toLowerCase() == value.toLowerCase() ? 'selected' : '';
+        } else {
+            if (option == 'event') {
+                return 'selected';
+            }
+        }
     },
     timeDifference(previous) {
         const current = new Date().getTime();

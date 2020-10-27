@@ -37,9 +37,10 @@ var PostsSchema = new Schema({
         default: '',
         trim: true
     },
-    fb_link: {
+    type: {
         type: String,
-        trim: true
+        trim: true,
+        required: true
     },
     isPublic: {
         type: Boolean,

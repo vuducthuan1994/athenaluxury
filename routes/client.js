@@ -20,7 +20,14 @@ router.use(function(req, res, next) {
     next();
 });
 
-
+router.get('/api/getPostsByType/:type', function(req, res) {
+    const postType = req.params.type;
+    Posts.find({ type: postType }, function(err, posts) {
+        if (!err) {
+            res.status(200).json({ success: true, posts: posts });
+        }
+    })
+})
 router.get('/api/posts/:id', function(req, res) {
     const postId = req.params.id;
     Posts.findOne({ _id: postId }, function(err, post) {
@@ -52,11 +59,11 @@ router.get('/', async function(req, res) {
     //     cache.set("introduction", introduction);
     // }
 
-    // let posts = cache.get("posts");
-    // if (posts == undefined) {
-    //     posts = await getPosts();
-    //     cache.set("posts", posts);
-    // }
+    let posts = cache.get("posts");
+    if (posts == undefined) {
+        posts = await getPosts();
+        cache.set("posts", posts);
+    }
 
     // let textSliders = cache.get("textSliders");
     // if (textSliders == undefined) {
@@ -79,7 +86,7 @@ router.get('/', async function(req, res) {
     res.render('client/index', {
         // projects: projects,
         host: req.get('host'),
-        // posts: posts.map(post => post.toJSON()),
+        posts: posts.map(post => post.toJSON()),
         // textSliders: textSliders,
         // introduction: introduction,
         // images_project: images_project,
@@ -116,7 +123,7 @@ let getProjects = function() {
 
 let getPosts = function() {
     return new Promise(function(resolve, reject) {
-        Posts.find({ isPublic: true }, function(err, posts) {
+        Posts.find({ isPublic: true, type: 'trending' }, function(err, posts) {
             if (!err) {
                 resolve(posts);
             }
