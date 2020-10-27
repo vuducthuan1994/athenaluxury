@@ -264,57 +264,8 @@ html {
     margin-top: 50px;
 }
 
-@media only screen and (max-width: 768px) {
-    .time-post span {
-        margin-left: 8px;
-    }
-    .modal {
-        width: 85%;
-        height: 90%;
-    }
-}
-
-@media only screen and (max-width: 500px) {
-    .logo-desktop a.fb-logo,
-    .logo-desktop a.phone {
-        width: 3rem;
-        height: 3rem;
-    }
-    .container-video {
-        margin-bottom: -4.5rem;
-        max-width: calc(100% - 4rem);
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .modal-wrapper .description-modal-text p {
-        font-size: 1.4rem;
-    }
-    .modal-wrapper .description-modal-text h1 {
-        font-size: 1.6rem;
-    }
-    .img-banner-modal .time-post {
-        width: 50%;
-        padding-left: 0;
-        padding-right: 0;
-    }
-}
-
 
 /* END MODAL */
-
-@media only screen and (max-width: 500px) {
-    .owl-5-controller {
-        backface-visibility: hidden
-    }
-    .owl-5-controller {
-        padding-top: 2rem;
-        width: calc(100% + 4rem);
-        margin-left: -2rem;
-        position: relative;
-        height: auto;
-        background-color: #f4f4f7;
-    }
-}
 
 .owl-controller-item-preview {
     width: 5rem;
@@ -716,7 +667,6 @@ html {
 
 #owl-carousel-5 .owl-item-position .image-preview {
     max-width: 369px;
-    height: 24.5rem;
     object-fit: cover;
 }
 
@@ -1010,7 +960,7 @@ section.position .inner-position {
     width: 49.0625%;
     height: auto;
     position: relative;
-    padding-bottom: 27rem
+    padding-bottom: 0;
 }
 
 .detail-image .btn-next-libary,
@@ -2028,7 +1978,7 @@ section.contact .inner-contact {
 
 .inner-contact .inner-contact-left img {
     object-fit: cover;
-    max-width: 100%
+    width: 100%;
 }
 
 .inner-contact-right .contact-right-content {
@@ -2198,7 +2148,7 @@ section.contact .inner-contact {
     content: url(../img/vignette-pattern-right-1.png)
 }
 
-@media only screen and (max-width:1300px) {
+@media screen and (max-width:1300px) {
     .image-libary .inner-image-libary .image-libary-header,
     .project-development .inner-project-development,
     section .inner-apartment,
@@ -2212,7 +2162,17 @@ section.contact .inner-contact {
     }
 }
 
-@media only screen and (max-width:800px) {
+@media screen and (max-width: 1024px) {
+    .introduction-left .building-infomation {
+        max-width: 100%;
+    }
+    .time-post span {
+        margin-left: 8px;
+    }
+    .modal {
+        width: 85%;
+        height: 90%;
+    }
     .container .container-header {
         padding-top: 4rem
     }
@@ -2688,7 +2648,43 @@ section.contact .inner-contact {
     }
 }
 
-@media only screen and (max-width:500px) {
+@media screen and (max-width: 480px) {
+    .footer-top .content-left img {
+        width: 11.5rem;
+    }
+    .owl-5-controller {
+        backface-visibility: hidden
+    }
+    .owl-5-controller {
+        padding-top: 2rem;
+        width: calc(100% + 4rem);
+        margin-left: -2rem;
+        position: relative;
+        height: auto;
+        background-color: #f4f4f7;
+    }
+    .logo-desktop a.fb-logo,
+    .logo-desktop a.phone {
+        width: 3rem;
+        height: 3rem;
+    }
+    .container-video {
+        margin-bottom: -4.5rem;
+        max-width: calc(100% - 4rem);
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .modal-wrapper .description-modal-text p {
+        font-size: 1.4rem;
+    }
+    .modal-wrapper .description-modal-text h1 {
+        font-size: 1.6rem;
+    }
+    .img-banner-modal .time-post {
+        width: 50%;
+        padding-left: 0;
+        padding-right: 0;
+    }
     section.utilities {
         margin-top: 0;
     }
