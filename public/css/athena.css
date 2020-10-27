@@ -1010,7 +1010,7 @@ section.position .inner-position {
     width: 49.0625%;
     height: auto;
     position: relative;
-    padding-bottom: 27rem
+    padding-bottom: 0;
 }
 
 .detail-image .btn-next-libary,
