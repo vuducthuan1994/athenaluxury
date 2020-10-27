@@ -29,16 +29,17 @@ router.get('/', isAuthenticated, function(req, res) {
 
 router.get('/add-gallery/:type', isAuthenticated, function(req, res) {
     const type = req.params.type;
-    res.render('admin/pages/gallery/add-gallery', { type: type, title: "Thêm ảnh", layout: 'admin.hbs' });
+    res.render('admin/pages/gallery/add-gallery', { type: type, title: "Thêm ảnh hoặc video", layout: 'admin.hbs' });
 });
-router.get('/edit-gallery/:id', isAuthenticated, function(req, res) {
+router.get('/edit-gallery/:id/:', isAuthenticated, function(req, res) {
+    const type = req.params.type;
     const galleryID = req.params.id;
     Gallery.findOne({ _id: galleryID }, function(err, galleryItem) {
         if (err) {
             req.flash('messages', 'Lỗi hệ thống, không sửa được bài viết !')
             res.redirect('back');
         } else {
-            res.render('admin/pages/gallery/add-gallery', { errors: req.flash('errors'), messages: req.flash('messages'), title: "Sửa ", layout: 'admin.hbs', galleryItem: galleryItem.toJSON() });
+            res.render('admin/pages/gallery/add-gallery', { type: type, errors: req.flash('errors'), messages: req.flash('messages'), title: "Sửa ", layout: 'admin.hbs', galleryItem: galleryItem.toJSON() });
         }
     })
 });
@@ -99,7 +100,7 @@ router.post('/create/:type', function(req, res) {
         Gallery.create(content, function(err, galleryItem) {
             if (!err) {
                 req.flash('messages', 'Tạo thành công !');
-                res.redirect('back');
+                res.redirect('/admin/gallery');
             } else {
                 let msg = null;
                 if (err.code = 11000) {
@@ -165,7 +166,7 @@ router.post('/edit/:type/:id', function(req, res) {
         Gallery.findOneAndUpdate({ _id: idGallery }, content, function(err, post) {
             if (!err) {
                 req.flash('messages', 'Sửa thành công !');
-                res.redirect('back');
+                res.redirect('/admin/gallery');
             } else {
                 let msg = null;
                 if (err.code = 11000) {

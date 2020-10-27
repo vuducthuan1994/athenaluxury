@@ -63,6 +63,7 @@
                                             <th class="checkbox-column text-center"> ID</th>
                                             <th class="text-center"> Số thứ tự hiển thị</th>
                                             <th class="text-center">Ảnh</th>
+                                            <th>URL VIDEO</th>
                                             <th>Thể Loại</th>
                                             <th>Ghi chú</th>
                                             <th>Thời gian</th>
@@ -78,6 +79,7 @@
                                                 <span><img src="{{this.thumb_image}}" class="banner-post "
                                                         alt="avatar"></span>
                                             </td>
+                                               <td> {{this.url_video}}</td>
                                             <td> {{this.type}}</td>
                                             <td> {{this.note}}</td>
                                             <td>
@@ -96,7 +98,7 @@
                                             <td class="text-center">
                                                 <ul class="table-controls">
                                                     <li><a title="Sửa"
-                                                            href="/admin/gallery/edit-gallery/{{this._id}}"
+                                                            href="/admin/gallery/edit-gallery/{{this._id}}/{{this.type}}"
                                                             class="bs-tooltip" data-toggle="tooltip"
                                                             data-placement="top" title=""
                                                             data-original-title="Edit"><svg

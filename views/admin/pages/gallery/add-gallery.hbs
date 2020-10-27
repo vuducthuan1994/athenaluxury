@@ -36,7 +36,7 @@
                             <div class="row">
                                 <div class="col-lg-10 col-10 col-md-10 mx-auto">
                                     <form enctype="multipart/form-data"
-                                        action="{{buildActionGallery galleryItem._id 'image'}}" method="post">
+                                        action="{{buildActionGallery galleryItem._id type}}" method="post">
                                         <div class="form-group">
                                             <label>Số thứ tự hiển thị</label>
                                             <input required="" value="{{galleryItem.idx}}" type="number" name="idx"
@@ -46,8 +46,8 @@
                                             <label>Ảnh</label>
                                             <small id="emailHelp" class="form-text text-warning">Không cần resize,
                                                 website đã tự động resize !</small>
-                                            <input accept="image/jpeg,image/gif,image/png,image/x-eps"
-                                                name="url_image" type="file" class="form-control-file">
+                                            <input accept="image/jpeg,image/gif,image/png,image/x-eps" name="url_image"
+                                                type="file" class="form-control-file">
                                             <div class="row col-md-6 mt-1">
                                                 <img src="{{galleryItem.thumb_image}}" class="banner-post"
                                                     alt=" Chưa có ảnh !" class="img-fluid" src="#">
@@ -64,6 +64,14 @@
                                                     aria-label="With textarea">{{galleryItem.note}}</textarea>
                                             </div>
                                         </div>
+
+                                        {{#if_equal type "video"}}
+                                        <div  class="form-group">
+                                       <label>URL VIDEO YOUTUBE</label>
+                                            <input required="" value="{{galleryItem.url_video}}" type="text" name="url_video"
+                                                placeholder="Enter video url..." class="form-control">
+                                        </div>
+                                        {{/if_equal}}
 
                                         {{#if galleryItem._id}}
                                         <input type="submit" class="mt-4 btn btn-primary" value="Sửa ngay">
