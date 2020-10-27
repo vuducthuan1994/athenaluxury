@@ -2650,6 +2650,9 @@ section.contact .inner-contact {
 }
 
 @media screen and (max-width: 480px) {
+    .footer-top .content-left img {
+        width: 11.5rem;
+    }
     .owl-5-controller {
         backface-visibility: hidden
     }
