@@ -2164,6 +2164,9 @@ section.contact .inner-contact {
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
+    .introduction-left .building-infomation {
+        max-width: 100%;
+    }
     .time-post span {
         margin-left: 8px;
     }
