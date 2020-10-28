@@ -237,6 +237,8 @@ function getDataArticle(id) {
             $("#article-image").attr('src', post.banner_image);
             $("#article-public-date").text(created_date)
             $("#article-title").text(post.title)
+            $("#short-desc").text(post.short_desc)
+
             $("#article-content").html(post.body)
             $('.modal-wrapper ').toggleClass('open');
             $('.modal-wrapper .overlay').toggleClass('open');
