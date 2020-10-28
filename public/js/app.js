@@ -1,5 +1,11 @@
+// $(window).load(function() {
+//     // PAGE IS FULLY LOADED  
+//     // FADE OUT YOUR OVERLAYING DIV
+//     $(".section-loader").fadeOut();
+//     debugger;
+// });
 $(document).ready(function() {
-    $(".preloader-container").delay(3000).fadeOut(500);
+    // $(".section-loader").delay(3000).fadeOut(500);
     initMenuMobile();
     owlApartmentInit();
     owlDevelopmentProjectInit();
@@ -13,6 +19,9 @@ $(document).ready(function() {
     initListButtonMenuLibary();
     modalController();
     registerVisitExampleHouse();
+});
+$(window).on('load', function() {
+    $('.section-loader').delay(3000).fadeOut(500);
 });
 
 function initListButtonMenuLibary() {
