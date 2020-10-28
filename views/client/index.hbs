@@ -39,9 +39,8 @@
             <div href="#" class="inner-logo-desktop">
             </div>
 
-            <a target="_blank" href="{{config.fb_link}}" class="fb-logo"> <img
-                    class="img-fluid"></a>
-            <a href="tel:{{config.phone_number}}"  href="" class="phone"> <img class="img-fluid"></a>
+            <a target="_blank" href="{{config.fb_link}}" class="fb-logo"> <img class="img-fluid"></a>
+            <a href="tel:{{config.phone_number}}" href="" class="phone"> <img class="img-fluid"></a>
 
         </div>
         <ul class="nav">
@@ -202,8 +201,9 @@
             <div class="inner-position-left">
                 <div class="content-position-left">
                     <div class="container-video">
-                    
-                                         <img alt="Flowers in Chania" class="gifImage img-fluid object-fit-cover" src="/video/athenaGifImage.gif">
+
+                        <img alt="Flowers in Chania" class="gifImage img-fluid object-fit-cover"
+                            src="/video/athenaGifImage.gif">
 
                         <div class="btn-next-position">
                             <img>
@@ -448,8 +448,8 @@
                 <div class="news-header-right">
                     <ul class="news-header-right-menu">
                         <li data-type="trending" class="active">nổi bật</li>
-                        <li data-type="event" >sự kiện</li>
-                        <li data-type="news" >tin tức</li>
+                        <li data-type="event">sự kiện</li>
+                        <li data-type="news">tin tức</li>
                     </ul>
                 </div>
             </div>
@@ -461,7 +461,7 @@
                         <img src="{{getThumbnailImage this.thumb_image this.banner_image}}">
                         <div class="preview">
                             <h3>{{this.title}}</h3>
-                          <p>{{getDescriptionArtiles this.short_desc}}</p>
+                            <p>{{getDescriptionArtiles this.short_desc}}</p>
                         </div>
                     </div>
                     {{/each}}
@@ -649,12 +649,21 @@
                     <span>Tham quan nhà mẫu</span>
                 </div>
                 <h1>ĐĂNG KÝ <br> NHẬN THÔNG TIN</h1>
-                <form class="form-visit">
-                    <input placeholder="Họ và tên">
-                    <input placeholder="Email">
-                    <input placeholder="Số điện thoại">
+                <form id="form-register" class="form-visit">
+                    <div class="container-input">
+                        <input maxlength="50" name="name" required="" type="text" placeholder="Họ và tên">
+
+                    </div>
+                    <div class="container-input">
+                        <input  maxlength="50" name="email" required="" type="text" placeholder="Email">
+
+                    </div>
+                    <div class="container-input">
+                        <input name="phone" required="" type="number" placeholder="Số điện thoại">
+                    </div>
                 </form>
-                <div class="btn-submit-visit-form">
+                <p id="text-result" class="text-result"> </p>
+                <div id="button-register" class="btn-submit-visit-form">
                     <span>Đăng ký nhận tin</span>
                     <img src="/img/arrow-right-1.png">
                 </div>

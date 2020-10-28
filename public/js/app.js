@@ -12,7 +12,7 @@ $(document).ready(function() {
     initAnimationForAllSection();
     initListButtonMenuLibary();
     modalController();
-
+    registerVisitExampleHouse();
 });
 
 function initListButtonMenuLibary() {
@@ -30,7 +30,63 @@ function initListButtonMenuLibary() {
     }
 }
 
+function registerVisitExampleHouse() {
+    $('#button-register').on('click', function(event) {
+        var formStatus = $('#form-register').validate({
+            errorClass: "text-danger",
+            rules: {
+                name: "required",
+                phone: "required",
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
+            messages: {
+                name: {
+                    required: "Vui lòng nhập tên của bạn"
+                },
+                phone: {
+                    required: "Vui lòng điền SĐT của bạn"
+                },
+                email: {
+                    required: "Vui lòng điền email của bạn",
+                    email: "Vui lòng nhập đúng định dạng Email"
+                }
+            }
+        }).form();
+        if (formStatus) {
+            var registerData = $('#form-register').serializeArray();
+            $.ajax({
+                url: "/api/register-visit",
+                data: registerData,
+                dataType: "json",
+                method: 'POST',
+                success: function(res) {
+                    if (res.success) {
+                        $('#text-result').addClass('text-success');
 
+                        $('#text-result').text(res.msg)
+                    } else {
+                        $('#text-result').text(res.msg)
+                        $('#text-result').addClass('text-warning');
+
+                    }
+                    $('#text-result').show();
+                    // if (data.success) {
+                    //     toast('Thông báo', 'Cám ơn bạn đã review sản phẩm này !', 'success');
+                    //     $('.main-thumb-desc li').removeClass('active');
+                    //     $('.main-thumb-desc a[href="#detail"]').tab('show');
+                    // }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    $('#text-result').text('Lỗi hệ thống');
+                    $('#text-result').addClass('text-warning');
+                }
+            });
+        }
+    });
+}
 
 function initMenuMobile() {
     var tlmenu = new TimelineMax({ paused: true });

@@ -4,6 +4,7 @@ let fs = require('fs');
 var path = require('path');
 const Settings = require('../models/settingModel');
 const Posts = require('../models/postsModel');
+const Subscribe = require('../models/subscribeModel');
 const helper = require('../helper/Helper');
 require('dotenv').config();
 const util = require('../helper/Helper');
@@ -16,10 +17,54 @@ let sitemap;
 const NodeCache = require("node-cache");
 const cache = new NodeCache({ stdTTL: process.env.CACHE_TIME });
 
+const EmailService = require('../service/email_service');
+const emailHelper = new EmailService();
+
+const rateLimit = require("express-rate-limit");
+const commonLimiter = rateLimit({
+    windowMs: 60 * 60 * 1000, // 1 hours
+    max: 200 // limit each IP to 100 requests per windowMs
+});
+
 router.use(function(req, res, next) {
     next();
 });
 
+router.post('/api/register-visit', commonLimiter, function(req, res) {
+    console.log(req.body);
+    if (req.body.name && req.body.email && req.body.phone) {
+        Subscribe.create(req.body, function(err, data) {
+            if (!err) {
+                res.json({
+                    success: true,
+                    data: data,
+                    msg: 'Chúc mừng bạn đã đăng ký thành công'
+                });
+                const mailOptions = {
+                    from: process.env.EMAIL_ACCOUNT, // sender address
+                    to: process.env.EMAIL_SHOP, // list of receivers
+                    subject: `AthenaLuxury - NHẬN ĐƯỢC ĐĂNG KÝ XEM NHÀ MẪU TỪ KHÁCH HÀNG ${data.name}`, // Subject line
+                    html: `<h5>TÊN KHÁCH HÀNG: ${data.name}</h5>   <h5>Email khách hàng: ${data.email}</h5> <br>  <p> <strong>Số điện thoại Khách hàng:</strong> ${data.phone} </p>` // plain text body
+                };
+                emailHelper.sendEmail(mailOptions);
+            } else {
+                console.log(err)
+                const msg = err.code = 11000 ? 'Thông tin này đã được đăng ký' : 'Lỗi hệ thống, vui lòng thử lại sau';
+                res.json({
+                    success: false,
+                    msg: msg,
+                    data: err
+                });
+            }
+        });
+    } else {
+        res.json({
+            success: false,
+            msg: 'Truyền thiếu tham số !'
+        })
+    }
+
+});
 router.get('/api/getPostsByType/:type', function(req, res) {
     const postType = req.params.type;
     Posts.find({ type: postType }, function(err, posts) {
@@ -94,13 +139,7 @@ router.get('/', async function(req, res) {
         layout: 'layout.hbs'
     });
 });
-router.get('/pdf/:fileName', function(req, res) {
-    const fileName = req.params.fileName;
-    const pathFilePdf = path.join(__basedir, `public/pdf/${fileName}`);
-    var data = fs.readFileSync(pathFilePdf);
-    res.contentType("application/pdf");
-    res.send(data);
-});
+
 let getConfig = function() {
     return new Promise(function(resolve, reject) {
         Settings.findOne({ type: 'config' }, function(err, config) {

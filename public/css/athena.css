@@ -5,6 +5,14 @@ html {
     -webkit-overflow-scrolling: touch
 }
 
+.text-warning {
+    color: #ffc107!important;
+}
+
+.text-success {
+    color: #28a745!important;
+}
+
 .container-video {
     position: relative;
 }
@@ -13,6 +21,19 @@ html {
     width: 100%;
     object-fit: cover;
     height: auto;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    /* Firefox */
 }
 
 
@@ -1889,13 +1910,34 @@ section.visit-model-house .inner-visit-model-house {
     margin-top: 3rem
 }
 
+.inner-visit-model-house .form-visit .container-input {
+    width: calc(33% - 2rem);
+}
+
+.inner-visit-model-house .form-visit label.text-danger,
+.inner-visit-model-house .text-result {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    display: none;
+    color: rgb(255, 255, 255);
+    font-family: "SegoeUI Semibold";
+    display: block;
+    text-align: center;
+    display: none;
+}
+
+.inner-visit-model-house .text-result {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
+
 .inner-visit-model-house .form-visit input {
     outline: 0;
     background-color: transparent;
     border: none;
     line-height: 5rem;
     border-bottom: 2px solid #2f455e;
-    width: calc(33% - 2rem);
+    width: 100%;
     font-size: 1.8rem;
     font-family: "SegoeUI Regular";
     color: #fff;
@@ -2614,9 +2656,10 @@ section.contact .inner-contact {
     .inner-visit-model-house .title-section {
         justify-content: unset
     }
-    .inner-visit-model-house .form-visit input {
+    .inner-visit-model-house .form-visit .container-input {
         width: calc(50% - 2rem);
-        line-height: 6.3rem
+        line-height: 6.3rem;
+        display: inline-block;
     }
     .project-development .inner-project-development {
         display: block;
@@ -2629,10 +2672,10 @@ section.contact .inner-contact {
     .inner-visit-model-house .form-visit {
         display: block
     }
-    .inner-visit-model-house .form-visit input:nth-child(1) {
+    .inner-visit-model-house .form-visit .container-input:nth-child(1) {
         margin-right: 1.9rem
     }
-    .inner-visit-model-house .form-visit input:nth-child(2) {
+    .inner-visit-model-house .form-visit .container-input:nth-child(2) {
         margin-left: 1.8rem
     }
     .inner-visit-model-house .btn-submit-visit-form {
@@ -2979,11 +3022,11 @@ section.contact .inner-contact {
     .inner-visit-model-house h1 br {
         display: unset
     }
-    .inner-visit-model-house .form-visit input {
-        width: 100%
+    .inner-visit-model-house .form-visit .container-input {
+        width: 100%;
     }
-    .inner-visit-model-house .form-visit input:nth-child(2) {
-        margin-left: unset
+    .inner-visit-model-house .form-visit .container-input:nth-child(2) {
+        margin-left: 0
     }
     .container-menu-mobie ul li a {
         font-size: 2rem

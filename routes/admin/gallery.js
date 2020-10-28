@@ -119,8 +119,6 @@ router.post('/edit/:type/:id', function(req, res) {
         fs.mkdirSync(dir, 0744);
     }
 
-
-    const type = req.params.type;
     const idGallery = req.params.id;
     let content = {};
 
@@ -176,6 +174,36 @@ router.post('/edit/:type/:id', function(req, res) {
                 res.redirect('back');
             }
         });
+    });
+});
+
+router.get('/delete/:id', isAuthenticated, function(req, res) {
+    const id = req.params.id;
+    const messages = [];
+    Gallery.findOneAndDelete({
+        _id: id,
+    }, function(err, galleryItem) {
+        if (galleryItem && galleryItem.thumb_image) {
+            filePath = 'public' + galleryItem.thumb_image;
+            fs.unlink(filePath, function(err) {
+
+            });
+        }
+        if (galleryItem && galleryItem.url_image) {
+            filePath = 'public' + galleryItem.url_image;
+            fs.unlink(filePath, function(err) {
+
+            });
+        }
+        if (!err) {
+            messages.push('Xóa thành công')
+            req.flash('messages', messages)
+            res.redirect('back');
+        } else {
+            messages.push('Xóa thất bại ')
+            req.flash('messages', messages)
+            res.redirect('back');
+        }
     });
 });
 

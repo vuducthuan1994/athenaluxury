@@ -19,18 +19,19 @@ const settings = require('./admin/settings')();
 const user = require('./admin/users')();
 const posts = require('./admin/posts')();
 const introduction = require('./admin/introduction')();
-const text_sliders = require('./admin/text-sliders')();
+
 const projects = require('./admin/project')();
 const imagesProject = require('./admin/images-project')();
 const gallery = require('./admin/gallery');
+const subscribes = require('./admin/subscribe');
 router.use('/settings', settings);
 // router.use('/hosts', host);
 router.use('/users', user);
 router.use('/introduction', introduction);
-router.use('/text-sliders', text_sliders);
+
 router.use('/projects', projects);
 router.use('/posts', posts);
-
+router.use('/subscribe', subscribes);
 router.use('/images-project', imagesProject);
 router.use('/gallery', gallery);
 router.get('/', isAuthenticated, function(req, res) {
