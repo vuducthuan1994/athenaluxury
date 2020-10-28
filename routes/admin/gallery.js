@@ -31,7 +31,7 @@ router.get('/add-gallery/:type', isAuthenticated, function(req, res) {
     const type = req.params.type;
     res.render('admin/pages/gallery/add-gallery', { type: type, title: "Thêm ảnh hoặc video", layout: 'admin.hbs' });
 });
-router.get('/edit-gallery/:id/:', isAuthenticated, function(req, res) {
+router.get('/edit-gallery/:id/:type', isAuthenticated, function(req, res) {
     const type = req.params.type;
     const galleryID = req.params.id;
     Gallery.findOne({ _id: galleryID }, function(err, galleryItem) {
