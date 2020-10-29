@@ -17,7 +17,7 @@ var isAuthenticated = function(req, res, next) {
 
 const settings = require('./admin/settings')();
 const user = require('./admin/users')();
-const posts = require('./admin/posts')();
+const posts = require('./admin/posts');
 const introduction = require('./admin/introduction')();
 
 const projects = require('./admin/project')();
