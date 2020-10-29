@@ -2321,7 +2321,10 @@ section.contact .inner-contact {
     content: url(../img/vignette-pattern-right-1.png)
 }
 
-@media screen and (max-width:1300px) {
+@media screen and (max-width:1370px) {
+    #owl-carousel-5 .owl-item-position .container-text-preview h3 {
+        font-size: 1.8rem;
+    }
     .image-libary .inner-image-libary .image-libary-header,
     .project-development .inner-project-development,
     section .inner-apartment,
