@@ -145,12 +145,13 @@ function owlDevelopmentProjectInit() {
     $('#owl-carousel-2').owlCarousel({
         lazyLoad: true,
         items: 2,
+        slideBy: 2,
         center: false,
         nav: false,
         autoHeight: true,
         dots: false,
         loop: true,
-        autoplay: false,
+        autoplay: true,
         margin: 95,
         responsive: {
             0: { margin: 50 },
@@ -163,16 +164,20 @@ function owlDevelopmentProjectInit() {
         }
     });
     var owl2 = $('#owl-carousel-2');
-    // Go to the next item of slider text
     $('.development-item.next-development-item').click(function() {
         owl2.trigger('next.owl.carousel', [500]);
     });
 
-    // Go to the previous item of sliderText
     $('.development-item.prev-development-item').click(function() {
-        // With optional speed parameter
-        // Parameters has to be in square bracket '[]'
         owl2.trigger('prev.owl.carousel', [500]);
+    });
+
+    owl2.on('changed.owl.carousel', function(e) {
+        if (e.item.index == 4) {
+            $('#header-project-development').html('<strong>Tư Vấn </strong>Thiết Kế');
+        } else {
+            $('#header-project-development').html('<strong>Chủ Đầu Tư </strong>Dự Án');
+        }
     });
 }
 
