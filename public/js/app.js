@@ -21,7 +21,7 @@ $(document).ready(function() {
     registerVisitExampleHouse();
 });
 $(window).on('load', function() {
-    // $('.section-loader').delay(3000).fadeOut(500);
+    $('.section-loader').delay(3000).fadeOut(500);
 });
 
 function initListButtonMenuLibary() {
