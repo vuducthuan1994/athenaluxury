@@ -6,8 +6,7 @@ var mongoose = require('mongoose'),
 var GallerySchema = new Schema({
     url_image: {
         type: String,
-        trim: true,
-        required: true
+        trim: true
     },
     idx: {
         type: Number,

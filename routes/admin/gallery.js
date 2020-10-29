@@ -32,6 +32,8 @@ router.get('/add-gallery/:type', isAuthenticated, function(req, res) {
     res.render('admin/pages/gallery/add-gallery', { type: type, title: "Thêm ảnh hoặc video", layout: 'admin.hbs' });
 });
 router.get('/edit-gallery/:id/:type', isAuthenticated, function(req, res) {
+
+
     const type = req.params.type;
     const galleryID = req.params.id;
     Gallery.findOne({ _id: galleryID }, function(err, galleryItem) {
@@ -78,15 +80,8 @@ router.post('/create/:type', function(req, res) {
     form.on('file', function(fieldName, file) {
         if (fieldName == 'url_image' && file.name !== '') {
             let fileName = uslug((new Date().getTime() + '-' + file.name), { allowedChars: '.-', lower: true });
-
-
-            if (req.params.type == 'image') {
+            if (req.params.type == 'image' || req.params.type == 'video') {
                 const thumb_image = path.join(__basedir, `public/img/gallery/thumb-${fileName}`);
-                content['thumb_image'] = `/img/gallery/thumb-${fileName}`;
-                resizeImage(file.path, thumb_image, 374, 210);
-            }
-            if (req.params.type == 'video') {
-                const thumb_image = path.join(__basedir, `public/img/gallery/banner-${fileName}`);
                 content['thumb_image'] = `/img/gallery/thumb-${fileName}`;
                 resizeImage(file.path, thumb_image, 374, 210);
             }
@@ -94,10 +89,9 @@ router.post('/create/:type', function(req, res) {
     });
 
     form.on('end', function() {
-        if (req.account) {
-            content['user'] = req.account;
-        }
+
         Gallery.create(content, function(err, galleryItem) {
+            console.log(err);
             if (!err) {
                 req.flash('messages', 'Tạo thành công !');
                 res.redirect('/admin/gallery');
@@ -156,9 +150,7 @@ router.post('/edit/:type/:id', function(req, res) {
     });
 
     form.on('end', function() {
-        if (req.user) {
-            content['edit_by'] = req.user;
-        }
+
 
         content['updated_date'] = new Date();
         Gallery.findOneAndUpdate({ _id: idGallery }, content, function(err, post) {

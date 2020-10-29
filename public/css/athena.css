@@ -39,6 +39,12 @@ input[type=number] {
 
 /* START MODAL */
 
+#article-content img {
+    max-width: 100%;
+    object-fit: cover;
+    height: auto !important;
+}
+
 .modal-wrapper.open {
     visibility: visible;
     opacity: 1;
@@ -2241,10 +2247,10 @@ section.contact .inner-contact {
     height: 4px;
     width: 30px;
     background: #fff;
-    -webkit-transition: all .5s ease-in-out;
-    -moz-transition: all .5s ease-in-out;
-    -o-transition: all .5s ease-in-out;
-    transition: all .5s ease-in-out
+    -webkit-transition: all .1s ease-in-out;
+    -moz-transition: all .1s ease-in-out;
+    -o-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out
 }
 
 .navMobie {
@@ -2827,6 +2833,12 @@ section.contact .inner-contact {
 }
 
 @media screen and (max-width: 480px) {
+    .apartment-left .typical-grounds {
+        line-height: 7.5rem;
+    }
+    .typical-grounds h2 {
+        font-size: 1.8rem;
+    }
     .preloaderimg img {
         width: 7.5rem;
     }
