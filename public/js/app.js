@@ -483,7 +483,7 @@ function owlLibaryOwlInit() {
     $('#owl-carousel-7').on('click', '.owl-item', function(e) {
 
         if (window.matchMedia('screen and (min-width: 801px)').matches) {
-            owl7.trigger('to.owl.carousel', $(this).index());
+            owl7.trigger('to.owl.carousel', $(this).index() - 1);
             owl6.trigger('to.owl.carousel', $(this).index() + 1);
         }
         if (window.matchMedia('screen and (min-width: 201px)').matches) {
@@ -507,6 +507,7 @@ function owlLibaryOwlInit() {
         }
 
     });
+
     $('.btn-next-libary').click(function() {
         owl6.trigger('next.owl.carousel', [700]);
     });
