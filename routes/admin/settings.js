@@ -20,11 +20,12 @@ module.exports = function() {
 
     router.get('/', isAuthenticated, function(req, res) {
         Settings.findOne({ type: 'config' }, function(err, config) {
-            res.render('admin/pages/settings/index', { messages: req.flash('message'), title: "Cấu hình chung", config: config.toJSON(), layout: 'admin.hbs' });
+            if (!err) {
+                res.render('admin/pages/settings/index', { messages: req.flash('message'), title: "Cấu hình chung", config: config.toJSON(), layout: 'admin.hbs' });
+            }
         });
     });
     router.post('/', isAuthenticated, function(req, res) {
-        console.log("hahaha")
         var form = new formidable.IncomingForm();
         form.parse(req, (err, fields, files) => {
             var dir = __basedir + '/public/pdf';
@@ -63,8 +64,9 @@ module.exports = function() {
                 });
             }
         });
-        form.on('end', function() {});
-        res.redirect('back');
+        form.on('end', function() {
+            res.redirect('/admin/settings');
+        });
     });
     return router;
 }
