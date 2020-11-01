@@ -297,11 +297,13 @@ function modalController() {
 }
 
 function getDataArticle(id) {
+    $('#preloader').show();
     $.ajax({
         type: "GET",
         url: "/api/posts/" + id,
         dataType: "json",
         success: function(data) {
+            $('#preloader').delay(300).hide();
             const post = data.post;
             const created_date = data.created_date;
             $("#article-image").attr('src', post.banner_image);
