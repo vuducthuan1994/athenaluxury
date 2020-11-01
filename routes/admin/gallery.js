@@ -134,15 +134,8 @@ router.post('/edit/:type/:id', function(req, res) {
     form.on('file', function(fieldName, file) {
         if (fieldName == 'url_image' && file.name !== '') {
             let fileName = uslug((new Date().getTime() + '-' + file.name), { allowedChars: '.-', lower: true });
-
-
-            if (req.params.type == 'image') {
+            if (req.params.type == 'image' || req.params.type == 'video') {
                 const thumb_image = path.join(__basedir, `public/img/gallery/thumb-${fileName}`);
-                content['thumb_image'] = `/img/gallery/thumb-${fileName}`;
-                resizeImage(file.path, thumb_image, 374, 210);
-            }
-            if (req.params.type == 'video') {
-                const thumb_image = path.join(__basedir, `public/img/gallery/banner-${fileName}`);
                 content['thumb_image'] = `/img/gallery/thumb-${fileName}`;
                 resizeImage(file.path, thumb_image, 374, 210);
             }
