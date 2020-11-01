@@ -371,6 +371,7 @@ function owlNewsInit() {
         setTimeout(function() { $('.inner-news .owl-controller .line').removeClass('active'); }, 500);
     });
     $('.news-header-right-menu li').click(function() {
+        $('#preloader').show();
         const type = $(this).data('type');
         let currentMenu = $(this);
         $.ajax({
@@ -378,6 +379,7 @@ function owlNewsInit() {
             url: "/api/getPostsByType/" + type,
             dataType: "json",
             success: function(res) {
+                $('#preloader').delay(300).hide();
                 if (res.success) {
                     let htmlOWL = '';
                     res.posts.forEach(post => {
