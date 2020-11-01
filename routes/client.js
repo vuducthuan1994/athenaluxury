@@ -4,6 +4,7 @@ let fs = require('fs');
 var path = require('path');
 const Settings = require('../models/settingModel');
 const Posts = require('../models/postsModel');
+const Gallerys = require('../models/galleryModel');
 const Subscribe = require('../models/subscribeModel');
 const helper = require('../helper/Helper');
 require('dotenv').config();
@@ -31,7 +32,6 @@ router.use(function(req, res, next) {
 });
 
 router.post('/api/register-visit', commonLimiter, function(req, res) {
-    console.log(req.body);
     if (req.body.name && req.body.email && req.body.phone) {
         Subscribe.create(req.body, function(err, data) {
             if (!err) {
@@ -48,7 +48,6 @@ router.post('/api/register-visit', commonLimiter, function(req, res) {
                 };
                 emailHelper.sendEmail(mailOptions);
             } else {
-                console.log(err)
                 const msg = err.code = 11000 ? 'Thông tin này đã được đăng ký' : 'Lỗi hệ thống, vui lòng thử lại sau';
                 res.json({
                     success: false,
@@ -73,6 +72,16 @@ router.get('/api/getPostsByType/:type', function(req, res) {
         }
     })
 })
+
+router.get('/api/getGalleryByType/:type', function(req, res) {
+    const galleryType = req.params.type;
+    Gallerys.find({ type: galleryType }, function(err, gallerys) {
+        if (!err) {
+            res.status(200).json({ success: true, gallerys: gallerys });
+        }
+    }).sort({ idx: -1 })
+})
+
 router.get('/api/posts/:id', function(req, res) {
     const postId = req.params.id;
     Posts.findOne({ _id: postId }, function(err, post) {
@@ -122,16 +131,17 @@ router.get('/', async function(req, res) {
     //     cache.set("projects", projects);
     // }
 
-    // let images_project = cache.get("images_project");
-    // if (images_project == undefined) {
-    //     images_project = await getImagesProject();
-    //     cache.set("images_project", images_project);
-    // }
+    let images_gallerys = cache.get("images_gallerys");
+    if (images_gallerys == undefined) {
+        images_gallerys = await getImagesGallerys();
+        cache.set("images_gallerys", images_gallerys);
+    }
 
     res.render('client/index', {
         // projects: projects,
         host: req.get('host'),
         posts: posts.map(post => post.toJSON()),
+        images_gallerys: images_gallerys.map(image => image.toJSON()),
         // textSliders: textSliders,
         // introduction: introduction,
         // images_project: images_project,
@@ -169,13 +179,13 @@ let getPosts = function() {
         }).sort({ created_date: -1 });
     });
 }
-let getImagesProject = function() {
+let getImagesGallerys = function() {
     return new Promise(function(resolve, reject) {
-        Settings.findOne({ type: 'images-project' }, function(err, images_project) {
+        Gallerys.find({ type: 'image' }, function(err, images) {
             if (!err) {
-                resolve(images_project.content);
+                resolve(images);
             }
-        });
+        }).sort({ idx: -1 });
     });
 }
 

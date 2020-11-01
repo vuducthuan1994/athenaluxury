@@ -558,8 +558,8 @@
                 </div>
                 <div class="image-libary-right">
                     <ul id="list-button-menu-libary" class="owl-carousel image-libary-right-menu">
-                        <li id="btn-image-libary" class="active">Thư viện ảnh, video</li>
-                        <li id="btn-video-libary">Thư viện video</li>
+                        <li  id="btn-image-libary" class="active">Thư viện ảnh</li>
+                        <li  id="btn-video-libary">Thư viện video</li>
                         <li><a href="/pdf/LEAFLET_SCREEN_PREVIEW.pdf" target="_blank">Brochure dự án</a></li>
                     </ul>
                 </div>
@@ -572,10 +572,12 @@
                                 <iframe src="https://www.youtube.com/embed/G1lq40tR72Q?enablejsapi=1" width="100%"
                                     allowfullscreen frameborder="0" height="721px"></iframe>
                         </div> --}}
+                        {{#each images_gallerys}}
                         <div class="item">
-                            <img class="show-image" class="image-fluid" src="/img/image-liabary-example.jpg">
+                            <img class="show-image" class="image-fluid" src="{{this.url_image}}">
                         </div>
-                        <div class="item">
+                        {{/each}}
+                        {{!-- <div class="item">
                             <img class="show-image" class="image-fluid" src="/img/image-liabary-example-1.jpg">
                         </div>
                         <div class="item">
@@ -583,7 +585,7 @@
                         </div>
                         <div class="item">
                             <img class="show-image" class="image-fluid" src="/img/image-liabary-example-3.jpg">
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="btn-next-libary">
                         <img>
@@ -595,10 +597,12 @@
                 <div class="image-libary-content-bottom">
                     <div class="inner-content">
                         <div id="owl-carousel-7" class="owl-carousel">
+                                   {{#each images_gallerys}}
                             <div class="owl-item-content">
-                                <img src="/img/image-liabary-example.jpg">
+                                <img src="{{this.thumb_image}}">
                             </div>
-                            <div class="owl-item-content">
+                            {{/each}}
+                            {{!-- <div class="owl-item-content">
                                 <img src="/img/image-liabary-example-1.jpg">
                             </div>
                             <div class="owl-item-content">
@@ -606,7 +610,7 @@
                             </div>
                             <div class="owl-item-content">
                                 <img src="/img/image-liabary-example-3.jpg">
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

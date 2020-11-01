@@ -10,7 +10,6 @@ module.exports = function(passport) {
     /* GET login page. */
     router.get('/login', function(req, res) {
         const messageError = req.flash('message');
-        console.log(messageError);
         // Display the Login page with any flash message, if any
         res.render('admin/login', { title: "Login", layout: false, success: req.flash('success'), messageError: messageError });
     });

@@ -524,49 +524,88 @@ function owlLibaryOwlInit() {
         owl6.trigger('prev.owl.carousel', [700]);
     });
 
-    const imagesList = ['/img/image-liabary-example.jpg', '/img/image-liabary-example-1.jpg', '/img/image-liabary-example-2.jpg', '/img/image-liabary-example-3.jpg'];
     const videoList = ['https://www.youtube.com/embed/Bc2663p7AHg', 'https://www.youtube.com/embed/hIEIGDsbKqY', 'https://www.youtube.com/embed/tx1A8g6DcbY'];
-    const imagePrviewList = ['/img/image-liabary-example.jpg', '/img/image-liabary-example-1.jpg', '/img/image-liabary-example-2.jpg', '/img/image-liabary-example-3.jpg'];
     const videoPreviewImageList = ['https://tourduthuyenhalong.vn/wp-content/uploads/2019/05/athena-cruise-luxury.jpg', 'https://www.adventureindochina.com/files/thumb/758/508//uploads//Cruises/Athena-cruise/Signature-Mandarin-Cruise_19.jpg', 'https://funnytravelvietnam.com/files/thumb/758/508//uploads//Halong-bay-Cruises/Athena-Lux/athena_cruise_bath_room.jpg'];
+
     $('#btn-image-libary').click(function() {
-        $('.image-libary-right-menu li').removeClass('active');
-        $(this).addClass('active');
-        let htmlOWL = '';
-        imagesList.forEach(image => {
-            htmlOWL += ` <div class="item">
-            <img class="show-image" class="image-fluid" src="${image}">
-        </div>`
-        });
-        owl6.trigger('replace.owl.carousel', htmlOWL).trigger('refresh.owl.carousel');
+        let currentMenu = $(this);
+        $('#preloader').show();
+        const type = 'image';
+        $.ajax({
+            type: "GET",
+            url: "/api/getGalleryByType/" + type,
+            dataType: "json",
+            success: function(res) {
+                $('#preloader').delay(300).hide();
+                if (res.success) {
+                    if (res.gallerys.length > 0) {
+                        let htmlOWL = '';
+                        let htmlOwlPreviewImage = '';
+                        res.gallerys.forEach(item => {
+                            htmlOWL += ` <div class="item">
+                            <img class="show-image" class="image-fluid" src="${item.url_image}">
+                        </div>`
 
-        let htmlOwlPreviewImage = '';
-        imagePrviewList.forEach(imageUrl => {
-            htmlOwlPreviewImage += `<div class="owl-item-content">
-            <img src="${imageUrl}">
-            </div>`
+                            htmlOwlPreviewImage += `<div class="owl-item-content">
+                        <img src="${item.thumb_image}">
+                        </div>`
+                        });
+                        owl6.trigger('replace.owl.carousel', htmlOWL).trigger('refresh.owl.carousel');
+                        owl7.trigger('replace.owl.carousel', htmlOwlPreviewImage).trigger('refresh.owl.carousel');
+                        $('.image-libary-right-menu li').removeClass('active');
+                        currentMenu.addClass('active');
+                    }
+                }
+            }
         });
-        owl7.trigger('replace.owl.carousel', htmlOwlPreviewImage).trigger('refresh.owl.carousel');
     });
+
+    _getVideoIdFromUrl = function(value) {
+        var regEx = "^(?:https?:)?//[^/]*(?:youtube(?:-nocookie)?\.com|youtu\.be).*[=/]([-\\w]{11})(?:\\?|=|&|$)";
+        var matches = value.match(regEx);
+        if (matches) {
+            return matches[1];
+        }
+        return false;
+    }
     $('#btn-video-libary').click(function() {
-        $('.image-libary-right-menu li').removeClass('active');
-        $(this).addClass('active');
 
-        let htmlOWL = '';
-        videoList.forEach(video => {
-            htmlOWL += `       <div class="item">
-            <iframe src="${video}?enablejsapi=1" width="100%"
-                allowfullscreen frameborder="0" ></iframe>
-            </div>`
-        });
-        owl6.trigger('replace.owl.carousel', htmlOWL).trigger('refresh.owl.carousel');
+        $('#preloader').show();
+        const type = 'video';
+        let currentMenu = $(this);
+        $.ajax({
+            type: "GET",
+            url: "/api/getGalleryByType/" + type,
+            dataType: "json",
+            success: function(res) {
 
-        let htmlOwlPreviewImage = '';
-        videoPreviewImageList.forEach(imageUrl => {
-            htmlOwlPreviewImage += `<div class="owl-item-content">
-            <img src="${imageUrl}">
-            </div>`
+                $('#preloader').delay(300).hide();
+                if (res.success) {
+                    if (res.gallerys.length > 0) {
+                        let htmlOWL = '';
+                        let htmlOwlPreviewImage = '';
+                        res.gallerys.forEach(videoItem => {
+                            const idYoutube = _getVideoIdFromUrl(videoItem.url_video);
+                            if (idYoutube) {
+                                htmlOWL += `       <div class="item">
+                                <iframe src="https://www.youtube.com/embed/${idYoutube}?enablejsapi=1" width="100%"
+                                    allowfullscreen frameborder="0" ></iframe>
+                                </div>`;
+                            }
+
+                            htmlOwlPreviewImage += `<div class="owl-item-content">
+                            <img src="${videoItem.thumb_image}">
+                            </div>`
+                        });
+                        owl6.trigger('replace.owl.carousel', htmlOWL).trigger('refresh.owl.carousel');
+
+                        owl7.trigger('replace.owl.carousel', htmlOwlPreviewImage).trigger('refresh.owl.carousel');
+                        $('.image-libary-right-menu li').removeClass('active');
+                        currentMenu.addClass('active');
+                    }
+                }
+            }
         });
-        owl7.trigger('replace.owl.carousel', htmlOwlPreviewImage).trigger('refresh.owl.carousel');
     });
 }
 
