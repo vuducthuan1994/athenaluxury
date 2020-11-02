@@ -26,16 +26,16 @@
             </div>
         </div>
     </div>
-   <div id="preloader"></div>
-   <div class="section-loader">
-   <div id="loading">
-                        <div class="preloaderimg">
-                            <img src="/img/logo-desktop.png">   
-                        </div>
-                        <div id="nlpt"></div>
-                </div>
+    <div id="preloader"></div>
+    <div class="section-loader">
+        <div id="loading">
+            <div class="preloaderimg">
+                <img src="/img/logo-desktop.png">
+            </div>
+            <div id="nlpt"></div>
+        </div>
     </div>
-   
+
     <header class="container-header">
         <div class="logo-desktop">
             <div href="#" class="inner-logo-desktop">
@@ -534,10 +534,18 @@
                 <img class="img-fluid development-item prev-development-item">
                 <div class="container-owl-carousel-2">
                     <div id="owl-carousel-2" class="owl-carousel">
-                        <img class="object-fit-cover" src="/img/project-development-right-1.png">
-                        <img class="object-fit-cover" src="/img/project-development-right-2.png">
-                         <img class="object-fit-cover" src="/img/project-development-right-1.png">
-                        <img class="object-fit-cover" src="/img/logo-BE.png">
+                        <div class="container-owl-item">
+                            <div class="inner-owl-item one">
+                                <img class="object-fit-cover" src="/img/project-development-right-1.png">
+                                <img class="object-fit-cover" src="/img/project-development-right-2.png">
+                            </div>
+
+                        </div>
+                        <div class="container-owl-item">
+                            <div class="inner-owl-item">
+                                <img class="object-fit-cover" src="/img/logo-BE.png">
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -558,8 +566,8 @@
                 </div>
                 <div class="image-libary-right">
                     <ul id="list-button-menu-libary" class="owl-carousel image-libary-right-menu">
-                        <li  id="btn-image-libary" class="active">Thư viện ảnh</li>
-                        <li  id="btn-video-libary">Thư viện video</li>
+                        <li id="btn-image-libary" class="active">Thư viện ảnh</li>
+                        <li id="btn-video-libary">Thư viện video</li>
                         <li><a href="/pdf/LEAFLET_SCREEN_PREVIEW.pdf" target="_blank">Brochure dự án</a></li>
                     </ul>
                 </div>
@@ -597,7 +605,7 @@
                 <div class="image-libary-content-bottom">
                     <div class="inner-content">
                         <div id="owl-carousel-7" class="owl-carousel">
-                                   {{#each images_gallerys}}
+                            {{#each images_gallerys}}
                             <div class="owl-item-content">
                                 <img src="{{this.thumb_image}}">
                             </div>
@@ -662,7 +670,7 @@
 
                     </div>
                     <div class="container-input">
-                        <input  maxlength="50" name="email" required="" type="text" placeholder="Email">
+                        <input maxlength="50" name="email" required="" type="text" placeholder="Email">
 
                     </div>
                     <div class="container-input">

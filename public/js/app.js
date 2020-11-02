@@ -144,22 +144,21 @@ function owlApartmentInit() {
 function owlDevelopmentProjectInit() {
     $('#owl-carousel-2').owlCarousel({
         lazyLoad: true,
-        items: 2,
-        slideBy: 2,
+        items: 1,
         center: false,
         nav: false,
         autoHeight: true,
         dots: false,
         loop: true,
-        autoplay: true,
-        margin: 95,
+        autoplay: false,
+        margin: 0,
         responsive: {
-            0: { margin: 50 },
+            0: { margin: 0 },
             768: {
-                margin: 95
+                margin: 0
             },
             1020: {
-                margin: 95
+                margin: 0
             }
         }
     });
@@ -173,10 +172,10 @@ function owlDevelopmentProjectInit() {
     });
 
     owl2.on('changed.owl.carousel', function(e) {
-        if (e.item.index == 4) {
-            $('#header-project-development').html('<strong>Tư Vấn </strong>Thiết Kế');
-        } else {
+        if (e.item.index == 2) {
             $('#header-project-development').html('<strong>Chủ Đầu Tư </strong>Dự Án');
+        } else {
+            $('#header-project-development').html('<strong>Tư Vấn </strong>Thiết Kế');
         }
     });
 }

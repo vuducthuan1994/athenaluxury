@@ -80,6 +80,22 @@ input[type=number] {
     /* Firefox */
 }
 
+#owl-carousel-2 .container-owl-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+#owl-carousel-2 .container-owl-item .inner-owl-item {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+.inner-owl-item.one img:first-child {
+    margin-right: 9.6rem;
+}
+
 
 /* START MODAL */
 
@@ -2898,6 +2914,9 @@ section.contact .inner-contact {
 }
 
 @media screen and (max-width: 480px) {
+    .inner-owl-item.one img:first-child {
+        margin-right: 5rem;
+    }
     .apartment-left .typical-grounds {
         line-height: 7.5rem;
     }
