@@ -3274,7 +3274,8 @@ section.contact .inner-contact {
     }
     #owl-carousel-2 img {
         width: 95px;
-        height: auto
+        height: 96px;
+        object-fit: cover;
     }
     .project-development-right img.development-item {
         display: none
