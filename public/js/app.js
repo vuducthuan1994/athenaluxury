@@ -172,10 +172,14 @@ function owlDevelopmentProjectInit() {
     });
 
     owl2.on('changed.owl.carousel', function(e) {
-        if (e.item.index == 2) {
+        console.log(e.item.index);
+        if (e.item.index == 4 || e.item.index == 2) {
             $('#header-project-development').html('<strong>Chủ Đầu Tư </strong>Dự Án');
-        } else {
+        }
+        if (e.item.index == 3) {
+
             $('#header-project-development').html('<strong>Tư Vấn </strong>Thiết Kế');
+
         }
     });
 }
@@ -252,7 +256,6 @@ function owlDotsForPositionSlider() {
         $('#inner-owl-5-controller .owl-item').eq(6).addClass('active-focus');
         owl5Controller.on('translate.owl.carousel', function(e) {
             idx = e.item.index;
-            console.log(idx)
             $('#inner-owl-5-controller .owl-item.active-focus').removeClass('active-focus');
             $('#inner-owl-5-controller .owl-item').eq(idx).addClass('active-focus');
 
