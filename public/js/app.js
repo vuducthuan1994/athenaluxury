@@ -150,7 +150,7 @@ function owlDevelopmentProjectInit() {
         autoHeight: true,
         dots: false,
         loop: true,
-        autoplay: false,
+        autoplay: true,
         margin: 0,
         responsive: {
             0: { margin: 0 },
@@ -210,7 +210,7 @@ function owlDotsForPositionSlider() {
         margin: 40,
         autoHeight: false,
         loop: true,
-        lazyLoad: false,
+        lazyLoad: true,
         responsive: {
             0: {
                 autoplay: false,
