@@ -5,6 +5,11 @@ html {
     -webkit-overflow-scrolling: touch
 }
 
+#owl-carousel-2 svg {
+    width: 150px;
+    height: 150px;
+}
+
 @media only screen and (max-width: 1480px) and (min-width: 1200px) {
     .inner-position .inner-position-right .container-position-right {
         /* padding-left: 11.5rem; */
@@ -3331,7 +3336,8 @@ section.contact .inner-contact {
         margin-left: auto;
         margin-right: auto
     }
-    #owl-carousel-2 img {
+    #owl-carousel-2 img,
+    #owl-carousel-2 svg {
         width: 95px;
         height: 96px;
         object-fit: cover;
