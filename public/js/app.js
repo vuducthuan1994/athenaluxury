@@ -172,11 +172,11 @@ function owlDevelopmentProjectInit() {
     });
 
     owl2.on('changed.owl.carousel', function(e) {
-        console.log(e.item.index);
-        if (e.item.index == 4 || e.item.index == 2) {
+        // console.log(e.item.index);
+        if (e.item.index % 2 == 0) {
             $('#header-project-development').html('<strong>Chủ Đầu Tư </strong>Dự Án');
         }
-        if (e.item.index == 3) {
+        if (e.item.index % 2 !== 0) {
 
             $('#header-project-development').html('<strong>Tư Vấn </strong>Thiết Kế');
 
