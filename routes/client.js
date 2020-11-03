@@ -215,6 +215,7 @@ let getTextSliders = function() {
 
 // sitemap
 router.get('/sitemap.xml', async function(req, res) {
+    console.log("hahahah");
     res.header("Content-Type", "application/xml; charset=utf-8");
 
     res.header('Content-Encoding', 'gzip');
@@ -232,19 +233,7 @@ router.get('/sitemap.xml', async function(req, res) {
         smStream.write({ url: BASE_URL, changefreq: 'daily', priority: 1, img: BASE_URL + '/img/homepage.png' })
 
 
-        for (let i = 0; i < req.config.top_music.length; i++) {
-            const link = util.buildRouteSearch(req.config.top_music[i]);
-            smStream.write({ url: link, changefreq: 'always', priority: 0.9 }, 'ASCII')
-        }
-        for (let i = 0; i < req.config.top_itunes.length; i++) {
-            const link = util.buildRouteSearch(req.config.top_itunes[i].name);
-            smStream.write({ url: link, changefreq: 'always', priority: 0.8 }, 'ASCII')
-        }
-        let songs = await getAllSongs();
-        for (let i = 0; i < songs.length; i++) {
-            const link = util.buildRouteSearch(songs[i].name);
-            smStream.write({ url: link, changefreq: 'always', priority: 0.8 }, 'ASCII')
-        }
+
         smStream.end()
 
         // cache the response
