@@ -19,7 +19,31 @@ html {
     }
 }
 
-@media only screen and (min-width: 1100px) {
+@media only screen and (min-width: 480px) and (max-width: 1024px) {
+    #gioi-thieu {
+        scroll-margin: 0;
+    }
+    #tien-ich {
+        scroll-margin: calc(139px - 215px);
+    }
+    #can-ho {
+        scroll-margin: calc(139px - 9rem);
+    }
+    #tin-tuc {
+        scroll-margin: calc(139px - 8.5rem);
+    }
+    #thu-vien {
+        scroll-margin: 139px;
+    }
+    #lien-he {
+        scroll-margin: 100px;
+    }
+    #vi-tri {
+        scroll-margin: 139px;
+    }
+}
+
+@media only screen and (min-width: 1100px) and (max-width: 1920px) {
     #gioi-thieu {
         scroll-margin: calc(109px - 13.5rem);
     }
@@ -2476,9 +2500,6 @@ section.contact .inner-contact {
         width: 85%;
         height: 90%;
     }
-    .container .container-header {
-        padding-top: 4rem
-    }
     section.utilities {
         margin-top: -11.5rem;
         position: relative;
@@ -2526,10 +2547,9 @@ section.contact .inner-contact {
         z-index: 100
     }
     .container .container-header {
-        width: calc(100% - 8rem);
+        width: calc(100% - 5rem);
         z-index: 90;
-        padding-left: 4rem;
-        padding-right: 4rem
+        padding: 2.5rem;
     }
     section.introduction {
         display: block;
