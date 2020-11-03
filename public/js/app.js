@@ -616,8 +616,7 @@ function ScrollListener() {
     $(window).scroll(function() {
         var scrollPosition = $(window).scrollTop();
         if (window.matchMedia('screen and (min-width: 900px)').matches) {
-            var headerHeight = $(".header-background-image").height();
-            if ((scrollPosition + 400) > headerHeight) {
+            if (scrollPosition > 0) {
                 $('body header.container-header').addClass('background-header-fixed-desktop');
                 $('.fb-logo img').addClass('scroll');
                 $('.phone img').addClass('scroll');
@@ -625,16 +624,9 @@ function ScrollListener() {
                 $('body header.container-header').removeClass('background-header-fixed-desktop');
                 $("header .nav li a").removeClass('active');
 
-
                 $('.fb-logo img').removeClass('scroll');
                 $('.phone img').removeClass('scroll');
             }
-            // $('.container-header .nav li a ').css('color', 'rgb(125, 115, 114)');
-            // if (scrollPosition === 0) {
-            //     $('.container-header .nav li a ').css('color', 'rgb(244, 238, 231)');
-            // } else {
-            //     $('.container-header .nav li a ').css('color', 'rgb(125, 115, 114)');
-            // }
         } else if (window.matchMedia('screen and (max-width: 800px)').matches) {
             var menuHeight = $('body header.container-header').outerHeight();
             if (scrollPosition > menuHeight) {
