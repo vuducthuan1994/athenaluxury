@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-
+// var compressor = require('node-minify');
+// const yui = require('@node-minify/yui');
 var cookieParser = require('cookie-parser');
 require('dotenv').config()
 var expressHbs = require('express-handlebars');
@@ -18,7 +19,36 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(cookieParser());
 global.__basedir = __dirname;
 
+console.log('sync 1');
+if (process.env.ENV == 'DEV') {
+    // compressor.minify({
+    //     compressor: 'gcc',
+    //     input: ['public/js/aos.js', 'public/js/jquery.min.js', 'public/js/owl.carousel.min.js', 'public/js/TweenMax.min.js', 'public/js/jquery.validate.min.js', 'public/js/app.js'
 
+    //     ],
+    //     output: 'public/js-dist/app1.js',
+    //     type: 'js',
+    //     sync: true,
+    //     callback: function(err, value) {
+    //         console.log(err);
+    //         console.log('sync 2', value);
+    //     }
+    // });
+
+    // compressor.minify({
+    //     compressor: 'sqwish',
+    //     input: ['public/css/normalize.css', 'public/fonts/font.css', 'public/css/owl.min.css', 'public/css/default.css', 'public/css/animate.css', 'public/css/aos.css'
+
+    //     ],
+    //     output: 'public/css-dist/app.css',
+    //     type: 'css',
+    //     sync: true,
+    //     callback: function(err, value) {
+    //         console.log(err);
+    //         console.log('sync 2', value);
+    //     }
+    // });
+}
 
 mongoose.connect(process.env.DB_URL, {
     user: process.env.DB_USER,
