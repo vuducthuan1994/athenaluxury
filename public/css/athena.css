@@ -811,9 +811,13 @@ LOADER */
         content: "";
         height: 100%;
         animation: zoom 28s infinite;
-        background-size: 100% 100%;
+        /* background-size: 100% 100%; */
         background-position: center center;
-        background: transparent url(../img/banner_desktop.jpg) no-repeat center center scroll
+        background: transparent url(../img/banner_desktop.jpg) no-repeat center center scroll;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
     }
     
     @keyframes zoom {
