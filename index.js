@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(cookieParser());
 global.__basedir = __dirname;
 
-console.log('sync 1');
+// console.log('sync 1');
 if (process.env.ENV == 'DEV') {
     // compressor.minify({
     //     compressor: 'gcc',

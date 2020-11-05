@@ -66,11 +66,11 @@ router.post('/create/:type', function(req, res) {
     const form = formidable({ multiples: true });
     form.parse(req);
     form.on('fileBegin', function(name, file) {
-        if (name == 'url_image' && file.name !== '' && req.params.type == 'image') {
-            let fileName = uslug((new Date().getTime() + '-' + file.name), { allowedChars: '.-', lower: true });
-            file.path = path.join(__basedir, `public/img/gallery/${fileName}`);
-            content['url_image'] = `/img/gallery/${fileName}`;
-        }
+        // if (name == 'url_image' && file.name !== '' && req.params.type == 'image') {
+        //     let fileName = uslug((new Date().getTime() + '-' + file.name), { allowedChars: '.-', lower: true });
+        //     file.path = path.join(__basedir, `public/img/gallery/${fileName}`);
+        //     content['url_image'] = `/img/gallery/${fileName}`;
+        // }
     });
     form.on('field', function(fieldName, fieldValue) {
         if (fieldName !== 'url_image') {
@@ -85,6 +85,13 @@ router.post('/create/:type', function(req, res) {
                 content['thumb_image'] = `/img/gallery/thumb-${fileName}`;
                 resizeImage(file.path, thumb_image, 374, 210);
             }
+        }
+
+        if (name == 'url_image' && file.name !== '' && req.params.type == 'image') {
+            let fileName = uslug((new Date().getTime() + '-' + file.name), { allowedChars: '.-', lower: true });
+            const url_image = path.join(__basedir, `public/img/gallery/${fileName}`);
+            content['url_image'] = `/img/gallery/${fileName}`;
+            resizeImage(file.path, url_image, 1820, 720);
         }
     });
 
@@ -119,11 +126,11 @@ router.post('/edit/:type/:id', function(req, res) {
     const form = formidable({ multiples: true });
     form.parse(req);
     form.on('fileBegin', function(name, file) {
-        if (name == 'url_image' && file.name !== '' && req.params.type == 'image') {
-            let fileName = uslug((new Date().getTime() + '-' + file.name), { allowedChars: '.-', lower: true });
-            file.path = path.join(__basedir, `public/img/gallery/${fileName}`);
-            content['url_image'] = `/img/gallery/${fileName}`;
-        }
+        // if (name == 'url_image' && file.name !== '' && req.params.type == 'image') {
+        //     let fileName = uslug((new Date().getTime() + '-' + file.name), { allowedChars: '.-', lower: true });
+        //     file.path = path.join(__basedir, `public/img/gallery/${fileName}`);
+        //     content['url_image'] = `/img/gallery/${fileName}`;
+        // }
     });
     form.on('field', function(fieldName, fieldValue) {
         if (fieldName !== 'url_image') {
@@ -139,6 +146,12 @@ router.post('/edit/:type/:id', function(req, res) {
                 content['thumb_image'] = `/img/gallery/thumb-${fileName}`;
                 resizeImage(file.path, thumb_image, 374, 210);
             }
+        }
+        if (name == 'url_image' && file.name !== '' && req.params.type == 'image') {
+            let fileName = uslug((new Date().getTime() + '-' + file.name), { allowedChars: '.-', lower: true });
+            const url_image = path.join(__basedir, `public/img/gallery/${fileName}`);
+            content['url_image'] = `/img/gallery/${fileName}`;
+            resizeImage(file.path, url_image, 1820, 720);
         }
     });
 
