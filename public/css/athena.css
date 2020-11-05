@@ -2485,9 +2485,15 @@ LOADER */
             max-width: 83%;
         }
         #owl-carousel-7 {
-            max-width: calc(83% - 8rem);
+            max-width: calc(100%);
             margin-left: auto;
             margin-right: auto;
+        }
+        .image-libary-content-bottom .inner-content {
+            max-width: calc(83% - 8rem);
+            left: 0;
+            right: 0;
+            margin: auto;
         }
         /* .introduction-left .building-infomation,
         .introduction-left p {
