@@ -2486,7 +2486,7 @@ LOADER */
         } */
     }
     
-    @media screen and (max-width:1280px) {
+    @media screen and (max-width:1368px) and (min-width: 1025px) {
         .container-utilities-image-right .vignette-pattern-right {
             max-width: 122px;
         }
