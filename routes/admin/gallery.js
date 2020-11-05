@@ -87,7 +87,7 @@ router.post('/create/:type', function(req, res) {
             }
         }
 
-        if (name == 'url_image' && file.name !== '' && req.params.type == 'image') {
+        if (fieldName == 'url_image' && file.name !== '' && req.params.type == 'image') {
             let fileName = uslug((new Date().getTime() + '-' + file.name), { allowedChars: '.-', lower: true });
             const url_image = path.join(__basedir, `public/img/gallery/${fileName}`);
             content['url_image'] = `/img/gallery/${fileName}`;
@@ -147,7 +147,7 @@ router.post('/edit/:type/:id', function(req, res) {
                 resizeImage(file.path, thumb_image, 374, 210);
             }
         }
-        if (name == 'url_image' && file.name !== '' && req.params.type == 'image') {
+        if (fieldName == 'url_image' && file.name !== '' && req.params.type == 'image') {
             let fileName = uslug((new Date().getTime() + '-' + file.name), { allowedChars: '.-', lower: true });
             const url_image = path.join(__basedir, `public/img/gallery/${fileName}`);
             content['url_image'] = `/img/gallery/${fileName}`;
