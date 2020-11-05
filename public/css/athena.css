@@ -10,7 +10,7 @@
         height: 150px;
     }
     
-    @media only screen and (max-width: 1480px) and (min-width: 1200px) {
+    @media only screen and (max-width: 1480px) and (min-width: 1025px) {
         .inner-position .inner-position-right .container-position-right {
             /* padding-left: 11.5rem; */
             padding-top: 0rem;
@@ -2484,6 +2484,11 @@ LOADER */
         section.visit-model-house .inner-visit-model-house {
             max-width: 83%;
         }
+        #owl-carousel-7 {
+            max-width: calc(83% - 8rem);
+            margin-left: auto;
+            margin-right: auto;
+        }
         /* .introduction-left .building-infomation,
         .introduction-left p {
             max-width: 520px;
@@ -2497,6 +2502,18 @@ LOADER */
         .inner-contact-right .inner-contact-right-content img.vignette-pattern {
             max-width: 122px;
             right: -15px;
+        }
+        .container-header .nav li a {
+            padding: 0 2rem;
+        }
+        .slogan-text h1 {
+            font-size: 3.5rem;
+        }
+        .slogan-text span {
+            font-size: 4rem;
+        }
+        .slogan-text h2 {
+            font-size: 1.3rem;
         }
     }
     
