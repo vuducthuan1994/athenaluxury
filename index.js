@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-// var compressor = require('node-minify');
+var compressor = require('node-minify');
 // const yui = require('@node-minify/yui');
 var cookieParser = require('cookie-parser');
 require('dotenv').config()

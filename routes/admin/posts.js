@@ -20,18 +20,18 @@ var isAuthenticated = function(req, res, next) {
 
 
 
-let getDirectories = function(src, callback) {
-    glob(src + '/**/*', callback);
-};
+// let getDirectories = function(src, callback) {
+//     glob(src + '/**/*', callback);
+// };
 //get all posts
 router.get('/', isAuthenticated, function(req, res) {
-    getDirectories('public/img/posts', function(err, res) {
-        if (err) {
-            console.log('Error', err);
-        } else {
-            console.log(res);
-        }
-    });
+    // getDirectories('public/img/posts', function(err, res) {
+    //     if (err) {
+    //         console.log('Error', err);
+    //     } else {
+    //         console.log(res);
+    //     }
+    // });
     Posts.find({}, function(err, posts) {
         if (!err) {
             res.render('admin/pages/posts/index', { errors: req.flash('errors'), messages: req.flash('messages'), title: "Quản lý bài viết", posts: posts.map(post => post.toJSON()), layout: 'admin.hbs' });
