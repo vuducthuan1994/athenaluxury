@@ -79,7 +79,7 @@ router.get('/api/getGalleryByType/:type', function(req, res) {
         if (!err) {
             res.status(200).json({ success: true, gallerys: gallerys });
         }
-    }).sort({ idx: -1 })
+    }).sort({ idx: 1 })
 })
 
 router.get('/api/posts/:id', function(req, res) {
@@ -185,7 +185,7 @@ let getImagesGallerys = function() {
             if (!err) {
                 resolve(images);
             }
-        }).sort({ idx: -1 });
+        }).sort({ idx: 1 });
     });
 }
 
