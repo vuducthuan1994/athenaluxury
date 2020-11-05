@@ -1113,11 +1113,13 @@ LOADER */
     }
     
     .introduction .introduction-left {
-        width: 60.55%
+        width: 60.55%;
+        margin-left: auto;
     }
     
     .introduction .introduction-right {
-        width: 39.45%
+        width: 39.45%;
+        margin-right: auto;
     }
     
     .title-section span {
@@ -1166,13 +1168,13 @@ LOADER */
         color: rgba(8, 35, 64, .702);
         line-height: 1.667;
         text-align: left;
-        max-width: 635px
+        max-width: calc(100% - 15rem);
     }
     
     .introduction-left .building-infomation {
         display: flex;
         justify-content: space-between;
-        max-width: 622px;
+        max-width: calc(100% - 15rem);
         line-height: 8rem;
         border-bottom: 2px solid #e6e9ec
     }
@@ -1301,7 +1303,7 @@ LOADER */
     }
     
     .inner-position-right .container-position-right {
-        padding-left: 15.5rem;
+        padding-left: 15rem;
         padding-top: 9.5rem
     }
     
@@ -1551,7 +1553,8 @@ LOADER */
         font-family: "UTM Americana Bold";
         color: #1c2031;
         line-height: 1.35;
-        text-align: left
+        text-align: left;
+        width: calc(100% + 20px);
     }
     
     .utilities-right h1 strong {
@@ -2459,10 +2462,10 @@ LOADER */
         content: url(../img/vignette-pattern-right-1.png)
     }
     
-    @media screen and (max-width:1300px) {
-        .inner-position-right .container-position-right {
+    @media screen and (max-width:1680px) {
+        /* .inner-position-right .container-position-right {
             padding-left: 13rem;
-        }
+        } */
         #owl-carousel-5 .owl-item-position .container-text-preview h3 {
             font-size: 1.8rem;
         }
@@ -2475,17 +2478,20 @@ LOADER */
         section.introduction,
         section.utilities .inner-utilities,
         section.visit-model-house .inner-visit-model-house {
-            max-width: 1100px
+            max-width: 83%;
         }
-        .introduction-left .building-infomation,
+        /* .introduction-left .building-infomation,
         .introduction-left p {
-            max-width: 538px;
-        }
+            max-width: 520px;
+        } */
+    }
+    
+    @media screen and (max-width:1280px) {
         .container-utilities-image-right .vignette-pattern-right {
-            max-width: 135px;
+            max-width: 122px;
         }
         .inner-contact-right .inner-contact-right-content img.vignette-pattern {
-            max-width: 133px;
+            max-width: 122px;
             right: -15px;
         }
     }
