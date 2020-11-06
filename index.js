@@ -21,19 +21,19 @@ global.__basedir = __dirname;
 
 // console.log('sync 1');
 if (process.env.ENV == 'DEV') {
-    compressor.minify({
-        compressor: 'gcc',
-        input: ['public/js/aos.js', 'public/js/jquery.min.js', 'public/js/owl.carousel.min.js', 'public/js/TweenMax.min.js', 'public/js/jquery.validate.min.js'
+    // compressor.minify({
+    //     compressor: 'gcc',
+    //     input: ['public/js/aos.js', 'public/js/jquery.min.js', 'public/js/owl.carousel.min.js', 'public/js/jquery.validate.min.js'
 
-        ],
-        output: 'public/js-dist/app1.js',
-        type: 'js',
-        sync: true,
-        callback: function(err, value) {
-            console.log(err);
-            console.log('sync 2', value);
-        }
-    });
+    //     ],
+    //     output: 'public/js-dist/app1.js',
+    //     type: 'js',
+    //     sync: true,
+    //     callback: function(err, value) {
+    //         console.log(err);
+    //         console.log('sync 2', value);
+    //     }
+    // });
 
     // compressor.minify({
     //     compressor: 'sqwish',

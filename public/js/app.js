@@ -28,8 +28,8 @@ function initListButtonMenuLibary() {
     if (window.matchMedia('screen and (max-width: 500px)').matches) {
         $('#list-button-menu-libary').owlCarousel({
             lazyLoad: false,
-            margin: 25,
-            items: 2.3,
+            margin: 20,
+            items: 2.0,
             center: true,
             nav: false,
             dots: true,
@@ -98,27 +98,26 @@ function registerVisitExampleHouse() {
 }
 
 function initMenuMobile() {
-    var tlmenu = new TimelineMax({ paused: true });
-    tlmenu.to('.navMobie', 0.3, { autoAlpha: 1 }).staggerFromTo('.navMobie li', 0.5, { y: 100, opacity: 0 }, { y: 0, opacity: 1 }, 0.1);
+
     $('#hamburger').click(function() {
         $(this).toggleClass('active');
         if ($('html').hasClass('is-main-menu-open')) {
             $('html').removeClass('is-main-menu-open');
-            tlmenu.reverse(0);
+
         } else {
-            tlmenu.play(0);
             $('html').addClass('is-main-menu-open');
+        }
+        $('header').toggleClass('menu-mobile-open');
+        if ($('header').hasClass('menu-mobile-open')) {
+            $('header').addClass('background-header-fixed');
+        } else if ($(window).scrollTop() == 0) {
+            $('header').removeClass('background-header-fixed');
         }
     });
     $('.closeButton').click(function() {
-        tlmenu.reverse(0);
         $('html').removeClass('is-main-menu-open');
     });
-    $(".navMobie ul li").click(function() {
-        $('html').removeClass('is-main-menu-open');
-        $('#hamburger').toggleClass('active');
-        tlmenu.reverse(0);
-    });
+
 }
 
 function owlApartmentInit() {
@@ -150,7 +149,7 @@ function owlDevelopmentProjectInit() {
         autoHeight: true,
         dots: false,
         loop: true,
-        autoplay: true,
+        autoplay: false,
         margin: 0,
         responsive: {
             0: { margin: 0 },
@@ -186,8 +185,15 @@ function owlDevelopmentProjectInit() {
 
 function activeRoute() {
     $("header .nav li.nav-item").click(function(event) {
+
         $("header .nav li.nav-item").removeClass('active');
         $(this).addClass('active');
+        if (window.matchMedia('screen and (max-width: 1024px)').matches) {
+
+            $('html').removeClass('is-main-menu-open');
+            $('#hamburger').toggleClass('active');
+            $('header').removeClass('menu-mobile-open');
+        }
     });
 }
 
