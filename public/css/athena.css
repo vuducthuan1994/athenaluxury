@@ -3591,7 +3591,7 @@ LOADER */
         display: block
     } */
         .inner-logo-desktop {
-            margin-right: calc(100% - 20.5rem)
+            margin-right: 38vw;
         }
         .image-libary-header .image-libary-right {
             margin: 0 auto

@@ -191,6 +191,15 @@ function activeRoute() {
     });
 }
 
+function getBGColor(el) {
+    var s = getComputedStyle(el),
+        b = s.backgroundColor,
+        e = el;
+    if ((b === "transparent" || b === "rgba(0, 0, 0, 0)" || b === "rgba(255,255,255,0)") && e.parentNode !== null)
+        b = getBGColor(e.parentNode);
+    return b;
+}
+
 function initAnimationForAllSection() {
     AOS.init({
         disable: !window.matchMedia('screen and (min-width: 1200px)').matches,
