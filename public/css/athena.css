@@ -3046,8 +3046,13 @@ LOADER */
             height: auto;
             background-color: #f4f4f7;
         }
+        .background-header-fixed .fb-logo,
+        .background-header-fixed .phone {
+            display: inherit !important;
+        }
         .logo-desktop a.fb-logo,
         .logo-desktop a.phone {
+            display: none;
             width: 3rem;
             height: 3rem;
         }
