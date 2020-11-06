@@ -3020,6 +3020,9 @@ LOADER */
     }
     
     @media screen and (max-width: 480px) {
+        .logo-desktop .inner-content {
+            width: 67%;
+        }
         .inner-owl-item.one img:first-child {
             margin-right: 5rem;
         }
@@ -3595,9 +3598,9 @@ LOADER */
         /* .slogan-text .line2 span {
         display: block
     } */
-        .inner-logo-desktop {
+        /* .inner-logo-desktop {
             margin-right: 38vw;
-        }
+        } */
         .image-libary-header .image-libary-right {
             margin: 0 auto
         }
