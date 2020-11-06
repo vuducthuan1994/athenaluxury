@@ -8,7 +8,9 @@
         "start": "nodemon index.js"
     },
     "nodemonConfig": {
-        "ignore": ["public/*"]
+        "ignore": [
+            "public/*"
+        ]
     },
     "repository": {
         "type": "git",
