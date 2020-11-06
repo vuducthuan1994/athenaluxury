@@ -22,9 +22,7 @@ $(document).ready(function() {
 });
 $(window).on('load', function() {
     if (window.matchMedia('screen and (min-width: 1025px)').matches) {
-        $('.section-loader').delay(1800).fadeOut(500);
-    } else {
-        $('.section-loader').hide();
+        $('.section-loader').delay(1500).fadeOut(500);
     }
 });
 

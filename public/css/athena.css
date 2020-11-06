@@ -2543,6 +2543,9 @@ LOADER */
     }
     
     @media screen and (max-width: 1024px) {
+        .section-loader {
+            display: none;
+        }
         /* .preloaderimg {
         width: 12rem;
         height: 12rem;
