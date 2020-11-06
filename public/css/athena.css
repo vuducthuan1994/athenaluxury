@@ -24,6 +24,18 @@
         }
     }
     
+    @media only screen and (max-width: 481px) {
+        #vi-tri {
+            scroll-margin: 92px;
+        }
+        #tien-ich {
+            scroll-margin: calc(92px - 27rem);
+        }
+        #thu-vien {
+            scroll-margin: 92px;
+        }
+    }
+    
     @media only screen and (min-width: 480px) and (max-width: 1024px) {
         #gioi-thieu {
             scroll-margin: 0;
@@ -41,10 +53,10 @@
             scroll-margin: 139px;
         }
         #lien-he {
-            scroll-margin: 100px;
+            scroll-margin: -90px;
         }
         #vi-tri {
-            scroll-margin: 139px;
+            scroll-margin: 190px;
         }
     }
     

@@ -21,7 +21,11 @@ $(document).ready(function() {
     registerVisitExampleHouse();
 });
 $(window).on('load', function() {
-    $('.section-loader').delay(1800).fadeOut(500);
+    if (window.matchMedia('screen and (min-width: 1025px)').matches) {
+        $('.section-loader').delay(1800).fadeOut(500);
+    } else {
+        $('.section-loader').hide();
+    }
 });
 
 function initListButtonMenuLibary() {
