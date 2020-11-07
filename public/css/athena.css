@@ -2235,7 +2235,10 @@ LOADER */
         -moz-transition: all .5s ease-in-out;
         -o-transition: all .5s ease-in-out;
         transition: all .5s ease-in-out;
-        padding: 0
+        padding: 0;
+        -webkit-appearance: none;
+        outline: none;
+        /* add this */
     }
     
     .inner-visit-model-house .form-visit input:focus,
