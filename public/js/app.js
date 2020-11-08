@@ -6,6 +6,9 @@
 // });
 $(document).ready(function() {
     // $(".section-loader").delay(3000).fadeOut(500);
+    $(function() {
+        $('.lazy').lazy();
+    });
     initMenuMobile();
     owlApartmentInit();
     owlDevelopmentProjectInit();
