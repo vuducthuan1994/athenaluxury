@@ -394,9 +394,9 @@
             </div>
             <div class="apartment-right">
                 <div id="owl-carousel-1" class="owl-carousel">
-                    <img class="img-fluid object-fit-cover" src="/img/MB_FLOOR.jpg">
-                    <img class="img-fluid object-fit-cover" src="/img/MB_3_PN.jpg">
-                    <img class="img-fluid object-fit-cover" src="/img/MB_2_PN.jpg">
+                    <img class="img-fluid object-fit-cover owl-lazy" data-src="/img/MB_FLOOR.jpg">
+                    <img class="img-fluid object-fit-cover owl-lazy" data-src="/img/MB_3_PN.jpg">
+                    <img class="img-fluid object-fit-cover owl-lazy" data-src="/img/MB_2_PN.jpg">
                 </div>
             </div>
         </div>
@@ -426,7 +426,7 @@
 
                     {{#each posts}}
                     <div data-id="{{this._id}}" class="post-item">
-                        <img src="{{getThumbnailImage this.thumb_image this.banner_image}}">
+                        <img class="owl-lazy" data-src="{{getThumbnailImage this.thumb_image this.banner_image}}">
                         <div class="preview">
                             <h3>{{this.title}}</h3>
                             <p>{{getDescriptionArtiles this.short_desc}}</p>
@@ -552,7 +552,7 @@
                         </div> --}}
                         {{#each images_gallerys}}
                         <div class="item">
-                            <img class="show-image" class="image-fluid" src="{{this.url_image}}">
+                            <img class="show-image owl-lazy" class="image-fluid" data-src="{{this.url_image}}">
                         </div>
                         {{/each}}
                         {{!-- <div class="item">
@@ -577,7 +577,7 @@
                         <div id="owl-carousel-7" class="owl-carousel">
                             {{#each images_gallerys}}
                             <div class="owl-item-content">
-                                <img src="{{this.thumb_image}}">
+                                <img class="owl-lazy" data-src="{{this.thumb_image}}">
                             </div>
                             {{/each}}
                             {{!-- <div class="owl-item-content">
