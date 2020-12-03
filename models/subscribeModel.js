@@ -16,7 +16,7 @@ var SubscribeSchema = new Schema({
         trim: true
     },
     phone: {
-        type: Number,
+        type: String,
         trim: true,
         unique: true,
         required: true,
